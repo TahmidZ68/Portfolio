@@ -201,6 +201,15 @@ export function App() {
                       <span>Axios Talent Candidate</span>
                       <ArrowUpRight size={13} className="text-[#38bdf8]" />
                     </a>
+                    <a
+                      href={verifiedLinks.vellumResearchLive}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center justify-between py-2 px-3 border border-white/[0.08] bg-[#0d1017] text-[#f2f0ea] hover:border-[#38bdf8]"
+                    >
+                      <span>Vellum Research (14-Stage AI Workspace)</span>
+                      <ArrowUpRight size={13} className="text-[#38bdf8]" />
+                    </a>
                   </div>
                 </div>
 
@@ -458,6 +467,16 @@ export function App() {
                       <span>Talent Candidate</span>
                       <ArrowUpRight size={11} className="text-[#38bdf8]" />
                     </a>
+                    <a
+                      href={verifiedLinks.vellumResearchLive}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 font-mono-tech text-[11px] px-2.5 py-1 border border-white/[0.12] bg-[#0b0d12] text-[#f2f0ea] hover:border-[#38bdf8] transition-colors"
+                    >
+                      <span className="w-1.5 h-1.5 bg-emerald-400" />
+                      <span>Vellum Research</span>
+                      <ArrowUpRight size={11} className="text-[#38bdf8]" />
+                    </a>
                   </div>
                 </div>
 
@@ -526,7 +545,7 @@ export function App() {
               <span className="font-mono-tech text-[10px] text-[#38bdf8]">02 // SYSTEMS BUILT</span>
               <p className="font-display text-2xl font-bold text-[#f2f0ea]">09 Engineered Systems</p>
               <p className="font-mono-tech text-xs text-[#8a8f98]">
-                3 Live Vercel Platforms · 6 Open-Source &amp; AI Tools
+                4 Live Vercel Platforms · 15+ Open-Source Repos
               </p>
             </div>
             <div className="p-5 space-y-1">
@@ -1082,6 +1101,16 @@ export function App() {
                 </li>
                 <li>
                   <a
+                    href={verifiedLinks.vellumResearchLive}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-[#f2f0ea] inline-flex items-center gap-1"
+                  >
+                    Vellum Research <ArrowUpRight size={11} />
+                  </a>
+                </li>
+                <li>
+                  <a
                     href={verifiedLinks.portfolio}
                     target="_blank"
                     rel="noreferrer"
@@ -1136,6 +1165,26 @@ export function App() {
                     className="hover:text-[#f2f0ea] inline-flex items-center gap-1"
                   >
                     TahmidZ68/vellum-research <ArrowUpRight size={11} />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={verifiedLinks.axiosInsightRepo}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-[#f2f0ea] inline-flex items-center gap-1"
+                  >
+                    TahmidZ68/axios-insight <ArrowUpRight size={11} />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={verifiedLinks.ragBanglaHscRepo}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-[#f2f0ea] inline-flex items-center gap-1"
+                  >
+                    TahmidZ68/RAG_BanglaHSC <ArrowUpRight size={11} />
                   </a>
                 </li>
                 <li>

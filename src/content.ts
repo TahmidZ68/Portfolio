@@ -45,6 +45,9 @@ export interface ResearchItem {
   methodology: string;
   keywords: string[];
   paperUrl?: string;
+  repoUrl?: string;
+  secondaryRepoUrl?: string;
+  secondaryRepoLabel?: string;
 }
 
 export interface OpenQuestionItem {
@@ -107,6 +110,7 @@ export const verifiedLinks = {
   axiosStation: 'https://www.axiosstation.com/',
   axiosInsight: 'https://axios-insight-v1-three.vercel.app/',
   axiosInsightWorkspace: 'https://axios-insight-v1-cqge871jp-tahmid-z.vercel.app/',
+  axiosInsightRepo: 'https://github.com/TahmidZ68/axios-insight',
   axiosTalent: 'https://axios-talent-tau.vercel.app/',
   axiosTalentCandidate: 'https://axios-talent-candidate.vercel.app/',
   datasetMedicRepo: 'https://github.com/TahmidZ68/DatasetMedic',
@@ -115,8 +119,19 @@ export const verifiedLinks = {
   apiDetectiveDocs: 'https://github.com/TahmidZ68/API-Detective#readme',
   flowSentryRepo: 'https://github.com/TahmidZ68/flowsentry',
   flowSentryDocs: 'https://github.com/TahmidZ68/flowsentry#readme',
+  vellumResearchLive: 'https://vellum-research-nine.vercel.app/',
   vellumResearchRepo: 'https://github.com/TahmidZ68/vellum-research',
   vellumResearchDocs: 'https://github.com/TahmidZ68/vellum-research#readme',
+  ragBanglaHscRepo: 'https://github.com/TahmidZ68/RAG_BanglaHSC',
+  autismNumericRepo: 'https://github.com/TahmidZ68/Autism_detection_from_numericDataset',
+  autismImageRepo: 'https://github.com/TahmidZ68/Autistic_detection_img_data',
+  startupPredictionRepo: 'https://github.com/TahmidZ68/startup_success_rate_prediction',
+  covidPneumoniaRepo: 'https://github.com/TahmidZ68/Covid-Pneumonia',
+  brainTumorRepo: 'https://github.com/TahmidZ68/brain_tumor_prediction',
+  bookRecRepo: 'https://github.com/TahmidZ68/User-Based-Collaborative-Filtering_Book-recomendation',
+  realEstateRepo: 'https://github.com/TahmidZ68/real_estate_price_prediction',
+  diseaseSymptomsRepo: 'https://github.com/TahmidZ68/Disease-detection-using-symptoms',
+  tfidfReviewRepo: 'https://github.com/TahmidZ68/Online-review-using-_Tf-Idf',
   email: 'mohammadtahmidzoayed@gmail.com',
   phone: '+880 1629 483568',
   cvPdf: '/Md_Tahmid_Zoayed_CV.pdf',
@@ -433,8 +448,8 @@ export const engineeredSystems: EngineeredSystem[] = [
     name: 'Vellum Research',
     classification: 'Open-Source 14-Stage LangGraph AI Research & Citation Verification Workspace',
     domain: 'automation-reliability',
-    status: 'Open-Source · v1.0 Architecture',
-    statusType: 'open-core',
+    status: 'Live Deployment · Vercel & Open-Source',
+    statusType: 'live',
     shortDescription:
       'Methodical AI research workspace that decomposes complex questions into subquestions, executes multi-angle web discovery, cross-checks conflicting claims, validates every inline [n] citation, and exports Markdown/PDF reports.',
     problemAddressed:
@@ -475,9 +490,10 @@ export const engineeredSystems: EngineeredSystem[] = [
       'React & TypeScript',
       'Trafilatura',
       'Gemini & OpenAI APIs',
-      'SSE Streaming',
+      'Vercel',
     ],
     links: [
+      { label: 'Live Demo', sublabel: 'Vercel App', url: verifiedLinks.vellumResearchLive },
       { label: 'GitHub', url: verifiedLinks.vellumResearchRepo },
       { label: 'Documentation', url: verifiedLinks.vellumResearchDocs },
     ],
@@ -608,7 +624,7 @@ export const engineeredSystems: EngineeredSystem[] = [
     technicalSpecifications: [
       'Persistent workspace-scoped analysis workflows across multiple uploaded files.',
       'Combines automated dataset profiling, data quality analysis, correlation discovery, and forecasting in a unified web interface.',
-      'Live production deployment accessible on Vercel.',
+      'Live production deployment accessible on Vercel with public source repository on GitHub.',
     ],
     technologies: [
       'React',
@@ -622,7 +638,7 @@ export const engineeredSystems: EngineeredSystem[] = [
     links: [
       { label: 'Live Demo', sublabel: 'Primary Deployment', url: verifiedLinks.axiosInsight },
       { label: 'Live Demo', sublabel: 'Workspace Build', url: verifiedLinks.axiosInsightWorkspace },
-      { label: 'GitHub', sublabel: 'Profile', url: verifiedLinks.github },
+      { label: 'GitHub', sublabel: 'TahmidZ68/axios-insight', url: verifiedLinks.axiosInsightRepo },
     ],
   },
   {
@@ -777,6 +793,7 @@ export const researchLabData = {
         'Feature preprocessing, comparative supervised classification modeling, cross-validation analysis, and diagnostic metric evaluation.',
       keywords: ['Machine Learning', 'Classification Algorithms', 'Clinical Screening', 'Tabular Data'],
       paperUrl: verifiedLinks.papers.autismClassification,
+      repoUrl: verifiedLinks.autismNumericRepo,
     },
     {
       id: 'res-02',
@@ -792,6 +809,7 @@ export const researchLabData = {
         'Image preprocessing, convolutional feature extraction, transfer learning, and classification evaluation on facial/image datasets.',
       keywords: ['Deep Learning', 'CNN', 'VGG19', 'Transfer Learning', 'Image Classification'],
       paperUrl: verifiedLinks.papers.autismImageVgg19,
+      repoUrl: verifiedLinks.autismImageRepo,
     },
     {
       id: 'res-03',
@@ -822,6 +840,7 @@ export const researchLabData = {
         'Exploratory data analysis, feature selection, supervised classification benchmarking, and predictive evaluation.',
       keywords: ['Predictive Modeling', 'Classification Algorithms', 'Data Science', 'Venture Analytics'],
       paperUrl: verifiedLinks.papers.startupPrediction,
+      repoUrl: verifiedLinks.startupPredictionRepo,
     },
     {
       id: 'res-05',
@@ -840,17 +859,20 @@ export const researchLabData = {
     {
       id: 'res-06',
       code: 'EXP-ML-SUITE',
-      title: 'Medical Chest X-Ray Classification (COVID-19 & Pneumonia) and Applied ML Benchmarks',
-      venue: 'Independent & Academic Experimental Research',
-      year: '2022–2024',
+      title: 'Medical Imaging (COVID-19, Pneumonia & Brain Tumor), Bangla RAG & Applied ML Repositories',
+      venue: 'Open-Source Experimental Research & ML Benchmarks',
+      year: '2022–2025',
       status: 'Experimental Research',
       category: 'experimental',
       contribution:
-        'Implemented deep-learning CNN pipelines for chest X-ray pathology classification (COVID-19 and Pneumonia) alongside user-based collaborative filtering (Book Recommendation) and regression modeling (Car Price Prediction).',
+        'Developed and open-sourced deep-learning CNN pipelines for COVID-19/Pneumonia chest X-ray diagnosis and Brain Tumor prediction, a Bangla HSC Retrieval-Augmented Generation (RAG) system, collaborative filtering book recommendation, and real-estate regression models.',
       methodology:
-        'Radiographic image normalization, CNN classification, collaborative filtering similarity matrices, and supervised regression.',
-      keywords: ['Medical Imaging', 'Chest X-Ray CNN', 'Collaborative Filtering', 'Regression'],
+        'Radiographic image normalization, CNN classification, retrieval-augmented generation (RAG_BanglaHSC), TF-IDF text representation, collaborative filtering similarity matrices, and supervised regression.',
+      keywords: ['COVID-19 & Pneumonia CNN', 'Brain Tumor Prediction', 'RAG_BanglaHSC', 'Collaborative Filtering'],
       paperUrl: verifiedLinks.kaggle,
+      repoUrl: verifiedLinks.covidPneumoniaRepo,
+      secondaryRepoUrl: verifiedLinks.ragBanglaHscRepo,
+      secondaryRepoLabel: 'RAG_BanglaHSC Repo',
     },
   ] as ResearchItem[],
 };
@@ -1066,7 +1088,7 @@ export const technologyMatrixData: TechMatrixCategory[] = [
       { name: 'Deep Learning & CNNs (VGG19, YOLO)', tier: 'Core Proficiency', context: 'Image classification, object detection, Spirulina & X-ray studies' },
       { name: 'Computer Vision & OpenCV', tier: 'Core Proficiency', context: 'Image preprocessing, adaptive restoration, DatasetMedic auditing' },
       { name: 'LLM Applications & LangGraph Agents', tier: 'Core Proficiency', context: 'OpenAI, Groq & Gemini APIs, Vellum Research, HR Copilot' },
-      { name: 'Document AI, OCR & NLP', tier: 'Core Proficiency', context: 'PDF/DOCX parsing, resume/JD matching, Postgres FTS Policy RAG' },
+      { name: 'Document AI, OCR & NLP', tier: 'Core Proficiency', context: 'PDF/DOCX parsing, resume/JD matching, Bangla & Policy RAG' },
       { name: 'Scikit-learn, Pandas & NumPy', tier: 'Core Proficiency', context: 'Supervised classification, regression, tabular data profiling' },
       { name: 'TensorFlow & Keras', tier: 'Core Proficiency', context: 'CNN model training, transfer learning & experimental evaluation' },
       { name: 'PyTorch', tier: 'Applied / Working', context: 'Deep learning experimentation and vision model pipelines' },
@@ -1092,7 +1114,7 @@ export const technologyMatrixData: TechMatrixCategory[] = [
     description: 'Workflow, version control, visualization, and cloud hosting platforms used in daily engineering.',
     items: [
       { name: 'Git & GitHub', tier: 'Core Proficiency', context: 'Source control, open-source releases & CI/CD workflows' },
-      { name: 'Vercel', tier: 'Core Proficiency', context: 'Production deployment for Axios Insight, Axios Talent & Portfolio' },
+      { name: 'Vercel', tier: 'Core Proficiency', context: 'Production deployment for Axios Insight, Axios Talent, Vellum & Portfolio' },
       { name: 'Jupyter & Google Colab', tier: 'Core Proficiency', context: 'ML experimentation, dataset exploration & model training' },
       { name: 'Matplotlib, Seaborn, Tableau & Power BI', tier: 'Core Proficiency', context: 'Scientific plotting, statistical visualization & BI dashboards' },
     ],
@@ -1185,8 +1207,8 @@ export const signalData: SignalEntry[] = [
       'In API Detective, running 43 local deterministic checks before invoking LLM synthesis guarantees 100% recall on known schema, JWT, and TLS issues without spending a single token.',
       'In Vellum Research, separating claim extraction from deterministic inline [n] citation validation prevents fabricated URLs from entering final research reports.',
     ],
-    externalUrl: verifiedLinks.apiDetectiveRepo,
-    externalLabel: 'View API Detective on GitHub',
+    externalUrl: verifiedLinks.vellumResearchLive,
+    externalLabel: 'Launch Vellum Research (Vercel)',
   },
   {
     id: 'sig-04',

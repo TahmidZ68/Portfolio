@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowUpRight, FileText, FlaskConical, GitCommit, Microscope } from 'lucide-react';
+import { ArrowUpRight, FileText, FlaskConical, GitCommit, Github, Microscope } from 'lucide-react';
 import {
   axiosStationData,
   evolutionData,
@@ -245,23 +245,82 @@ export function ResearchAndNotebookSection() {
                     ))}
                   </div>
 
-                  {item.paperUrl && (
-                    <a
-                      href={item.paperUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 font-mono-tech text-xs text-[#38bdf8] hover:text-[#f2f0ea] px-3 py-1.5 border border-[#38bdf8]/40 bg-[#38bdf8]/[0.06] transition-colors shrink-0"
-                    >
-                      <FileText size={12} />
-                      <span>
-                        {item.category === 'published' ? 'Research Paper' : 'Kaggle / Dataset'}
-                      </span>
-                      <ArrowUpRight size={12} />
-                    </a>
-                  )}
+                  <div className="flex flex-wrap items-center gap-2 shrink-0">
+                    {item.paperUrl && (
+                      <a
+                        href={item.paperUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 font-mono-tech text-xs text-[#38bdf8] hover:text-[#f2f0ea] px-3 py-1.5 border border-[#38bdf8]/40 bg-[#38bdf8]/[0.06] transition-colors"
+                      >
+                        <FileText size={12} />
+                        <span>
+                          {item.category === 'published' ? 'Research Paper' : 'Kaggle Profile'}
+                        </span>
+                        <ArrowUpRight size={12} />
+                      </a>
+                    )}
+                    {item.repoUrl && (
+                      <a
+                        href={item.repoUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 font-mono-tech text-xs text-[#f2f0ea] hover:text-[#38bdf8] px-3 py-1.5 border border-white/15 bg-[#0d1017] hover:border-[#38bdf8] transition-colors"
+                      >
+                        <Github size={12} />
+                        <span>GitHub Repo</span>
+                        <ArrowUpRight size={12} />
+                      </a>
+                    )}
+                    {item.secondaryRepoUrl && (
+                      <a
+                        href={item.secondaryRepoUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 font-mono-tech text-xs text-[#f2f0ea] hover:text-[#38bdf8] px-3 py-1.5 border border-white/15 bg-[#0d1017] hover:border-[#38bdf8] transition-colors"
+                      >
+                        <Github size={12} />
+                        <span>{item.secondaryRepoLabel || 'Secondary Repo'}</span>
+                        <ArrowUpRight size={12} />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </article>
             ))}
+          </div>
+
+          {/* Open-Source ML & Research Repositories Directory */}
+          <div className="mt-10 border border-white/[0.08] bg-[#08090c] p-6">
+            <div className="flex flex-wrap items-center justify-between gap-2 pb-4 mb-4 border-b border-white/[0.07] font-mono-tech text-[10px] uppercase tracking-widest text-[#8a8f98]">
+              <span>OPEN-SOURCE ML, NLP &amp; MEDICAL IMAGING REPOSITORIES (GITHUB)</span>
+              <span className="text-[#38bdf8]">10 VERIFIED REPOSITORIES</span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-2.5 font-mono-tech text-xs">
+              {[
+                { label: 'RAG_BanglaHSC', url: verifiedLinks.ragBanglaHscRepo },
+                { label: 'Autism_Numeric_ML', url: verifiedLinks.autismNumericRepo },
+                { label: 'Autistic_Image_CNN', url: verifiedLinks.autismImageRepo },
+                { label: 'Covid-Pneumonia_CNN', url: verifiedLinks.covidPneumoniaRepo },
+                { label: 'Brain_Tumor_Prediction', url: verifiedLinks.brainTumorRepo },
+                { label: 'Startup_Success_ML', url: verifiedLinks.startupPredictionRepo },
+                { label: 'Book_Recommender_CF', url: verifiedLinks.bookRecRepo },
+                { label: 'Real_Estate_Price_ML', url: verifiedLinks.realEstateRepo },
+                { label: 'Disease_Symptoms_ML', url: verifiedLinks.diseaseSymptomsRepo },
+                { label: 'Online_Review_TF-IDF', url: verifiedLinks.tfidfReviewRepo },
+              ].map((repo) => (
+                <a
+                  key={repo.label}
+                  href={repo.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-between px-3 py-2 border border-white/[0.08] bg-[#0b0d12] text-[#f2f0ea] hover:border-[#38bdf8] hover:text-[#38bdf8] transition-colors"
+                >
+                  <span className="truncate">{repo.label}</span>
+                  <ArrowUpRight size={12} className="shrink-0 text-[#38bdf8]" />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>
