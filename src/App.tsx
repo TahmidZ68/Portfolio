@@ -1,483 +1,1221 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import {
-  ArrowDownRight, ArrowUpRight, BriefcaseBusiness, ChevronRight, Download,
-  ExternalLink, Github, GraduationCap, Linkedin, Mail, Menu, Rocket,
-  Users, X, type LucideIcon,
+  ArrowDownRight,
+  ArrowUpRight,
+  Check,
+  Compass,
+  Copy,
+  FileText,
+  Github,
+  Linkedin,
+  Mail,
+  Menu,
+  Phone,
+  Radio,
+  X,
 } from 'lucide-react';
 import {
-  about, academicProjects, beyondAI, careerFocus, contact, currentFocus,
-  education, experience, featuredProjects, hero, links, navItems, processSteps,
-  publications, research, researchExperience, researchInterests, stackGroups, onlinePresence,
+  currentVectorData,
+  heroData,
+  intelligenceProfileData,
+  navigationSections,
+  signalData,
+  technologyMatrixData,
+  verifiedLinks,
 } from '@/content';
+import { DotMatrixGlobe } from '@/components/DotMatrixGlobe';
+import { SystemsBlueprintSection } from '@/components/SystemsBlueprintSection';
+import { ResearchAndNotebookSection } from '@/components/ResearchAndNotebookSection';
 
-const onlineIconMap: Record<string, LucideIcon> = { Github, ExternalLink, Linkedin };
-const projectLinkIconMap: Record<string, LucideIcon> = {
-  candidate: Users, recruiter: BriefcaseBusiness, live: Rocket, github: Github,
-};
+function LiveDhakaClock() {
+  const [time, setTime] = useState('--:--:--');
 
-function useReveal<T extends HTMLElement>() {
-  const ref = useRef<T>(null);
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('is-visible');
-            obs.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' },
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-  return ref;
-}
-
-function Reveal({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
-  const ref = useReveal<HTMLDivElement>();
-  return (
-    <div ref={ref} className={`reveal-on-scroll ${className}`} style={{ transitionDelay: `${delay}ms` }}>
-      {children}
-    </div>
-  );
-}
-
-function StaggerGrid<T>({ items, renderItem, baseDelay = 80 }: {
-  items: T[];
-  renderItem: (item: T, index: number) => React.ReactNode;
-  baseDelay?: number;
-}) {
-  return (
-    <>
-      {items.map((item, i) => {
-        const ref = useReveal<HTMLDivElement>();
-        return (
-          <div ref={ref} key={i} className="reveal-on-scroll" style={{ transitionDelay: `${i * baseDelay}ms` }}>
-            {renderItem(item, i)}
-          </div>
+    const update = () => {
+      try {
+        setTime(
+          new Intl.DateTimeFormat('en-GB', {
+            timeZone: 'Asia/Dhaka',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false,
+          }).format(new Date()),
         );
-      })}
-    </>
-  );
+      } catch {
+        setTime('UTC+06:00');
+      }
+    };
+    update();
+    const id = setInterval(update, 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  return <span>{time} UTC+6 · Dhaka</span>;
 }
 
-function App() {
+export function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const heroRef = useRef<HTMLDivElement>(null);
+  const [activeSection, setActiveSection] = useState('hero');
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [activeSignalId, setActiveSignalId] = useState(signalData[0].id);
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 40);
-      const docHeight = document.body.scrollHeight - window.innerHeight;
-      setScrollProgress(docHeight > 0 ? Math.min((window.scrollY / docHeight) * 100, 100) : 0);
-      const sections = document.querySelectorAll('section[id]');
-      let current = '';
-      sections.forEach((s) => {
-        const top = s.getBoundingClientRect().top;
-        if (top < 120) current = s.id;
-      });
-      setActiveSection(current);
+      const scrollPos = window.scrollY + 240;
+      for (let i = navigationSections.length - 1; i >= 0; i--) {
+        const sec = navigationSections[i];
+        const el = document.getElementById(sec.id);
+        if (el && el.offsetTop <= scrollPos) {
+          setActiveSection(sec.id);
+          break;
+        }
+      }
     };
-    window.addEventListener('scroll', onScroll);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => {
-    const onMove = (e: MouseEvent) => {
-      const el = heroRef.current;
-      if (!el) return;
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      const rect = el.getBoundingClientRect();
-      const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
-      const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
-      el.style.transform = `perspective(800px) rotateY(${x * 4}deg) rotateX(${-y * 4}deg)`;
-    };
-    window.addEventListener('mousemove', onMove);
-    return () => window.removeEventListener('mousemove', onMove);
-  }, []);
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(verifiedLinks.email);
+      setCopiedEmail(true);
+      setTimeout(() => setCopiedEmail(false), 2500);
+    } catch {
+      window.location.href = `mailto:${verifiedLinks.email}`;
+    }
+  };
+
+  const activeSignal = signalData.find((s) => s.id === activeSignalId) || signalData[0];
 
   return (
-    <div className="site-shell">
-      <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} />
-      <header className={`nav-wrap ${scrolled ? 'nav-scrolled' : ''}`}>
-        <a className="wordmark" href="#top" onClick={() => setMenuOpen(false)}><span>MTZ</span><i>·</i><em>AI ENGINEER</em></a>
-        <nav className={menuOpen ? 'nav-links is-open' : 'nav-links'}>
-          {navItems.map((item) => (
-            <a key={item.href} href={item.href} onClick={() => setMenuOpen(false)} className={activeSection === item.href.slice(1) ? 'nav-active' : ''}>
-              {item.label}
+    <div className="min-h-screen bg-[#08090c] text-[#f2f0ea] relative selection:bg-[#38bdf8] selection:text-[#08090c]">
+      {/* Right-Edge Precision Section Navigation Rail (Desktop) */}
+      <aside
+        aria-label="Section index rail"
+        className="hidden xl:flex fixed right-4 top-1/2 -translate-y-1/2 z-30 flex-col items-end gap-2.5"
+      >
+        {navigationSections.map((sec) => {
+          const isCurrent = activeSection === sec.id;
+          return (
+            <a
+              key={sec.id}
+              href={`#${sec.id}`}
+              aria-label={`${sec.num} ${sec.label}`}
+              className="group flex items-center gap-2.5 py-0.5"
+            >
+              <span
+                className={`font-mono-tech text-[9px] tracking-widest transition-opacity ${
+                  isCurrent
+                    ? 'opacity-100 text-[#38bdf8]'
+                    : 'opacity-0 group-hover:opacity-100 text-[#8a8f98]'
+                }`}
+              >
+                {sec.num} // {sec.label}
+              </span>
+              <span
+                className={`block h-[1px] transition-all duration-150 ${
+                  isCurrent
+                    ? 'w-6 bg-[#38bdf8]'
+                    : 'w-2.5 bg-white/20 group-hover:w-4 group-hover:bg-white/60'
+                }`}
+              />
             </a>
-          ))}
-          <a className="nav-cta" href={links.cv} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>
-            <Download size={15} /> Download CV
+          );
+        })}
+      </aside>
+
+      {/* Fullscreen Navigation Index Overlay */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.18 }}
+            className="fixed inset-0 z-50 bg-[#08090c]/98 backdrop-blur-md flex flex-col justify-between p-6 sm:p-12 overflow-y-auto"
+          >
+            <div className="flex items-center justify-between border-b border-white/[0.1] pb-5">
+              <div className="flex items-center gap-3 font-mono-tech text-xs tracking-widest text-[#f2f0ea]">
+                <span className="w-2 h-2 bg-[#38bdf8]" />
+                <span>{heroData.brandName}</span>
+              </div>
+              <button
+                onClick={() => setMenuOpen(false)}
+                className="inline-flex items-center gap-2 font-mono-tech text-xs uppercase tracking-widest text-[#8a8f98] hover:text-[#f2f0ea] px-4 py-2 border border-white/15"
+              >
+                <span>Close</span>
+                <X size={14} />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 my-auto py-8 max-w-[1500px] w-full mx-auto">
+              <nav className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
+                {navigationSections.map((item) => (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    onClick={() => setMenuOpen(false)}
+                    className="group flex items-baseline gap-4 py-2.5 border-b border-white/[0.07] hover:border-[#38bdf8] transition-colors"
+                  >
+                    <span className="font-mono-tech text-xs text-[#38bdf8]">{item.num}</span>
+                    <span className="font-display text-xl sm:text-2xl font-bold text-[#f2f0ea] group-hover:text-[#38bdf8] transition-colors">
+                      {item.label}
+                    </span>
+                  </a>
+                ))}
+              </nav>
+
+              <div className="lg:col-span-5 space-y-6 border-t lg:border-t-0 lg:border-l border-white/[0.1] pt-6 lg:pt-0 lg:pl-10">
+                <div>
+                  <p className="font-mono-tech text-[10px] uppercase tracking-widest text-[#38bdf8] mb-3">
+                    LIVE DEPLOYMENTS (VERCEL)
+                  </p>
+                  <div className="space-y-2 font-mono-tech text-xs">
+                    <a
+                      href={verifiedLinks.axiosInsight}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center justify-between py-2 px-3 border border-white/[0.08] bg-[#0d1017] text-[#f2f0ea] hover:border-[#38bdf8]"
+                    >
+                      <span>Axios Insight (AI Data &amp; BI)</span>
+                      <ArrowUpRight size={13} className="text-[#38bdf8]" />
+                    </a>
+                    <a
+                      href={verifiedLinks.axiosTalent}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center justify-between py-2 px-3 border border-white/[0.08] bg-[#0d1017] text-[#f2f0ea] hover:border-[#38bdf8]"
+                    >
+                      <span>Axios Talent (B2B Recruitment &amp; HR)</span>
+                      <ArrowUpRight size={13} className="text-[#38bdf8]" />
+                    </a>
+                    <a
+                      href={verifiedLinks.axiosTalentCandidate}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center justify-between py-2 px-3 border border-white/[0.08] bg-[#0d1017] text-[#f2f0ea] hover:border-[#38bdf8]"
+                    >
+                      <span>Axios Talent Candidate</span>
+                      <ArrowUpRight size={13} className="text-[#38bdf8]" />
+                    </a>
+                  </div>
+                </div>
+
+                <div>
+                  <p className="font-mono-tech text-[10px] uppercase tracking-widest text-[#8a8f98] mb-3">
+                    OPEN-SOURCE REPOSITORIES &amp; PROFILES
+                  </p>
+                  <div className="grid grid-cols-2 gap-2 font-mono-tech text-xs">
+                    <a
+                      href={verifiedLinks.datasetMedicRepo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-[#8a8f98] hover:text-[#38bdf8] py-1"
+                    >
+                      DatasetMedic ↗
+                    </a>
+                    <a
+                      href={verifiedLinks.apiDetectiveRepo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-[#8a8f98] hover:text-[#38bdf8] py-1"
+                    >
+                      API Detective ↗
+                    </a>
+                    <a
+                      href={verifiedLinks.flowSentryRepo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-[#8a8f98] hover:text-[#38bdf8] py-1"
+                    >
+                      FlowSentry ↗
+                    </a>
+                    <a
+                      href={verifiedLinks.vellumResearchRepo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-[#8a8f98] hover:text-[#38bdf8] py-1"
+                    >
+                      Vellum Research ↗
+                    </a>
+                    <a
+                      href={verifiedLinks.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-[#8a8f98] hover:text-[#38bdf8] py-1"
+                    >
+                      GitHub Profile ↗
+                    </a>
+                    <a
+                      href={verifiedLinks.linkedin}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-[#8a8f98] hover:text-[#38bdf8] py-1"
+                    >
+                      LinkedIn ↗
+                    </a>
+                    <a
+                      href={verifiedLinks.kaggle}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-[#8a8f98] hover:text-[#38bdf8] py-1"
+                    >
+                      Kaggle ↗
+                    </a>
+                    <a
+                      href={verifiedLinks.cvPdf}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-[#8a8f98] hover:text-[#38bdf8] py-1"
+                    >
+                      Curriculum Vitae ↗
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-between gap-4 pt-5 border-t border-white/[0.1] font-mono-tech text-xs text-[#8a8f98]">
+              <span>{verifiedLinks.email}</span>
+              <LiveDhakaClock />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* STICKY PORTFOLIO HEADER */}
+      <header className="sticky top-0 z-40 border-b border-white/[0.08] bg-[#08090c]/92 backdrop-blur-md">
+        <div className="max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-14 h-16 flex items-center justify-between gap-4">
+          {/* Personal Identity */}
+          <a
+            href="#hero"
+            className="flex items-center gap-3 font-mono-tech text-xs sm:text-sm font-semibold tracking-wider text-[#f2f0ea] hover:text-[#38bdf8] transition-colors"
+          >
+            <span className="w-2 h-2 bg-[#38bdf8]" />
+            <span>MD TAHMID ZOAYED</span>
           </a>
-        </nav>
-        <button className="menu-btn" aria-label="Toggle navigation" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+
+          {/* Primary Desktop Section Links */}
+          <nav
+            aria-label="Primary sections"
+            className="hidden lg:flex items-center gap-6 font-mono-tech text-[11px] tracking-wider"
+          >
+            {[
+              { num: '02', label: 'PROFILE', href: '#profile', id: 'profile' },
+              { num: '03', label: 'SYSTEMS', href: '#systems', id: 'systems' },
+              { num: '04', label: 'RESEARCH', href: '#research-lab', id: 'research-lab' },
+              { num: '05', label: 'QUESTIONS', href: '#open-questions', id: 'open-questions' },
+              { num: '06', label: 'TIMELINE', href: '#evolution', id: 'evolution' },
+              { num: '08', label: 'STACK', href: '#tech-matrix', id: 'tech-matrix' },
+              { num: '11', label: 'CONTACT', href: '#network', id: 'network' },
+            ].map((nav) => {
+              const active = activeSection === nav.id;
+              return (
+                <a
+                  key={nav.id}
+                  href={nav.href}
+                  className={`transition-colors ${
+                    active ? 'text-[#38bdf8]' : 'text-[#8a8f98] hover:text-[#f2f0ea]'
+                  }`}
+                >
+                  <span className="text-[#565b66] mr-1">{nav.num}.</span>
+                  {nav.label}
+                </a>
+              );
+            })}
+          </nav>
+
+          {/* Right Clock & Menu Trigger */}
+          <div className="flex items-center gap-3">
+            <div className="hidden sm:flex items-center gap-2 font-mono-tech text-[10px] text-[#8a8f98] px-3 py-1.5 border border-white/[0.08] bg-[#0b0d12]">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <LiveDhakaClock />
+            </div>
+
+            <button
+              onClick={() => setMenuOpen(true)}
+              aria-label="Open navigation menu"
+              className="inline-flex items-center gap-2 font-mono-tech text-xs text-[#f2f0ea] hover:text-[#38bdf8] px-3.5 py-1.5 border border-white/[0.15] hover:border-[#38bdf8] bg-[#0b0d12] transition-colors"
+            >
+              <span>MENU</span>
+              <Menu size={14} />
+            </button>
+          </div>
+        </div>
       </header>
 
-      <main id="top">
-        {/* HERO */}
-        <section className="hero section-pad" id="home">
-          <div className="hero-grid">
-            <div className="hero-copy reveal">
-              <p className="kicker"><span className="status-dot" /> {hero.kicker}</p>
-              <p className="hero-index">01 <span>/</span> INTRODUCING</p>
-              <h1>{hero.name}</h1>
-              <p className="hero-title">{hero.title}</p>
-              <p className="hero-headline">{hero.headline}</p>
-              {hero.lede.map((p, i) => <p className="hero-lede" key={i}>{p}</p>)}
-              <div className="hero-tags">{hero.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-              <div className="hero-actions">
-                <a className="button button-fill" href="#projects">View My Work <ArrowDownRight size={17} /></a>
-                <a className="button button-light" href={links.cv} target="_blank" rel="noopener noreferrer"><Download size={16} /> Download CV</a>
-              </div>
-              <div className="hero-socials">
-                <a href={links.github} target="_blank" rel="noreferrer" aria-label="GitHub profile"><Github size={16} /> GitHub</a>
-                <a href={links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn profile"><Linkedin size={16} /> LinkedIn</a>
-              </div>
+      {/* =====================================================================
+          01 — HERO
+         ===================================================================== */}
+      <section
+        id="hero"
+        className="border-b border-white/[0.08] bg-[#08090c] lab-grid-bg relative overflow-hidden"
+      >
+        <div className="max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-14 pt-12 pb-20 sm:pt-16 sm:pb-28">
+          {/* Top Location & Availability Strip */}
+          <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-12 border-b border-white/[0.08] font-mono-tech text-[11px] text-[#8a8f98]">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="text-[#38bdf8]">01 // OVERVIEW</span>
+              <span className="text-white/20">|</span>
+              <span>{heroData.location}</span>
             </div>
-            <div className="hero-visual reveal reveal-delay" ref={heroRef} style={{ transition: 'transform .2s ease' }}>
-              <div className="portrait-frame">
-                <img src="/images/1761230135831.png" alt="Portrait of Md Tahmid Zoayed" />
-                <div className="portrait-label"><span>MD TAHMID ZOAYED</span><span>AI ENGINEER / CBO</span></div>
-              </div>
-              <div className="orbit orbit-one" /><div className="orbit orbit-two" />
-              <div className="hero-note"><span>SCROLL TO EXPLORE</span><ArrowDownRight size={18} /></div>
+            <div className="flex items-center gap-2 text-emerald-300">
+              <span className="w-1.5 h-1.5 bg-emerald-400" />
+              <span>{heroData.availability}</span>
             </div>
           </div>
-          <div className="hero-bottom"><span>AI ENGINEERING</span><span>+</span><span>RESEARCH</span><span>+</span><span>BUSINESS</span><span>→</span><span>AI PRODUCTS</span></div>
-        </section>
 
-        {/* ABOUT */}
-        <section className="about section-pad" id="about">
-          <Reveal>
-            <div className="section-marker"><span>02</span><span>ABOUT — WHO I AM</span></div>
-            <div className="about-layout">
-              <h2>Who I Am</h2>
-              <div className="about-body">
-                {about.paragraphs.map((p, i) => <p key={i} className={p.trim().endsWith('?') ? 'about-question' : ''}>{p}</p>)}
+          {/* Main Hero Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+            {/* Left 7 Columns: Editorial Typography & Core Identity */}
+            <div className="lg:col-span-7 space-y-8">
+              <div className="space-y-3">
+                <div className="inline-flex flex-wrap items-center gap-2.5 font-mono-tech text-xs uppercase tracking-[0.16em] text-[#38bdf8] px-3.5 py-1.5 border border-[#38bdf8]/35 bg-[#38bdf8]/[0.06]">
+                  <span>{heroData.name}</span>
+                  <span className="text-white/30">//</span>
+                  <span>{heroData.role}</span>
+                </div>
+
+                <h1 className="font-display text-5xl sm:text-7xl xl:text-[88px] font-bold tracking-tight text-[#f2f0ea] leading-[0.93] uppercase pt-2">
+                  I BUILD
+                  <br />
+                  <span className="text-[#38bdf8]">INTELLIGENT</span>
+                  <br />
+                  SYSTEMS.
+                </h1>
+              </div>
+
+              <p className="text-lg sm:text-xl text-[#f2f0ea]/85 leading-relaxed max-w-2xl font-normal border-l-2 border-[#38bdf8] pl-5">
+                {heroData.supportingDescription}
+              </p>
+
+              {/* Primary CTAs */}
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <a
+                  href="#systems"
+                  className="inline-flex items-center gap-3 font-mono-tech text-xs sm:text-sm font-semibold uppercase tracking-wider px-7 py-4 bg-[#38bdf8] text-[#08090c] hover:bg-[#7dd3fc] transition-colors"
+                >
+                  <span>Explore Systems</span>
+                  <ArrowDownRight size={16} />
+                </a>
+
+                <a
+                  href="#research-lab"
+                  className="inline-flex items-center gap-3 font-mono-tech text-xs sm:text-sm uppercase tracking-wider px-7 py-4 border border-white/20 bg-[#0b0d12] text-[#f2f0ea] hover:border-[#38bdf8] hover:text-[#38bdf8] transition-colors"
+                >
+                  <span>Research &amp; Papers</span>
+                  <ArrowDownRight size={16} />
+                </a>
+
+                <a
+                  href={verifiedLinks.cvPdf}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 font-mono-tech text-xs uppercase tracking-wider px-5 py-4 border border-white/15 text-[#f2f0ea] hover:border-[#38bdf8] hover:text-[#38bdf8] transition-colors"
+                >
+                  <FileText size={14} />
+                  <span>Download CV (PDF)</span>
+                </a>
+              </div>
+
+              {/* Direct Live Systems & Repository Bar */}
+              <div className="pt-6 border-t border-white/[0.08] grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <span className="block font-mono-tech text-[10px] uppercase tracking-widest text-[#8a8f98]">
+                    LIVE AI PLATFORMS (VERCEL)
+                  </span>
+                  <div className="flex flex-wrap gap-2">
+                    <a
+                      href={verifiedLinks.axiosInsight}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 font-mono-tech text-[11px] px-2.5 py-1 border border-white/[0.12] bg-[#0b0d12] text-[#f2f0ea] hover:border-[#38bdf8] transition-colors"
+                    >
+                      <span className="w-1.5 h-1.5 bg-emerald-400" />
+                      <span>Axios Insight</span>
+                      <ArrowUpRight size={11} className="text-[#38bdf8]" />
+                    </a>
+                    <a
+                      href={verifiedLinks.axiosTalent}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 font-mono-tech text-[11px] px-2.5 py-1 border border-white/[0.12] bg-[#0b0d12] text-[#f2f0ea] hover:border-[#38bdf8] transition-colors"
+                    >
+                      <span className="w-1.5 h-1.5 bg-emerald-400" />
+                      <span>Axios Talent</span>
+                      <ArrowUpRight size={11} className="text-[#38bdf8]" />
+                    </a>
+                    <a
+                      href={verifiedLinks.axiosTalentCandidate}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 font-mono-tech text-[11px] px-2.5 py-1 border border-white/[0.12] bg-[#0b0d12] text-[#f2f0ea] hover:border-[#38bdf8] transition-colors"
+                    >
+                      <span className="w-1.5 h-1.5 bg-emerald-400" />
+                      <span>Talent Candidate</span>
+                      <ArrowUpRight size={11} className="text-[#38bdf8]" />
+                    </a>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <span className="block font-mono-tech text-[10px] uppercase tracking-widest text-[#8a8f98]">
+                    OPEN-SOURCE ENGINEERING (GITHUB)
+                  </span>
+                  <div className="flex flex-wrap gap-2">
+                    <a
+                      href={verifiedLinks.datasetMedicRepo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 font-mono-tech text-[11px] px-2.5 py-1 border border-white/[0.12] bg-[#0b0d12] text-[#f2f0ea] hover:border-[#38bdf8] transition-colors"
+                    >
+                      <span>DatasetMedic</span>
+                      <ArrowUpRight size={11} className="text-[#38bdf8]" />
+                    </a>
+                    <a
+                      href={verifiedLinks.apiDetectiveRepo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 font-mono-tech text-[11px] px-2.5 py-1 border border-white/[0.12] bg-[#0b0d12] text-[#f2f0ea] hover:border-[#38bdf8] transition-colors"
+                    >
+                      <span>API Detective</span>
+                      <ArrowUpRight size={11} className="text-[#38bdf8]" />
+                    </a>
+                    <a
+                      href={verifiedLinks.flowSentryRepo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 font-mono-tech text-[11px] px-2.5 py-1 border border-white/[0.12] bg-[#0b0d12] text-[#f2f0ea] hover:border-[#38bdf8] transition-colors"
+                    >
+                      <span>FlowSentry</span>
+                      <ArrowUpRight size={11} className="text-[#38bdf8]" />
+                    </a>
+                    <a
+                      href={verifiedLinks.vellumResearchRepo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 font-mono-tech text-[11px] px-2.5 py-1 border border-white/[0.12] bg-[#0b0d12] text-[#f2f0ea] hover:border-[#38bdf8] transition-colors"
+                    >
+                      <span>Vellum Research</span>
+                      <ArrowUpRight size={11} className="text-[#38bdf8]" />
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-          </Reveal>
-        </section>
 
-        {/* EXPERIENCE */}
-        <section className="experience section-pad" id="experience">
-          <Reveal>
-            <div className="section-head"><div className="section-marker"><span>03</span><span>EXPERIENCE</span></div></div>
-            <div className="experience-list">
-              <StaggerGrid items={experience} baseDelay={120} renderItem={(item, i) => (
-                <div className="experience-item" key={i}>
-                  <div className="experience-period">{item.period}</div>
-                  <div className="experience-content">
-                    <h3>{item.company}</h3>
-                    <p className="experience-company">{item.role}</p>
-                    <p>{item.text}</p>
-                    {item.skills.length > 0 && <div className="tag-row">{item.skills.map((s) => <span key={s}>{s}</span>)}</div>}
-                    {item.quote && <p className="experience-note experience-quote">"{item.quote}"</p>}
-                    {item.note && <p className="experience-note">{item.note}</p>}
-                  </div>
-                  <BriefcaseBusiness size={19} />
+            {/* Right 5 Columns: Scientific Orbital Coordinate Visualization */}
+            <div className="lg:col-span-5">
+              <DotMatrixGlobe />
+            </div>
+          </div>
+
+          {/* Bottom 4-Cell Summary */}
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-white/[0.1] bg-[#0b0d12] divide-y sm:divide-y-0 sm:divide-x divide-white/[0.08]">
+            <div className="p-5 space-y-1">
+              <span className="font-mono-tech text-[10px] text-[#38bdf8]">01 // CURRENT ROLE</span>
+              <p className="font-display text-2xl font-bold text-[#f2f0ea]">Axios Station</p>
+              <p className="font-mono-tech text-xs text-[#8a8f98]">
+                CBO &amp; AI Engineer · June 2025–Present
+              </p>
+            </div>
+            <div className="p-5 space-y-1">
+              <span className="font-mono-tech text-[10px] text-[#38bdf8]">02 // SYSTEMS BUILT</span>
+              <p className="font-display text-2xl font-bold text-[#f2f0ea]">09 Engineered Systems</p>
+              <p className="font-mono-tech text-xs text-[#8a8f98]">
+                3 Live Vercel Platforms · 6 Open-Source &amp; AI Tools
+              </p>
+            </div>
+            <div className="p-5 space-y-1">
+              <span className="font-mono-tech text-[10px] text-[#38bdf8]">03 // RESEARCH</span>
+              <p className="font-display text-2xl font-bold text-[#f2f0ea]">05 Research Studies</p>
+              <p className="font-mono-tech text-xs text-[#8a8f98]">
+                4 Published Papers + EWU/BAU Funded Grant
+              </p>
+            </div>
+            <div className="p-5 space-y-1">
+              <span className="font-mono-tech text-[10px] text-[#38bdf8]">04 // ACADEMIC FOUNDATION</span>
+              <p className="font-display text-2xl font-bold text-[#f2f0ea]">B.Sc. in CSE</p>
+              <p className="font-mono-tech text-xs text-[#8a8f98]">
+                East West University · Data Science &amp; Intelligent Systems
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================================
+          02 — PROFILE
+         ===================================================================== */}
+      <section
+        id="profile"
+        className="border-b border-white/[0.08] bg-[#0a0c10] lab-subgrid-bg scroll-mt-16"
+      >
+        <div className="max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-14 py-24 sm:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-16 border-b border-white/[0.08] items-start">
+            <div className="lg:col-span-5 space-y-6">
+              <div className="flex items-center gap-3 font-mono-tech text-xs uppercase tracking-[0.2em] text-[#38bdf8]">
+                <span>{intelligenceProfileData.headerCode}</span>
+              </div>
+              <h2 className="font-display text-3xl sm:text-5xl font-bold text-[#f2f0ea] leading-[1.02] uppercase">
+                {intelligenceProfileData.headline}
+              </h2>
+
+              {/* Portrait Frame */}
+              <div className="border border-white/[0.1] bg-[#08090c] p-3 max-w-xs crosshair-corner">
+                <div className="flex items-center justify-between font-mono-tech text-[10px] text-[#8a8f98] pb-2 mb-2 border-b border-white/[0.07]">
+                  <span>MD TAHMID ZOAYED</span>
+                  <span className="text-[#38bdf8]">AI / ML ENGINEER</span>
                 </div>
-              )} />
-            </div>
-          </Reveal>
-        </section>
-
-        {/* SKILLS */}
-        <section className="skills section-pad" id="skills">
-          <Reveal>
-            <div className="skills-heading">
-              <div className="section-marker light"><span>04</span><span>SKILLS</span></div>
-              <h2>Fluent in the stack, <em>curious beyond it.</em></h2>
-            </div>
-            <div className="stack-list">
-              <StaggerGrid items={stackGroups} baseDelay={60} renderItem={(group) => (
-                <div className="stack-group" key={group.label}>
-                  <h3>{group.label}</h3>
-                  <div>{group.items.map((item) => <span key={item}>{item}</span>)}</div>
+                <img
+                  src="/images/1761230135831.png"
+                  alt="Md Tahmid Zoayed"
+                  loading="lazy"
+                  className="w-full aspect-[4/5] object-cover object-top grayscale-[18%] contrast-[1.04]"
+                />
+                <div className="pt-2 mt-2 border-t border-white/[0.07] flex items-center justify-between font-mono-tech text-[10px] text-[#8a8f98]">
+                  <span>CBO @ AXIOS STATION</span>
+                  <span>DHAKA, BD</span>
                 </div>
-              )} />
-            </div>
-          </Reveal>
-        </section>
-
-        {/* FEATURED PROJECTS */}
-        <section className="projects section-pad" id="projects">
-          <Reveal>
-            <div className="section-head">
-              <div className="section-marker"><span>05</span><span>FEATURED PROJECTS</span></div>
-              <p>AI products I've designed and built end to end, from data to deployment.</p>
-            </div>
-            <div className="featured-grid">
-              <StaggerGrid items={featuredProjects} baseDelay={140} renderItem={(project, index) => (
-                <article className="featured-card" key={index}>
-                  <div className="featured-main">
-                    <div className="project-number">0{index + 1}</div>
-                    <h3>{project.title}</h3>
-                    <p className="project-subtitle">{project.subtitle}</p>
-                    <p className="project-text">{project.text}</p>
-                    <p className="project-text">{project.intro}</p>
-                    <div className="project-stack">
-                      <p className="stack-label">Focus</p>
-                      <div className="tag-row">{project.focus.split(' · ').map((s) => <span key={s}>{s}</span>)}</div>
-                    </div>
-                    <div className="project-links">
-                      {project.links.map((l) => {
-                        const Icon = projectLinkIconMap[l.type] || ExternalLink;
-                        return (
-                          <a key={l.label} href={l.url} target="_blank" rel="noopener noreferrer" className="project-link-btn">
-                            <Icon size={15} /> {l.label}
-                          </a>
-                        );
-                      })}
-                    </div>
-                  </div>
-                  <div className="featured-capabilities">
-                    <p className="features-label">Capabilities</p>
-                    <ul>{project.capabilities.map((f) => <li key={f}>{f}</li>)}</ul>
-                  </div>
-                </article>
-              )} />
-            </div>
-          </Reveal>
-        </section>
-
-        {/* ACADEMIC & RESEARCH PROJECTS */}
-        <section className="academic-projects section-pad">
-          <Reveal>
-            <div className="section-head"><div className="section-marker light"><span>06</span><span>ACADEMIC & RESEARCH PROJECTS</span></div></div>
-            <div className="academic-grid">
-              <StaggerGrid items={academicProjects} baseDelay={60} renderItem={(project) => (
-                <div className="academic-card" key={project.title}>
-                  <h3>{project.title}</h3>
-                  <p className="academic-focus">{project.focus}</p>
-                  {project.conference && <p className="academic-conference">{project.conference}</p>}
-                </div>
-              )} />
-            </div>
-          </Reveal>
-        </section>
-
-        {/* RESEARCH */}
-        <section className="research section-pad" id="research">
-          <Reveal>
-            <div className="research-intro">
-              <div className="section-marker light"><span>07</span><span>RESEARCH</span></div>
-              <h2>{research.heading}</h2>
-              <p>{research.text}</p>
-              <div className="research-interests">
-                <p className="interests-label">Research Areas</p>
-                <div className="tag-row">{research.areas.map((i) => <span key={i}>{i}</span>)}</div>
               </div>
             </div>
-            <div className="pipeline">
-              <div className="pipeline-label">CURRENT RESEARCH DIRECTION</div>
-              <h3>{research.direction}</h3>
-              <p className="pipeline-text">{research.directionText}</p>
-              <div className="flow">
-                {research.pipeline.map((step, i) => (
-                  <div className="flow-step" key={step}>
-                    <span>0{i + 1}</span>
-                    <strong>{step}</strong>
-                    {i < research.pipeline.length - 1 && <ChevronRight className="flow-arrow" size={20} />}
-                  </div>
+
+            <div className="lg:col-span-7 space-y-8">
+              <div className="border border-white/[0.08] bg-[#08090c] p-6 sm:p-8 space-y-5">
+                <div className="flex items-center justify-between font-mono-tech text-[10px] uppercase tracking-widest text-[#38bdf8] border-b border-white/[0.07] pb-3">
+                  <span>ENGINEERING PHILOSOPHY</span>
+                  <span>RESEARCH → ARCHITECTURE → PRODUCTION</span>
+                </div>
+                {intelligenceProfileData.narrative.map((paragraph, index) => (
+                  <p
+                    key={index}
+                    className="text-base sm:text-lg text-[#f2f0ea]/85 leading-relaxed"
+                  >
+                    {paragraph}
+                  </p>
                 ))}
               </div>
-              <p className="research-foot">{research.closing}</p>
-            </div>
-          </Reveal>
-        </section>
 
-        {/* RESEARCH INTERESTS */}
-        <section className="research-interests-section section-pad">
-          <Reveal>
-            <div className="section-head"><div className="section-marker"><span>08</span><span>RESEARCH INTERESTS</span></div></div>
-            <div className="stack-list interests-list">
-              <StaggerGrid items={researchInterests} baseDelay={60} renderItem={(group) => (
-                <div className="stack-group" key={group.label}>
-                  <h3>{group.label}</h3>
-                  <div>{group.items.map((item) => <span key={item}>{item}</span>)}</div>
+              {/* 6-Domain Capability Matrix */}
+              <div className="space-y-3">
+                <div className="flex items-center justify-between font-mono-tech text-[10px] uppercase tracking-widest text-[#8a8f98]">
+                  <span>CORE CAPABILITY DOMAINS // 06 AREAS</span>
+                  <span>APPLIED &amp; RESEARCH</span>
                 </div>
-              )} />
-            </div>
-          </Reveal>
-        </section>
-
-        {/* RESEARCH EXPERIENCE */}
-        <section className="research-exp section-pad">
-          <Reveal>
-            <div className="section-head"><div className="section-marker"><span>09</span><span>RESEARCH EXPERIENCE</span></div></div>
-            <div className="research-exp-card">
-              <div className="research-exp-left">
-                <GraduationCap size={28} />
-                <h3>{researchExperience.role}</h3>
-                <p className="experience-company">{researchExperience.org}</p>
-                <p className="experience-period">{researchExperience.period}</p>
-                <p>{researchExperience.text}</p>
-                <p className="experience-note">{researchExperience.note}</p>
-              </div>
-              <div className="research-exp-right">
-                <p className="features-label">Contributions</p>
-                <ul>{researchExperience.contributions.map((c) => <li key={c}>{c}</li>)}</ul>
-              </div>
-            </div>
-          </Reveal>
-        </section>
-
-        {/* PUBLICATIONS */}
-        <section className="publications section-pad">
-          <Reveal>
-            <div className="section-head"><div className="section-marker"><span>10</span><span>PUBLICATIONS</span></div></div>
-            <div className="publication-list">
-              <StaggerGrid items={publications} baseDelay={60} renderItem={(pub, i) => (
-                <div className="publication-item" key={i}>
-                  <span className="pub-number">0{i + 1}</span>
-                  <div><h3>{pub.title}</h3><p>{pub.detail}</p></div>
-                </div>
-              )} />
-            </div>
-          </Reveal>
-        </section>
-
-        {/* HOW I BUILD */}
-        <section className="process section-pad">
-          <Reveal>
-            <div className="section-head"><div className="section-marker"><span>11</span><span>HOW I BUILD</span></div></div>
-            <h2 className="process-heading">How I <em>Build.</em></h2>
-            <div className="process-flow">
-              <StaggerGrid items={processSteps} baseDelay={80} renderItem={(step) => (
-                <div className="process-step" key={step.num}>
-                  <span className="process-num">{step.num}</span>
-                  <h3>{step.title}</h3>
-                  <p>{step.text}</p>
-                </div>
-              )} />
-            </div>
-          </Reveal>
-        </section>
-
-        {/* BEYOND AI */}
-        <section className="beyond-ai section-pad">
-          <Reveal>
-            <div className="section-head"><div className="section-marker"><span>12</span><span>BEYOND AI</span></div></div>
-            <div className="beyond-ai-card">
-              <p className="beyond-ai-intro">{beyondAI.intro}</p>
-              <p className="interests-label">{beyondAI.label}</p>
-              <div className="tag-row">{beyondAI.areas.map((a) => <span key={a}>{a}</span>)}</div>
-              <p className="beyond-ai-closing">{beyondAI.closing}</p>
-            </div>
-          </Reveal>
-        </section>
-
-        {/* CURRENTLY */}
-        <section className="current-focus section-pad">
-          <Reveal>
-            <div className="section-head"><div className="section-marker"><span>13</span><span>CURRENTLY</span></div></div>
-            <h2 className="focus-heading">What I'm Working <em>On</em></h2>
-            <div className="focus-grid currently-grid">
-              <StaggerGrid items={currentFocus} baseDelay={80} renderItem={(item) => (
-                <div className="focus-card" key={item.title}>
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </div>
-              )} />
-            </div>
-          </Reveal>
-        </section>
-
-        {/* CAREER FOCUS */}
-        <section className="career-focus section-pad">
-          <Reveal>
-            <div className="section-marker light"><span>14</span><span>CAREER FOCUS</span></div>
-            <div className="career-focus-card">
-              <div className="tag-row">{careerFocus.tags.map((t) => <span key={t}>{t}</span>)}</div>
-              <p className="career-statement-lead">{careerFocus.statementLead}</p>
-              <p className="career-statement">{careerFocus.statement}</p>
-            </div>
-          </Reveal>
-        </section>
-
-        {/* EDUCATION */}
-        <section className="education section-pad" id="education">
-          <Reveal>
-            <div className="section-head"><div className="section-marker"><span>15</span><span>EDUCATION</span></div></div>
-            <div className="education-list">
-              <StaggerGrid items={education} baseDelay={100} renderItem={(item) => (
-                <div className="education-item" key={item.institution}>
-                  <GraduationCap size={20} className="education-icon" />
-                  <div className="education-content">
-                    <h3>{item.institution}</h3>
-                    <p className="experience-company">{item.degree}{item.major && ` — ${item.major}`}</p>
-                    <div className="education-meta">
-                      {item.period && <span>{item.period}</span>}
-                      {item.meta && <span>{item.meta}</span>}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {intelligenceProfileData.domains.map((dom) => (
+                    <div
+                      key={dom.index}
+                      className="border border-white/[0.09] bg-[#08090c] p-5 flex flex-col justify-between gap-4 hover:border-[#38bdf8]/45 transition-colors"
+                    >
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between font-mono-tech text-[11px]">
+                          <span className="text-[#38bdf8]">{dom.index}</span>
+                          <span className="text-[#565b66] text-[10px]">{dom.focus}</span>
+                        </div>
+                        <h3 className="font-display text-xl font-bold text-[#f2f0ea]">
+                          {dom.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-[#8a8f98] leading-relaxed">
+                          {dom.summary}
+                        </p>
+                      </div>
+                      <div className="pt-3 border-t border-white/[0.06] font-mono-tech text-[10px] text-[#38bdf8]">
+                        {dom.metrics}
+                      </div>
                     </div>
-                    {item.text && <p>{item.text}</p>}
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================================
+          03 — SYSTEMS
+         ===================================================================== */}
+      <SystemsBlueprintSection />
+
+      {/* =====================================================================
+          04 — RESEARCH, 05 — OPEN QUESTIONS, 06 — EVOLUTION, 07 — AXIOS STATION
+         ===================================================================== */}
+      <ResearchAndNotebookSection />
+
+      {/* =====================================================================
+          08 — TECHNOLOGY MATRIX
+         ===================================================================== */}
+      <section
+        id="tech-matrix"
+        className="border-b border-white/[0.08] bg-[#0a0c10] lab-subgrid-bg scroll-mt-16"
+      >
+        <div className="max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-14 py-24 sm:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-12 border-b border-white/[0.08]">
+            <div className="lg:col-span-7 space-y-3">
+              <div className="flex items-center gap-3 font-mono-tech text-xs uppercase tracking-[0.2em] text-[#38bdf8]">
+                <span>08 // TECHNOLOGY MATRIX</span>
+                <span className="text-white/20">—</span>
+                <span className="text-[#8a8f98]">PRODUCTION &amp; RESEARCH STACK</span>
+              </div>
+              <h2 className="font-display text-4xl sm:text-6xl font-bold text-[#f2f0ea] leading-[0.96] uppercase">
+                Technical Specification Matrix.
+              </h2>
+            </div>
+            <div className="lg:col-span-5 flex flex-wrap lg:justify-end gap-4 font-mono-tech text-xs">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 border border-[#38bdf8]/40 bg-[#38bdf8]/10 text-[#38bdf8]">
+                <span className="w-1.5 h-1.5 bg-[#38bdf8]" /> Core Proficiency
+              </span>
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 border border-white/15 bg-[#08090c] text-[#8a8f98]">
+                <span className="w-1.5 h-1.5 bg-[#8a8f98]" /> Applied / Working
+              </span>
+            </div>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {technologyMatrixData.map((group) => (
+              <div
+                key={group.code}
+                className="border border-white/[0.1] bg-[#08090c] flex flex-col justify-between"
+              >
+                <div className="p-6 border-b border-white/[0.08] bg-[#0d1017] space-y-1.5">
+                  <div className="flex items-center justify-between font-mono-tech text-xs">
+                    <span className="text-[#38bdf8]">{group.code}</span>
+                    <span className="text-[#8a8f98]">{group.items.length} TECHNOLOGIES</span>
+                  </div>
+                  <h3 className="font-display text-2xl font-bold text-[#f2f0ea]">
+                    {group.category}
+                  </h3>
+                  <p className="text-xs text-[#8a8f98]">{group.description}</p>
+                </div>
+
+                <div className="divide-y divide-white/[0.06]">
+                  {group.items.map((tech) => {
+                    const isCore = tech.tier === 'Core Proficiency';
+                    return (
+                      <div
+                        key={tech.name}
+                        className="px-6 py-4 grid grid-cols-1 sm:grid-cols-12 gap-2 items-center hover:bg-white/[0.02] transition-colors"
+                      >
+                        <div className="sm:col-span-5 flex items-center gap-2.5">
+                          <span
+                            className={`w-1.5 h-1.5 shrink-0 ${
+                              isCore ? 'bg-[#38bdf8]' : 'bg-[#8a8f98]'
+                            }`}
+                          />
+                          <span className="font-display text-sm font-semibold text-[#f2f0ea]">
+                            {tech.name}
+                          </span>
+                        </div>
+                        <div className="sm:col-span-3">
+                          <span
+                            className={`font-mono-tech text-[10px] px-2 py-0.5 border ${
+                              isCore
+                                ? 'border-[#38bdf8]/35 text-[#38bdf8] bg-[#38bdf8]/[0.06]'
+                                : 'border-white/15 text-[#8a8f98]'
+                            }`}
+                          >
+                            {tech.tier}
+                          </span>
+                        </div>
+                        <div className="sm:col-span-4 text-xs text-[#8a8f98]">{tech.context}</div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================================
+          09 — CURRENT VECTOR
+         ===================================================================== */}
+      <section
+        id="current-vector"
+        className="border-b border-white/[0.08] bg-[#08090c] lab-grid-bg scroll-mt-16"
+      >
+        <div className="max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-14 py-24 sm:py-32">
+          <div className="border border-[#38bdf8]/35 bg-[#0b0d12] p-6 sm:p-10 lg:p-14 crosshair-corner">
+            <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b border-white/[0.08] font-mono-tech text-xs">
+              <span className="text-[#38bdf8] flex items-center gap-2">
+                <Compass size={14} />
+                {currentVectorData.headerCode}
+              </span>
+              <span className="text-emerald-300 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-emerald-400 animate-pulse" />
+                ACTIVE FOCUS · 2025–2026
+              </span>
+            </div>
+
+            <div className="space-y-4 mb-12">
+              <p className="font-mono-tech text-xs uppercase tracking-[0.2em] text-[#8a8f98]">
+                CURRENT ENGINEERING DIRECTION
+              </p>
+              <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold text-[#f2f0ea] leading-[0.96] uppercase">
+                {currentVectorData.vectorBanner}
+              </h2>
+              <p className="text-base sm:text-lg text-[#8a8f98] max-w-3xl leading-relaxed">
+                {currentVectorData.statement}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+              {currentVectorData.trajectories.map((vec) => (
+                <div
+                  key={vec.code}
+                  className="border border-white/[0.09] bg-[#08090c] p-6 flex flex-col justify-between gap-6 hover:border-[#38bdf8]/50 transition-colors"
+                >
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between font-mono-tech text-[10px]">
+                      <span className="text-[#38bdf8]">{vec.code}</span>
+                      <span className="text-[#8a8f98] px-2 py-0.5 border border-white/10">
+                        {vec.status}
+                      </span>
+                    </div>
+                    <h3 className="font-display text-xl font-bold text-[#f2f0ea] leading-snug">
+                      {vec.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#8a8f98] leading-relaxed">
+                      {vec.description}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-1.5 pt-3 border-t border-white/[0.07]">
+                    {vec.focusTags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="font-mono-tech text-[10px] text-[#38bdf8] px-2 py-0.5 border border-[#38bdf8]/25 bg-[#38bdf8]/[0.05]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              )} />
+              ))}
             </div>
-          </Reveal>
-        </section>
-
-        {/* ONLINE PRESENCE */}
-        <section className="online-presence section-pad">
-          <Reveal>
-            <div className="section-head"><div className="section-marker"><span>16</span><span>ONLINE</span></div></div>
-            <div className="online-grid">
-              <StaggerGrid items={onlinePresence} baseDelay={100} renderItem={(item) => {
-                const Icon = onlineIconMap[item.icon] || ExternalLink;
-                return (
-                  <a className="online-card" key={item.label} href={item.url} target="_blank" rel="noreferrer">
-                    <Icon size={24} />
-                    <h3>{item.label}</h3>
-                    <p className="online-handle">{item.handle}</p>
-                    <p>{item.text}</p>
-                    <span className="online-cta">Visit <ArrowUpRight size={14} /></span>
-                  </a>
-                );
-              }} />
-            </div>
-          </Reveal>
-        </section>
-
-        {/* CONTACT */}
-        <section className="contact section-pad" id="contact">
-          <Reveal>
-            <div className="contact-inner">
-              <div className="section-marker light"><span>17</span><span>CONTACT</span></div>
-              <h2>{contact.heading}</h2>
-              <ul className="contact-options">{contact.options.map((o) => <li key={o}>{o}</li>)}</ul>
-              <p className="contact-cta">{contact.cta}</p>
-              <a className="contact-email" href={`mailto:${contact.email}`}>{contact.email} <ArrowUpRight size={21} /></a>
-              <div className="socials">
-                <a href={links.github} target="_blank" rel="noreferrer"><Github size={18} /> GitHub</a>
-                <a href={links.linkedin} target="_blank" rel="noreferrer"><Linkedin size={18} /> LinkedIn</a>
-                <a href={links.kaggle} target="_blank" rel="noreferrer"><ExternalLink size={18} /> Kaggle</a>
-                <a href={`mailto:${contact.email}`}><Mail size={18} /> Email</a>
-              </div>
-              <a className="button button-fill resume-btn" href={links.cv} target="_blank" rel="noopener noreferrer"><Download size={17} /> Download CV</a>
-            </div>
-          </Reveal>
-        </section>
-      </main>
-
-      <footer>
-        <div className="wordmark"><span>MTZ</span><i>·</i><em>AI ENGINEER</em></div>
-        <div className="footer-info">
-          <p>Md Tahmid Zoayed — AI Engineer · CBO</p>
-          <p>Building intelligent systems for real-world problems.</p>
+          </div>
         </div>
-        <span>© 2026 Md Tahmid Zoayed</span>
+      </section>
+
+      {/* =====================================================================
+          10 — SIGNAL (ARTICLES, RESEARCH NOTES & PUBLICATIONS)
+         ===================================================================== */}
+      <section
+        id="signal"
+        className="border-b border-white/[0.08] bg-[#0a0c10] lab-subgrid-bg scroll-mt-16"
+      >
+        <div className="max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-14 py-24 sm:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-12 border-b border-white/[0.08]">
+            <div className="lg:col-span-7 space-y-3">
+              <div className="flex items-center gap-3 font-mono-tech text-xs uppercase tracking-[0.2em] text-[#38bdf8]">
+                <Radio size={14} />
+                <span>10 // SIGNAL</span>
+                <span className="text-white/20">—</span>
+                <span className="text-[#8a8f98]">ENGINEERING NOTES, ARCHITECTURE &amp; WRITING</span>
+              </div>
+              <h2 className="font-display text-4xl sm:text-6xl font-bold text-[#f2f0ea] leading-[0.96] uppercase">
+                Technical Notes &amp; Papers.
+              </h2>
+            </div>
+            <div className="lg:col-span-5">
+              <p className="text-sm sm:text-base text-[#8a8f98] leading-relaxed">
+                Selected engineering insights, architectural notes from building FlowSentry,
+                DatasetMedic, Vellum Research, and API Detective, and published research briefs.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 border border-white/[0.1] bg-[#08090c]">
+            {/* Left Feed List */}
+            <div className="lg:col-span-5 border-b lg:border-b-0 lg:border-r border-white/[0.08] divide-y divide-white/[0.07]">
+              {signalData.map((entry) => {
+                const isSelected = entry.id === activeSignal.id;
+                return (
+                  <button
+                    key={entry.id}
+                    onClick={() => setActiveSignalId(entry.id)}
+                    className={`w-full text-left p-6 transition-colors flex flex-col gap-2 ${
+                      isSelected
+                        ? 'bg-[#38bdf8]/[0.08] border-l-2 border-l-[#38bdf8]'
+                        : 'hover:bg-white/[0.02]'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between font-mono-tech text-[10px]">
+                      <span className={isSelected ? 'text-[#38bdf8]' : 'text-[#8a8f98]'}>
+                        {entry.code} · {entry.type}
+                      </span>
+                      <span className="text-[#565b66]">{entry.date}</span>
+                    </div>
+                    <h3
+                      className={`font-display text-base sm:text-lg font-bold leading-snug ${
+                        isSelected ? 'text-[#f2f0ea]' : 'text-[#8a8f98]'
+                      }`}
+                    >
+                      {entry.title}
+                    </h3>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Right Note Reader */}
+            <div className="lg:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-between gap-8 bg-[#0b0d12]">
+              <div className="space-y-6">
+                <div className="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-white/[0.08] font-mono-tech text-xs">
+                  <span className="text-[#38bdf8]">
+                    {activeSignal.code} · {activeSignal.type}
+                  </span>
+                  <span className="text-[#8a8f98]">{activeSignal.date}</span>
+                </div>
+
+                <h3 className="font-display text-2xl sm:text-4xl font-bold text-[#f2f0ea] leading-tight">
+                  {activeSignal.title}
+                </h3>
+
+                <p className="text-base sm:text-lg text-[#f2f0ea]/85 leading-relaxed border-l-2 border-[#38bdf8] pl-4">
+                  {activeSignal.abstract}
+                </p>
+
+                <div className="space-y-3 pt-2">
+                  <span className="block font-mono-tech text-[10px] uppercase tracking-widest text-[#38bdf8]">
+                    KEY OBSERVATIONS &amp; TAKEAWAYS
+                  </span>
+                  <ul className="space-y-2.5 text-sm text-[#8a8f98]">
+                    {activeSignal.keyTakeaways.map((point) => (
+                      <li key={point} className="flex items-start gap-3">
+                        <span className="font-mono-tech text-[#38bdf8] mt-0.5">›</span>
+                        <span className="leading-relaxed">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {activeSignal.externalUrl && (
+                <div className="pt-6 border-t border-white/[0.08] flex items-center justify-between">
+                  <a
+                    href={activeSignal.externalUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 font-mono-tech text-xs px-5 py-3 border border-[#38bdf8] bg-[#38bdf8] text-[#08090c] font-semibold hover:bg-[#7dd3fc] transition-colors"
+                  >
+                    <span>{activeSignal.externalLabel || 'Open Link'}</span>
+                    <ArrowUpRight size={14} />
+                  </a>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================================
+          11 — NETWORK & CONTACT
+         ===================================================================== */}
+      <footer id="network" className="bg-[#08090c] lab-grid-bg text-[#f2f0ea] scroll-mt-16">
+        <div className="max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-14 py-24 sm:py-32">
+          <div className="flex items-center gap-3 font-mono-tech text-xs uppercase tracking-[0.2em] text-[#38bdf8] mb-8">
+            <span>11 // CONTACT &amp; NETWORK</span>
+            <span className="text-white/20">—</span>
+            <span className="text-[#8a8f98]">DIRECT COMMUNICATION &amp; PROFILES</span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-20 border-b border-white/[0.1] items-end">
+            <div className="lg:col-span-7 space-y-6">
+              <p className="font-mono-tech text-xs sm:text-sm uppercase tracking-[0.18em] text-[#8a8f98]">
+                HAVE AN INTERESTING PROBLEM?
+              </p>
+              <h2 className="font-display text-5xl sm:text-7xl lg:text-[80px] font-bold text-[#f2f0ea] leading-[0.94] uppercase">
+                LET&apos;S BUILD
+                <br />
+                SOMETHING
+                <br />
+                <span className="text-[#38bdf8]">INTELLIGENT.</span>
+              </h2>
+
+              <div className="flex flex-wrap items-center gap-4 pt-4">
+                <button
+                  onClick={handleCopyEmail}
+                  className="inline-flex items-center gap-3 font-mono-tech text-xs sm:text-sm font-semibold px-6 py-4 bg-[#38bdf8] text-[#08090c] hover:bg-[#7dd3fc] transition-colors"
+                >
+                  {copiedEmail ? <Check size={15} /> : <Copy size={15} />}
+                  <span>
+                    {copiedEmail ? 'Email Copied to Clipboard' : verifiedLinks.email}
+                  </span>
+                </button>
+
+                <a
+                  href={`mailto:${verifiedLinks.email}`}
+                  className="inline-flex items-center gap-2 font-mono-tech text-xs sm:text-sm px-6 py-4 border border-white/20 bg-[#0b0d12] text-[#f2f0ea] hover:border-[#38bdf8] hover:text-[#38bdf8] transition-colors"
+                >
+                  <Mail size={15} />
+                  <span>Send Email</span>
+                  <ArrowUpRight size={14} />
+                </a>
+
+                <a
+                  href={`tel:${verifiedLinks.phone.replace(/\s+/g, '')}`}
+                  className="inline-flex items-center gap-2 font-mono-tech text-xs px-5 py-4 border border-white/10 bg-[#0b0d12] text-[#8a8f98] hover:text-[#f2f0ea] transition-colors"
+                >
+                  <Phone size={14} />
+                  <span>{verifiedLinks.phone}</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Verified Profiles & Links */}
+            <div className="lg:col-span-5 border border-white/[0.1] bg-[#0b0d12] p-6 sm:p-8 space-y-6 crosshair-corner">
+              <div className="flex items-center justify-between font-mono-tech text-[10px] uppercase tracking-widest text-[#8a8f98] border-b border-white/[0.08] pb-3">
+                <span>PROFILES &amp; CREDENTIALS</span>
+                <span className="text-[#38bdf8]">VERIFIED</span>
+              </div>
+
+              <div className="divide-y divide-white/[0.07] font-mono-tech text-xs">
+                <a
+                  href={verifiedLinks.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="py-3.5 flex items-center justify-between text-[#f2f0ea] hover:text-[#38bdf8] transition-colors"
+                >
+                  <span className="flex items-center gap-2.5">
+                    <Github size={14} className="text-[#38bdf8]" />
+                    <span>GitHub · github.com/TahmidZ68</span>
+                  </span>
+                  <ArrowUpRight size={14} />
+                </a>
+
+                <a
+                  href={verifiedLinks.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="py-3.5 flex items-center justify-between text-[#f2f0ea] hover:text-[#38bdf8] transition-colors"
+                >
+                  <span className="flex items-center gap-2.5">
+                    <Linkedin size={14} className="text-[#38bdf8]" />
+                    <span>LinkedIn · Md Tahmid Zoayed</span>
+                  </span>
+                  <ArrowUpRight size={14} />
+                </a>
+
+                <a
+                  href={verifiedLinks.kaggle}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="py-3.5 flex items-center justify-between text-[#f2f0ea] hover:text-[#38bdf8] transition-colors"
+                >
+                  <span className="flex items-center gap-2.5">
+                    <span className="text-[#38bdf8] font-bold">K</span>
+                    <span>Kaggle · kaggle.com/mdtahmidzoayed</span>
+                  </span>
+                  <ArrowUpRight size={14} />
+                </a>
+
+                <a
+                  href={verifiedLinks.axiosStation}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="py-3.5 flex items-center justify-between text-[#f2f0ea] hover:text-[#38bdf8] transition-colors"
+                >
+                  <span className="flex items-center gap-2.5">
+                    <span className="text-[#38bdf8] font-bold">AX</span>
+                    <span>Axios Station · axiosstation.com</span>
+                  </span>
+                  <ArrowUpRight size={14} />
+                </a>
+
+                <a
+                  href={verifiedLinks.cvPdf}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="py-3.5 flex items-center justify-between text-[#f2f0ea] hover:text-[#38bdf8] transition-colors"
+                >
+                  <span className="flex items-center gap-2.5">
+                    <FileText size={14} className="text-[#38bdf8]" />
+                    <span>Curriculum Vitae (PDF)</span>
+                  </span>
+                  <ArrowUpRight size={14} />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Complete System & Deployment Footer Matrix */}
+          <div className="py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 border-b border-white/[0.08] font-mono-tech text-xs">
+            <div className="space-y-2.5">
+              <span className="text-[10px] uppercase tracking-widest text-[#38bdf8]">
+                LIVE DEPLOYMENTS (VERCEL)
+              </span>
+              <ul className="space-y-1.5 text-[#8a8f98]">
+                <li>
+                  <a
+                    href={verifiedLinks.axiosInsight}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-[#f2f0ea] inline-flex items-center gap-1"
+                  >
+                    Axios Insight <ArrowUpRight size={11} />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={verifiedLinks.axiosTalent}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-[#f2f0ea] inline-flex items-center gap-1"
+                  >
+                    Axios Talent <ArrowUpRight size={11} />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={verifiedLinks.axiosTalentCandidate}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-[#f2f0ea] inline-flex items-center gap-1"
+                  >
+                    Axios Talent Candidate <ArrowUpRight size={11} />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={verifiedLinks.portfolio}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-[#f2f0ea] inline-flex items-center gap-1"
+                  >
+                    Live Portfolio (Vercel) <ArrowUpRight size={11} />
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="space-y-2.5">
+              <span className="text-[10px] uppercase tracking-widest text-[#38bdf8]">
+                GITHUB REPOSITORIES
+              </span>
+              <ul className="space-y-1.5 text-[#8a8f98]">
+                <li>
+                  <a
+                    href={verifiedLinks.datasetMedicRepo}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-[#f2f0ea] inline-flex items-center gap-1"
+                  >
+                    TahmidZ68/DatasetMedic <ArrowUpRight size={11} />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={verifiedLinks.apiDetectiveRepo}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-[#f2f0ea] inline-flex items-center gap-1"
+                  >
+                    TahmidZ68/API-Detective <ArrowUpRight size={11} />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={verifiedLinks.flowSentryRepo}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-[#f2f0ea] inline-flex items-center gap-1"
+                  >
+                    TahmidZ68/flowsentry <ArrowUpRight size={11} />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={verifiedLinks.vellumResearchRepo}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-[#f2f0ea] inline-flex items-center gap-1"
+                  >
+                    TahmidZ68/vellum-research <ArrowUpRight size={11} />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={verifiedLinks.portfolioRepo}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-[#f2f0ea] inline-flex items-center gap-1"
+                  >
+                    TahmidZ68/Portfolio <ArrowUpRight size={11} />
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="space-y-2.5">
+              <span className="text-[10px] uppercase tracking-widest text-[#38bdf8]">
+                PUBLISHED RESEARCH (RESEARCHGATE)
+              </span>
+              <ul className="space-y-1.5 text-[#8a8f98]">
+                <li>
+                  <a
+                    href={verifiedLinks.papers.autismClassification}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-[#f2f0ea] inline-flex items-center gap-1"
+                  >
+                    Autism Classification (2023) <ArrowUpRight size={11} />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={verifiedLinks.papers.autismImageVgg19}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-[#f2f0ea] inline-flex items-center gap-1"
+                  >
+                    Autism Image / CNN (2022) <ArrowUpRight size={11} />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={verifiedLinks.papers.rainwaterHarvesting}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-[#f2f0ea] inline-flex items-center gap-1"
+                  >
+                    Rainwater Harvesting (2023) <ArrowUpRight size={11} />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={verifiedLinks.papers.startupPrediction}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-[#f2f0ea] inline-flex items-center gap-1"
+                  >
+                    Startup Success ML (2022) <ArrowUpRight size={11} />
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="space-y-2.5">
+              <span className="text-[10px] uppercase tracking-widest text-[#38bdf8]">
+                LOCATION &amp; LOCAL TIME
+              </span>
+              <p className="text-[#8a8f98]">Dhaka, Bangladesh</p>
+              <p className="text-[#8a8f98]">23.8103° N · 90.4125° E</p>
+              <p className="text-[#f2f0ea]">
+                <LiveDhakaClock />
+              </p>
+            </div>
+          </div>
+
+          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono-tech text-[11px] text-[#565b66]">
+            <span>© {new Date().getFullYear()} Md Tahmid Zoayed · All Rights Reserved</span>
+            <span>AI / ML Engineer · Systems Builder · CBO at Axios Station</span>
+          </div>
+        </div>
       </footer>
     </div>
   );
