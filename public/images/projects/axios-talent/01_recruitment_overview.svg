@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900">
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#070a10"/>
+    <stop offset="100%" stop-color="#0b101b"/>
+  </linearGradient>
+</defs>
+<rect width="1440" height="900" fill="url(#bgGrad)"/>
+<rect x="0" y="0" width="260" height="900" fill="#090d15" stroke="#1e293b" stroke-width="1"/>
+<rect x="20" y="22" width="42" height="42" rx="10" fill="#38bdf8" fill-opacity="0.16" stroke="#38bdf8" stroke-width="1.5"/>
+<text x="41" y="48" text-anchor="middle" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">AT</text>
+<text x="74" y="40" fill="#f8fafc" font-family="Inter, sans-serif" font-size="17" font-weight="700">Axios Talent</text>
+<text x="74" y="58" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="11">Multi-Tenant B2B HR · Live</text>
+<line x1="0" y1="82" x2="260" y2="82" stroke="#1e293b" stroke-width="1"/>
+<rect x="14" y="104" width="232" height="40" rx="8" fill="#38bdf8" fill-opacity="0.18" stroke="#38bdf8" stroke-width="1.2"/>
+<text x="30" y="129" fill="#ffffff" font-family="Inter, sans-serif" font-size="13.5" font-weight="600">Workforce Overview</text>
+<text x="30" y="177" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">CV Screening (Bulk)</text>
+<text x="30" y="225" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Candidates Pool</text>
+<text x="30" y="273" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Jobs &amp; AI JDs</text>
+<text x="30" y="321" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Interviews &amp; Rubrics</text>
+<text x="30" y="369" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Employees &amp; Depts</text>
+<text x="30" y="417" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">HR Copilot (Policy RAG)</text>
+<text x="30" y="465" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Billing &amp; RBAC Roles</text>
+<line x1="0" y1="815" x2="260" y2="815" stroke="#1e293b" stroke-width="1"/>
+<circle cx="26" cy="842" r="4.5" fill="#10b981"/>
+<text x="38" y="846" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="12" font-weight="500">Supabase RLS: Enforced</text>
+<text x="22" y="870" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="11">Plan: Enterprise · Org Isolated</text>
+<text x="300" y="54" fill="#f8fafc" font-family="Inter, sans-serif" font-size="28" font-weight="700">Workforce &amp; Hiring Intelligence</text>
+<text x="300" y="80" fill="#94a3b8" font-family="Inter, sans-serif" font-size="14">Real-time multi-tenant recruitment funnel, Groq CV match telemetry, and department distribution.</text>
+<rect x="300" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="320" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">OPEN ROLES</text>
+<text x="320" y="176" fill="#f8fafc" font-family="Inter, sans-serif" font-size="32" font-weight="700">14</text>
+<text x="320" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Across 5 org departments</text>
+<rect x="579" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="599" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">CV POOL SCREENED</text>
+<text x="599" y="176" fill="#10b981" font-family="Inter, sans-serif" font-size="32" font-weight="700">486</text>
+<text x="599" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Extracted via unpdf/mammoth + OCR</text>
+<rect x="858" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="878" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">INTERVIEWS LOGGED</text>
+<text x="878" y="176" fill="#38bdf8" font-family="Inter, sans-serif" font-size="32" font-weight="700">42</text>
+<text x="878" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">0–10 structured rubric evaluations</text>
+<rect x="1137" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="1157" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">AVG MATCH SCORE</text>
+<text x="1157" y="176" fill="#a855f7" font-family="Inter, sans-serif" font-size="32" font-weight="700">86.4%</text>
+<text x="1157" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Explainable 4-category breakdown</text>
+<rect x="300" y="246" width="640" height="310" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="324" y="280" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13.5" font-weight="700" letter-spacing="0.5">HIRING PIPELINE FUNNEL (CANDIDATE_MATCHES STATE MACHINE)</text>
+<rect x="338" y="320" width="72" height="175" rx="6" fill="#3b82f6"/>
+<text x="374" y="310" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">486</text>
+<text x="374" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Screened</text>
+<rect x="436" y="394" width="72" height="101" rx="6" fill="#38bdf8"/>
+<text x="472" y="384" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">124</text>
+<text x="472" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Shortlisted</text>
+<rect x="534" y="429" width="72" height="66" rx="6" fill="#06b6d4"/>
+<text x="570" y="419" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">42</text>
+<text x="570" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Interviewing</text>
+<rect x="632" y="457" width="72" height="38" rx="6" fill="#10b981"/>
+<text x="668" y="447" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">16</text>
+<text x="668" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Offered</text>
+<rect x="730" y="464" width="72" height="31" rx="6" fill="#22c55e"/>
+<text x="766" y="454" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">12</text>
+<text x="766" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Hired</text>
+<rect x="828" y="366" width="72" height="129" rx="6" fill="#6366f1"/>
+<text x="864" y="356" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">210</text>
+<text x="864" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Re-Matched</text>
+<rect x="960" y="246" width="440" height="310" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="984" y="280" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13.5" font-weight="700" letter-spacing="0.5">RECENT AI &amp; EDGE FUNCTION EXECUTIONS</text>
+<rect x="980" y="298" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="320" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">parse-cv + matching.ts</text>
+<text x="1364" y="320" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">180ms</text>
+<text x="996" y="339" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Bulk screened 45 CVs vs Senior AI Engineer JD</text>
+<rect x="980" y="360" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="382" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">hr_copilot_policy_search</text>
+<text x="1364" y="382" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">95ms</text>
+<text x="996" y="401" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Postgres FTS RAG query on Employee_Handbook.pdf</text>
+<rect x="980" y="422" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="444" fill="#a855f7" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">interview_questions (Groq)</text>
+<text x="1364" y="444" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">310ms</text>
+<text x="996" y="463" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Generated 12 rubric questions for Application #409</text>
+<rect x="980" y="484" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="506" fill="#f59e0b" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">stripe-webhook (Billing)</text>
+<text x="1364" y="506" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">42ms</text>
+<text x="996" y="525" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Verified Enterprise subscription &amp; RLS plan gate</text>
+<rect x="300" y="576" width="1100" height="294" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="324" y="612" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="700" letter-spacing="0.5">TOP RANKED CANDIDATE APPLICATIONS (EXPLAINABLE GROQ MATCH SCORES)</text>
+<rect x="324" y="628" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="654" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">APP-9041 · Senior AI/ML Engineer</text>
+<text x="344" y="677" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">A. Rahman — 94.2% Match (Skills: 96% · Exp: 92% · Edu: 95% · Keywords: 93%)</text>
+<text x="730" y="654" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">CV Pool ID: cand_8821 · Matched across 3 roles simultaneously</text>
+<text x="730" y="677" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">SHORTLISTED · Top 5%</text>
+<rect x="1240" y="646" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="666" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">SHORTLISTED</text>
+<rect x="324" y="706" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="732" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">APP-9038 · Full-Stack Platform Engineer</text>
+<text x="344" y="755" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">S. Karim — 91.5% Match (Skills: 93% · Exp: 90% · Edu: 91% · Keywords: 92%)</text>
+<text x="730" y="732" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Assigned Interviewer: Dept Head (Engineering Roster) · Rubric: 9.1/10</text>
+<text x="730" y="755" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">INTERVIEWING · Score 9.1</text>
+<rect x="1240" y="724" width="116" height="32" rx="6" fill="#38bdf8" fill-opacity="0.18" stroke="#38bdf8" stroke-width="1"/>
+<text x="1298" y="744" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">INTERVIEWING</text>
+<rect x="324" y="784" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="810" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">APP-8994 · Data Intelligence Lead</text>
+<text x="344" y="833" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">N. Chowdhury — 89.8% Match (Skills: 91% · Exp: 88% · Edu: 90% · Keywords: 89%)</text>
+<text x="730" y="810" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Offer Letter drafted via HR Copilot Documents · Audit Logged</text>
+<text x="730" y="833" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">HIRED · Onboarded</text>
+<rect x="1240" y="802" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="822" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">HIRED</text>
+</svg>

@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900">
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#070a10"/>
+    <stop offset="100%" stop-color="#0b101b"/>
+  </linearGradient>
+</defs>
+<rect width="1440" height="900" fill="url(#bgGrad)"/>
+<rect x="0" y="0" width="260" height="900" fill="#090d15" stroke="#1e293b" stroke-width="1"/>
+<rect x="20" y="22" width="42" height="42" rx="10" fill="#10b981" fill-opacity="0.16" stroke="#10b981" stroke-width="1.5"/>
+<text x="41" y="48" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">RM</text>
+<text x="74" y="40" fill="#f8fafc" font-family="Inter, sans-serif" font-size="17" font-weight="700">RepoMedic</text>
+<text x="74" y="58" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="11">CLI &amp; GitHub Actions Gate</text>
+<line x1="0" y1="82" x2="260" y2="82" stroke="#1e293b" stroke-width="1"/>
+<text x="30" y="129" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Repository Health Score</text>
+<text x="30" y="177" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Manifest &amp; Lockfiles</text>
+<text x="30" y="225" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Config &amp; .env Drift</text>
+<text x="30" y="273" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">AST &amp; Dead-Code Hotspots</text>
+<text x="30" y="321" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Security Hygiene Checks</text>
+<rect x="14" y="344" width="232" height="40" rx="8" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1.2"/>
+<text x="30" y="369" fill="#ffffff" font-family="Inter, sans-serif" font-size="13.5" font-weight="600">CI/CD Pre-Flight Gate</text>
+<line x1="0" y1="815" x2="260" y2="815" stroke="#1e293b" stroke-width="1"/>
+<circle cx="26" cy="842" r="4.5" fill="#10b981"/>
+<text x="38" y="846" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="12" font-weight="500">Deterministic Exit Codes</text>
+<text x="22" y="870" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="11">JSON + Markdown Report Emitter</text>
+<text x="300" y="54" fill="#f8fafc" font-family="Inter, sans-serif" font-size="28" font-weight="700">CLI Audit Summary &amp; CI/CD Pre-Flight Gate</text>
+<text x="300" y="80" fill="#94a3b8" font-family="Inter, sans-serif" font-size="14">Deterministic repository verification before pull-request merge or production deployment.</text>
+<rect x="300" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="320" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">SCAN DURATION</text>
+<text x="320" y="176" fill="#10b981" font-family="Inter, sans-serif" font-size="32" font-weight="700">1.18s</text>
+<text x="320" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Local CPU-only static AST walk</text>
+<rect x="579" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="599" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">CRITICAL BLOCKERS</text>
+<text x="599" y="176" fill="#10b981" font-family="Inter, sans-serif" font-size="32" font-weight="700">0</text>
+<text x="599" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">CI gate status: PASS</text>
+<rect x="858" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="878" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">WARNINGS FLAGGED</text>
+<text x="878" y="176" fill="#f59e0b" font-family="Inter, sans-serif" font-size="32" font-weight="700">3</text>
+<text x="878" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Env parity &amp; lockfile pinning</text>
+<rect x="1137" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="1157" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">SOURCE MUTATIONS</text>
+<text x="1157" y="176" fill="#38bdf8" font-family="Inter, sans-serif" font-size="32" font-weight="700">0 Files</text>
+<text x="1157" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">100% read-only guarantee</text>
+<rect x="300" y="246" width="640" height="310" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="324" y="280" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13.5" font-weight="700" letter-spacing="0.5">TERMINAL CLI EXECUTION — REPOMEDIC AUDIT</text>
+<rect x="320" y="296" width="600" height="240" rx="8" fill="#070a0f" stroke="#1e293b"/>
+<text x="338" y="324" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12">$ repomedic audit ./service-repo --format markdown,json --strict</text>
+<text x="338" y="350" fill="#cbd5e1" font-family="JetBrains Mono, monospace" font-size="12">› [SCAN] Indexed 342 source files (Python 3.12, TypeScript 5.5, Docker)</text>
+<text x="338" y="376" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12">› [MANIFEST] package-lock.json &amp; pyproject.toml integrity: 94/100</text>
+<text x="338" y="402" fill="#f59e0b" font-family="JetBrains Mono, monospace" font-size="12">› [ENV_DRIFT] 2 env vars in src/config.py missing from .env.example</text>
+<text x="338" y="428" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12">› [SECRETS] 0 credential leaks or private keys detected across tree</text>
+<text x="338" y="454" fill="#cbd5e1" font-family="JetBrains Mono, monospace" font-size="12">› [GRAPH] 0 circular dependencies · 2 unused helper modules noted</text>
+<text x="338" y="480" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12">› [RESULT] Health Grade: B+ (89.2/100) · Exit Code: 0 (CI Gate Passed)</text>
+<rect x="960" y="246" width="440" height="310" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="984" y="280" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13.5" font-weight="700" letter-spacing="0.5">CI/CD WORKFLOW INTEGRATION</text>
+<rect x="980" y="298" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="320" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Zero External API Keys</text>
+<text x="1364" y="320" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">100% Local</text>
+<text x="996" y="339" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Runs offline in air-gapped CI runners &amp; dev machines</text>
+<rect x="980" y="360" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="382" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">PR Delta Comparison</text>
+<text x="1364" y="382" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">Baseline Diff</text>
+<text x="996" y="401" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Highlights newly introduced debt vs main branch</text>
+<rect x="980" y="422" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="444" fill="#a855f7" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Symlink &amp; Binary Guards</text>
+<text x="1364" y="444" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">Hardened</text>
+<text x="996" y="463" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Prevents directory traversal &amp; binary memory spikes</text>
+<rect x="980" y="484" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="506" fill="#f59e0b" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Structured JSON Schema</text>
+<text x="1364" y="506" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">Machine-Readable</text>
+<text x="996" y="525" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Integrates directly with automated PR comment bots</text>
+<rect x="300" y="576" width="1100" height="294" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="324" y="612" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="700" letter-spacing="0.5">PRE-DEPLOYMENT READINESS CHECKLIST</text>
+<rect x="324" y="628" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="654" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">GATE-01 · Dockerfile &amp; Multi-Stage Build Hygiene</text>
+<text x="344" y="677" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Verified non-root container user, pinned base image tag, and .dockerignore secret exclusions</text>
+<text x="730" y="654" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Prevents accidental .env or .git context leakage into container layers</text>
+<text x="730" y="677" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">PASS · Hardened Build</text>
+<rect x="1240" y="646" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="666" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">PASS</text>
+<rect x="324" y="706" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="732" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">GATE-02 · Test Suite &amp; Typecheck Script Contract</text>
+<text x="344" y="755" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Confirmed pytest, ruff, and tsc --noEmit entrypoints match GitHub Actions workflow steps</text>
+<text x="730" y="732" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Eliminates local-vs-CI command drift</text>
+<text x="730" y="755" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">VERIFIED · Parity Confirmed</text>
+<rect x="1240" y="724" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="744" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">VERIFIED</text>
+<rect x="324" y="784" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="810" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">GATE-03 · License, README &amp; Security Policy Presence</text>
+<text x="344" y="833" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Validated open-source release governance manifests and dependency license compatibility</text>
+<text x="730" y="810" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Ready for public release and team handoff</text>
+<text x="730" y="833" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">COMPLETED · Release Ready</text>
+<rect x="1240" y="802" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="822" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">COMPLETED</text>
+</svg>

@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900">
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#070a10"/>
+    <stop offset="100%" stop-color="#0b101b"/>
+  </linearGradient>
+</defs>
+<rect width="1440" height="900" fill="url(#bgGrad)"/>
+<rect x="0" y="0" width="260" height="900" fill="#090d15" stroke="#1e293b" stroke-width="1"/>
+<rect x="20" y="22" width="42" height="42" rx="10" fill="#38bdf8" fill-opacity="0.16" stroke="#38bdf8" stroke-width="1.5"/>
+<text x="41" y="48" text-anchor="middle" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">VR</text>
+<text x="74" y="40" fill="#f8fafc" font-family="Inter, sans-serif" font-size="17" font-weight="700">Vellum Research</text>
+<text x="74" y="58" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="11">14-Stage LangGraph · v1.0</text>
+<line x1="0" y1="82" x2="260" y2="82" stroke="#1e293b" stroke-width="1"/>
+<text x="30" y="129" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Research Workspace</text>
+<text x="30" y="177" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">New Research Run</text>
+<rect x="14" y="200" width="232" height="40" rx="8" fill="#38bdf8" fill-opacity="0.18" stroke="#38bdf8" stroke-width="1.2"/>
+<text x="30" y="225" fill="#ffffff" font-family="Inter, sans-serif" font-size="13.5" font-weight="600">14-Stage Live Pipeline</text>
+<text x="30" y="273" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Flagship Report Reader</text>
+<text x="30" y="321" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Citation Inspector [n]</text>
+<text x="30" y="369" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Source Library (24)</text>
+<text x="30" y="417" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Evidence &amp; Contradictions</text>
+<line x1="0" y1="815" x2="260" y2="815" stroke="#1e293b" stroke-width="1"/>
+<circle cx="26" cy="842" r="4.5" fill="#10b981"/>
+<text x="38" y="846" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="12" font-weight="500">Citation Verifier: Enforced</text>
+<text x="22" y="870" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="11">vellum-research-nine.vercel.app</text>
+<text x="300" y="54" fill="#f8fafc" font-family="Inter, sans-serif" font-size="28" font-weight="700">14-Stage Controlled LangGraph Research Pipeline</text>
+<text x="300" y="80" fill="#94a3b8" font-family="Inter, sans-serif" font-size="14">Decomposes complex questions, executes two-stage discovery, cross-checks contradictions &amp; validates every [n] citation.</text>
+<rect x="300" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="320" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">PIPELINE STAGES</text>
+<text x="320" y="176" fill="#38bdf8" font-family="Inter, sans-serif" font-size="32" font-weight="700">14 / 14</text>
+<text x="320" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Deterministic state transitions</text>
+<rect x="579" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="599" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">SOURCES EXTRACTED</text>
+<text x="599" y="176" fill="#10b981" font-family="Inter, sans-serif" font-size="32" font-weight="700">24</text>
+<text x="599" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Domain-diverse via Trafilatura</text>
+<rect x="858" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="878" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">CITATIONS VALIDATED</text>
+<text x="878" y="176" fill="#10b981" font-family="Inter, sans-serif" font-size="32" font-weight="700">38 / 38</text>
+<text x="878" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">100% mapped to collected URLs</text>
+<rect x="1137" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="1157" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">CONTRADICTIONS</text>
+<text x="1157" y="176" fill="#f59e0b" font-family="Inter, sans-serif" font-size="32" font-weight="700">3 Flagged</text>
+<text x="1157" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Classified by scope &amp; measurement</text>
+<rect x="300" y="246" width="640" height="310" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="324" y="280" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13.5" font-weight="700" letter-spacing="0.5">14-STAGE LANGGRAPH EXECUTION TELEMETRY (SSE STREAM)</text>
+<rect x="320" y="296" width="600" height="240" rx="8" fill="#070a0f" stroke="#1e293b"/>
+<text x="338" y="324" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12">01. understand_question -&gt; 02. create_research_plan (4 focused subquestions)</text>
+<text x="338" y="350" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12">03. generate_search_queries -&gt; 04. search_web (Tavily two-stage discovery)</text>
+<text x="338" y="376" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12">05. deduplicate_sources -&gt; 06. rank_sources (domain diversity cap enforced)</text>
+<text x="338" y="402" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12">07. extract_source_content (Trafilatura + BS4; SSRF private-IP guard active)</text>
+<text x="338" y="428" fill="#cbd5e1" font-family="JetBrains Mono, monospace" font-size="12">08. extract_evidence -&gt; 09. evaluate_evidence (provenance &amp; limitation tags)</text>
+<text x="338" y="454" fill="#f59e0b" font-family="JetBrains Mono, monospace" font-size="12">10. cross_check_claims -&gt; 11. identify_research_gaps (3 disagreements typed)</text>
+<text x="338" y="480" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12">12. generate_report -&gt; 13. validate_citations (0 ungrounded [n] links) -&gt; 14. save</text>
+<rect x="960" y="246" width="440" height="310" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="984" y="280" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13.5" font-weight="700" letter-spacing="0.5">EVIDENCE &amp; CONTRADICTION TAXONOMY</text>
+<rect x="980" y="298" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="320" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Verified Facts vs. Claims</text>
+<text x="1364" y="320" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">Separated</text>
+<text x="996" y="339" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Distinguishes consensus data from single-source claims</text>
+<rect x="980" y="360" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="382" fill="#f59e0b" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Disagreement Classification</text>
+<text x="1364" y="382" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">5 Categories</text>
+<text x="996" y="401" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Genuine contradiction, measurement, scope, date, gap</text>
+<rect x="980" y="422" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="444" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Deterministic [n] Validator</text>
+<text x="1364" y="444" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">Zero Hallucination</text>
+<text x="996" y="463" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Rejects any inline citation not in current run's source map</text>
+<rect x="980" y="484" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="506" fill="#a855f7" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">SSRF &amp; Isolation Guards</text>
+<text x="1364" y="506" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">Hardened</text>
+<text x="996" y="525" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Blocks localhost, RFC1918, cloud metadata &amp; unsafe redirects</text>
+<rect x="300" y="576" width="1100" height="294" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="324" y="612" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="700" letter-spacing="0.5">FLAGSHIP REPORT READER &amp; INLINE [n] CITATION PROVENANCE INSPECTOR</text>
+<rect x="324" y="628" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="654" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">CITATION [04] · IEEE / ArXiv Empirical Benchmark Source</text>
+<text x="344" y="677" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Claim: 'Degradation-aware restoration improves downstream mAP by +6.8% under motion blur [4]'</text>
+<text x="730" y="654" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Verified against extracted source excerpt · Publisher, date &amp; methodology limitations indexed</text>
+<text x="730" y="677" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">GROUNDED · Citation [4] Valid</text>
+<rect x="1240" y="646" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="666" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">GROUNDED</text>
+<rect x="324" y="706" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="732" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">CONTRADICTION #02 · Classified as 'difference_in_measurement'</text>
+<text x="344" y="755" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Source [7] reports 12ms latency (batch=1, FP16) while Source [11] reports 48ms (CPU-only)</text>
+<text x="730" y="732" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Explicitly surfaced in Report §3.2 rather than silently averaging incompatible benchmarks</text>
+<text x="730" y="755" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">VERIFIED · Nuance Preserved</text>
+<rect x="1240" y="724" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="744" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">VERIFIED</text>
+<rect x="324" y="784" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="810" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">EXPORT-MD-PDF · Reproducible Research Dossier</text>
+<text x="344" y="833" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Exported clean Markdown and formatted PDF with complete bibliography and evidence charts</text>
+<text x="730" y="810" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Live deployment on Vercel + open-source repository at github.com/TahmidZ68/vellum-research</text>
+<text x="730" y="833" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">COMPLETED · Export Ready</text>
+<rect x="1240" y="802" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="822" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">COMPLETED</text>
+</svg>

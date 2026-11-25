@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900">
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#070a10"/>
+    <stop offset="100%" stop-color="#0b101b"/>
+  </linearGradient>
+</defs>
+<rect width="1440" height="900" fill="url(#bgGrad)"/>
+<rect x="0" y="0" width="260" height="900" fill="#090d15" stroke="#1e293b" stroke-width="1"/>
+<rect x="20" y="22" width="42" height="42" rx="10" fill="#10b981" fill-opacity="0.16" stroke="#10b981" stroke-width="1.5"/>
+<text x="41" y="48" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">WA</text>
+<text x="74" y="40" fill="#f8fafc" font-family="Inter, sans-serif" font-size="17" font-weight="700">Website Auditor</text>
+<text x="74" y="58" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="11">Remediation Roadmap</text>
+<line x1="0" y1="82" x2="260" y2="82" stroke="#1e293b" stroke-width="1"/>
+<text x="30" y="129" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Executive Scorecard</text>
+<text x="30" y="177" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Technical SEO &amp; Schema</text>
+<text x="30" y="225" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Security Headers &amp; SSL</text>
+<text x="30" y="273" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Performance &amp; Vitals</text>
+<text x="30" y="321" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">WCAG Accessibility</text>
+<rect x="14" y="344" width="232" height="40" rx="8" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1.2"/>
+<text x="30" y="369" fill="#ffffff" font-family="Inter, sans-serif" font-size="13.5" font-weight="600">LLM Remediation Roadmap</text>
+<line x1="0" y1="815" x2="260" y2="815" stroke="#1e293b" stroke-width="1"/>
+<circle cx="26" cy="842" r="4.5" fill="#10b981"/>
+<text x="38" y="846" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="12" font-weight="500">Client Report Ready</text>
+<text x="22" y="870" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="11">JSON + HTML Scorecard Export</text>
+<text x="300" y="54" fill="#f8fafc" font-family="Inter, sans-serif" font-size="28" font-weight="700">LLM-Synthesized Engineering &amp; Conversion Roadmap</text>
+<text x="300" y="80" fill="#94a3b8" font-family="Inter, sans-serif" font-size="14">Prioritizes technical fixes by business impact vs. engineering effort using grounded crawl evidence.</text>
+<rect x="300" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="320" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">QUICK WINS</text>
+<text x="320" y="176" fill="#10b981" font-family="Inter, sans-serif" font-size="32" font-weight="700">6 Fixes</text>
+<text x="320" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">&lt; 1 hour implementation</text>
+<rect x="579" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="599" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">EST. LOAD REDUCTION</text>
+<text x="599" y="176" fill="#38bdf8" font-family="Inter, sans-serif" font-size="32" font-weight="700">-38%</text>
+<text x="599" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Image WebP + font preconnect</text>
+<rect x="858" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="878" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">BROKEN LINKS</text>
+<text x="878" y="176" fill="#10b981" font-family="Inter, sans-serif" font-size="32" font-weight="700">0</text>
+<text x="878" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">All 194 internal/external links 200</text>
+<rect x="1137" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="1157" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">EXPORT FORMATS</text>
+<text x="1157" y="176" fill="#a855f7" font-family="Inter, sans-serif" font-size="32" font-weight="700">HTML / JSON</text>
+<text x="1157" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Executive + developer views</text>
+<rect x="300" y="246" width="640" height="310" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="324" y="280" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13.5" font-weight="700" letter-spacing="0.5">IMPACT SCORE BY OPTIMIZATION CATEGORY</text>
+<rect x="338" y="334" width="72" height="161" rx="6" fill="#10b981"/>
+<text x="374" y="324" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">High</text>
+<text x="374" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">LCP Media</text>
+<rect x="436" y="348" width="72" height="147" rx="6" fill="#38bdf8"/>
+<text x="472" y="338" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">High</text>
+<text x="472" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">CSP Policy</text>
+<rect x="534" y="359" width="72" height="136" rx="6" fill="#6366f1"/>
+<text x="570" y="349" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">Med</text>
+<text x="570" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">JSON-LD</text>
+<rect x="632" y="373" width="72" height="122" rx="6" fill="#a855f7"/>
+<text x="668" y="363" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">Med</text>
+<text x="668" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">ARIA Labels</text>
+<rect x="730" y="341" width="72" height="154" rx="6" fill="#06b6d4"/>
+<text x="766" y="331" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">High</text>
+<text x="766" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Cache-Ctrl</text>
+<rect x="828" y="352" width="72" height="143" rx="6" fill="#22c55e"/>
+<text x="864" y="342" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">High</text>
+<text x="864" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">CTA Copy</text>
+<rect x="960" y="246" width="440" height="310" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="984" y="280" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13.5" font-weight="700" letter-spacing="0.5">EVIDENCE-GROUNDED SYNTHESIS RULES</text>
+<rect x="980" y="298" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="320" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Zero Unverified Claims</text>
+<text x="1364" y="320" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">DOM-Backed</text>
+<text x="996" y="339" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Every LLM recommendation cites exact HTML selector or header</text>
+<rect x="980" y="360" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="382" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Effort vs. Impact Matrix</text>
+<text x="1364" y="382" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">Prioritized</text>
+<text x="996" y="401" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Separates 15-minute config wins from deeper refactors</text>
+<rect x="980" y="422" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="444" fill="#a855f7" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Agency &amp; B2B Ready</text>
+<text x="1364" y="444" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">Multi-Domain</text>
+<text x="996" y="463" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Built for rapid technical due diligence at Axios Station</text>
+<rect x="980" y="484" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="506" fill="#f59e0b" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Automated Re-Audit Diff</text>
+<text x="1364" y="506" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">Regression Check</text>
+<text x="996" y="525" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Verifies score improvement after engineering deployment</text>
+<rect x="300" y="576" width="1100" height="294" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="324" y="612" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="700" letter-spacing="0.5">GENERATED REMEDIATION TICKETS (DEVELOPER HANDOFF)</text>
+<rect x="324" y="628" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="654" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">TICKET-01 · Preload Hero Webfont &amp; Compress Above-the-Fold Media</text>
+<text x="344" y="677" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Selector: link[rel='preload'] + hero banner asset · Reduces Largest Contentful Paint by ~420ms</text>
+<text x="730" y="654" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Priority: P1 (High Impact / Low Effort) · Code snippet attached</text>
+<text x="730" y="677" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">VERIFIED · P1 Quick Win</text>
+<rect x="1240" y="646" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="666" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">VERIFIED</text>
+<rect x="324" y="706" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="732" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">TICKET-02 · Add Permissions-Policy &amp; Referrer-Policy Headers</text>
+<text x="344" y="755" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Target: Edge response middleware · Hardens browser feature permissions across all routes</text>
+<text x="730" y="732" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Priority: P2 (Security Hardening) · Exact vercel.json header block generated</text>
+<text x="730" y="755" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">COMPLETED · Config Ready</text>
+<rect x="1240" y="724" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="744" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">COMPLETED</text>
+<rect x="324" y="784" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="810" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">TICKET-03 · Expand Product Schema.org Structured Markup</text>
+<text x="344" y="833" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Target: Primary solution pages · Improves search rich-snippet eligibility and semantic indexing</text>
+<text x="730" y="810" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Priority: P2 (Organic Visibility) · Validated JSON-LD block generated</text>
+<text x="730" y="833" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">PASS · Schema Validated</text>
+<rect x="1240" y="802" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="822" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">PASS</text>
+</svg>

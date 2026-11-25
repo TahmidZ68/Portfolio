@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900">
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#070a10"/>
+    <stop offset="100%" stop-color="#0b101b"/>
+  </linearGradient>
+</defs>
+<rect width="1440" height="900" fill="url(#bgGrad)"/>
+<rect x="0" y="0" width="260" height="900" fill="#090d15" stroke="#1e293b" stroke-width="1"/>
+<rect x="20" y="22" width="42" height="42" rx="10" fill="#38bdf8" fill-opacity="0.16" stroke="#38bdf8" stroke-width="1.5"/>
+<text x="41" y="48" text-anchor="middle" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">AI</text>
+<text x="74" y="40" fill="#f8fafc" font-family="Inter, sans-serif" font-size="17" font-weight="700">Axios Insight</text>
+<text x="74" y="58" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="11">Workspace Data BI · Live</text>
+<line x1="0" y1="82" x2="260" y2="82" stroke="#1e293b" stroke-width="1"/>
+<rect x="14" y="104" width="232" height="40" rx="8" fill="#38bdf8" fill-opacity="0.18" stroke="#38bdf8" stroke-width="1.2"/>
+<text x="30" y="129" fill="#ffffff" font-family="Inter, sans-serif" font-size="13.5" font-weight="600">Workspace Overview</text>
+<text x="30" y="177" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Multi-File Datasets</text>
+<text x="30" y="225" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Conversational BI Chat</text>
+<text x="30" y="273" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Automated Profiling</text>
+<text x="30" y="321" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Correlation &amp; Trends</text>
+<text x="30" y="369" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Time-Series Forecasting</text>
+<text x="30" y="417" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Executive Reports</text>
+<line x1="0" y1="815" x2="260" y2="815" stroke="#1e293b" stroke-width="1"/>
+<circle cx="26" cy="842" r="4.5" fill="#10b981"/>
+<text x="38" y="846" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="12" font-weight="500">Workspace Persistence: Active</text>
+<text x="22" y="870" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="11">axios-insight-v1-three.vercel.app</text>
+<text x="300" y="54" fill="#f8fafc" font-family="Inter, sans-serif" font-size="28" font-weight="700">Workspace Data &amp; Document Intelligence</text>
+<text x="300" y="80" fill="#94a3b8" font-family="Inter, sans-serif" font-size="14">Persistent multi-file workspace supporting natural-language data querying, profiling, and forecasting.</text>
+<rect x="300" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="320" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">ACTIVE WORKSPACE</text>
+<text x="320" y="176" fill="#f8fafc" font-family="Inter, sans-serif" font-size="32" font-weight="700">4 Files</text>
+<text x="320" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">CSVs, spreadsheets &amp; PDF briefs</text>
+<rect x="579" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="599" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">RECORDS PROFILED</text>
+<text x="599" y="176" fill="#38bdf8" font-family="Inter, sans-serif" font-size="32" font-weight="700">142.8K</text>
+<text x="599" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">100% schema &amp; null check coverage</text>
+<rect x="858" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="878" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">DATA QUALITY SCORE</text>
+<text x="878" y="176" fill="#10b981" font-family="Inter, sans-serif" font-size="32" font-weight="700">96.8%</text>
+<text x="878" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Automated anomaly &amp; drift scan</text>
+<rect x="1137" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="1157" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">FORECAST HORIZON</text>
+<text x="1157" y="176" fill="#a855f7" font-family="Inter, sans-serif" font-size="32" font-weight="700">90 Days</text>
+<text x="1157" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Confidence interval: ±4.2%</text>
+<rect x="300" y="246" width="640" height="310" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="324" y="280" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13.5" font-weight="700" letter-spacing="0.5">AUTOMATED MULTI-DATASET METRIC PROFILING &amp; FORECAST</text>
+<rect x="338" y="387" width="72" height="108" rx="6" fill="#3b82f6"/>
+<text x="374" y="377" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">$410K</text>
+<text x="374" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Q1 Actual</text>
+<rect x="436" y="366" width="72" height="129" rx="6" fill="#38bdf8"/>
+<text x="472" y="356" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">$495K</text>
+<text x="472" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Q2 Actual</text>
+<rect x="534" y="350" width="72" height="145" rx="6" fill="#06b6d4"/>
+<text x="570" y="340" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">$560K</text>
+<text x="570" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Q3 Actual</text>
+<rect x="632" y="336" width="72" height="159" rx="6" fill="#10b981"/>
+<text x="668" y="326" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">$620K</text>
+<text x="668" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Q4 Actual</text>
+<rect x="730" y="327" width="72" height="168" rx="6" fill="#a855f7"/>
+<text x="766" y="317" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">$675K</text>
+<text x="766" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Q1 Forecast</text>
+<rect x="828" y="320" width="72" height="175" rx="6" fill="#6366f1"/>
+<text x="864" y="310" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">$710K</text>
+<text x="864" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Q2 Forecast</text>
+<rect x="960" y="246" width="440" height="310" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="984" y="280" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13.5" font-weight="700" letter-spacing="0.5">CONVERSATIONAL AI ANALYST INSIGHTS</text>
+<rect x="980" y="298" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="320" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Cross-File Correlation Found</text>
+<text x="1364" y="320" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">r = +0.84</text>
+<text x="996" y="339" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Enterprise onboarding speed strongly drives 12-mo retention</text>
+<rect x="980" y="360" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="382" fill="#f59e0b" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Anomaly Detected: Region_03</text>
+<text x="1364" y="382" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">-14.2% Dip</text>
+<text x="996" y="401" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Fulfilment latency spiked during carrier API migration</text>
+<rect x="980" y="422" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="444" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Schema Completeness Check</text>
+<text x="1364" y="444" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">99.1% Valid</text>
+<text x="996" y="463" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Auto-imputed 128 missing timestamps across 4 uploaded CSVs</text>
+<rect x="980" y="484" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="506" fill="#a855f7" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Executive Brief Generated</text>
+<text x="1364" y="506" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">PDF / MD</text>
+<text x="996" y="525" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Synthesized 6 charts + strategic recommendations</text>
+<rect x="300" y="576" width="1100" height="294" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="324" y="612" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="700" letter-spacing="0.5">PERSISTENT WORKSPACE FILES &amp; NATURAL-LANGUAGE QUERY LOG</text>
+<rect x="324" y="628" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="654" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">FILE-01 · enterprise_revenue_2025.csv (84,200 rows)</text>
+<text x="344" y="677" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Query: 'Segment net retention by cohort size and plot 90-day trajectory with anomalies'</text>
+<text x="730" y="654" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Executed statistical aggregation + linear/seasonal projection in 420ms</text>
+<text x="730" y="677" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">COMPLETED · Chart Rendered</text>
+<rect x="1240" y="646" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="666" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">COMPLETED</text>
+<rect x="324" y="706" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="732" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">FILE-02 · operational_sla_logs.json + Q4_Board_Report.pdf</text>
+<text x="344" y="755" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Query: 'Cross-reference SLA breaches in JSON logs with root causes noted in the Q4 PDF'</text>
+<text x="730" y="732" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Combined structured metric filtering with document intelligence extraction</text>
+<text x="730" y="755" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">VERIFIED · Multi-File Join</text>
+<rect x="1240" y="724" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="744" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">VERIFIED</text>
+<rect x="324" y="784" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="810" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">REPORT-09 · Automated Executive BI Scorecard</text>
+<text x="344" y="833" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Exported interactive visualization suite, correlation matrix, and key risk takeaways</text>
+<text x="730" y="810" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Persisted in workspace scope for team review</text>
+<text x="730" y="833" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">PASS · Saved to Workspace</text>
+<rect x="1240" y="802" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="822" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">PASS</text>
+</svg>

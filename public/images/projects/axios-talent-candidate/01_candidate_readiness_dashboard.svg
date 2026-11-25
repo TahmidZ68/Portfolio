@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900">
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#070a10"/>
+    <stop offset="100%" stop-color="#0b101b"/>
+  </linearGradient>
+</defs>
+<rect width="1440" height="900" fill="url(#bgGrad)"/>
+<rect x="0" y="0" width="260" height="900" fill="#090d15" stroke="#1e293b" stroke-width="1"/>
+<rect x="20" y="22" width="42" height="42" rx="10" fill="#38bdf8" fill-opacity="0.16" stroke="#38bdf8" stroke-width="1.5"/>
+<text x="41" y="48" text-anchor="middle" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">AC</text>
+<text x="74" y="40" fill="#f8fafc" font-family="Inter, sans-serif" font-size="17" font-weight="700">Talent Candidate</text>
+<text x="74" y="58" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="11">Candidate Career Portal · Live</text>
+<line x1="0" y1="82" x2="260" y2="82" stroke="#1e293b" stroke-width="1"/>
+<rect x="14" y="104" width="232" height="40" rx="8" fill="#38bdf8" fill-opacity="0.18" stroke="#38bdf8" stroke-width="1.2"/>
+<text x="30" y="129" fill="#ffffff" font-family="Inter, sans-serif" font-size="13.5" font-weight="600">Readiness Overview</text>
+<text x="30" y="177" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">ATS Resume Analyzer</text>
+<text x="30" y="225" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">JD Compatibility Match</text>
+<text x="30" y="273" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">CV Bullet Optimizer</text>
+<text x="30" y="321" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Cover Letter Copilot</text>
+<text x="30" y="369" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Interview Coach</text>
+<line x1="0" y1="815" x2="260" y2="815" stroke="#1e293b" stroke-width="1"/>
+<circle cx="26" cy="842" r="4.5" fill="#10b981"/>
+<text x="38" y="846" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="12" font-weight="500">Live on Vercel</text>
+<text x="22" y="870" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="11">axios-talent-candidate.vercel.app</text>
+<text x="300" y="54" fill="#f8fafc" font-family="Inter, sans-serif" font-size="28" font-weight="700">Candidate ATS Readiness &amp; Career Copilot</text>
+<text x="300" y="80" fill="#94a3b8" font-family="Inter, sans-serif" font-size="14">Transparent resume parsing, job-description compatibility scoring, and AI-guided application optimization.</text>
+<rect x="300" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="320" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">ATS READINESS SCORE</text>
+<text x="320" y="176" fill="#10b981" font-family="Inter, sans-serif" font-size="32" font-weight="700">88 / 100</text>
+<text x="320" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Grade A- · High parseability</text>
+<rect x="579" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="599" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">JD COMPATIBILITY</text>
+<text x="599" y="176" fill="#38bdf8" font-family="Inter, sans-serif" font-size="32" font-weight="700">91.5%</text>
+<text x="599" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Against Senior AI Engineer JD</text>
+<rect x="858" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="878" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">IMPACT BULLETS</text>
+<text x="878" y="176" fill="#a855f7" font-family="Inter, sans-serif" font-size="32" font-weight="700">14 / 16</text>
+<text x="878" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Quantified engineering outcomes</text>
+<rect x="1137" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="1157" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">MISSING KEYWORDS</text>
+<text x="1157" y="176" fill="#f59e0b" font-family="Inter, sans-serif" font-size="32" font-weight="700">2 Found</text>
+<text x="1157" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Actionable insertion suggestions</text>
+<rect x="300" y="246" width="640" height="310" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="324" y="280" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13.5" font-weight="700" letter-spacing="0.5">RESUME-TO-JD COMPATIBILITY DIMENSIONS</text>
+<text x="324" y="323" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">Core Technical Stack Match</text>
+<rect x="510" y="308" width="370" height="22" rx="4" fill="#162032"/>
+<rect x="510" y="308" width="351" height="22" rx="4" fill="#10b981"/>
+<text x="892" y="323" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">95%</text>
+<text x="324" y="367" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">System Architecture Keywords</text>
+<rect x="510" y="352" width="370" height="22" rx="4" fill="#162032"/>
+<rect x="510" y="352" width="333" height="22" rx="4" fill="#38bdf8"/>
+<text x="892" y="367" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">90%</text>
+<text x="324" y="411" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">Quantified Impact &amp; Metrics</text>
+<rect x="510" y="396" width="370" height="22" rx="4" fill="#162032"/>
+<rect x="510" y="396" width="318" height="22" rx="4" fill="#6366f1"/>
+<text x="892" y="411" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">86%</text>
+<text x="324" y="455" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">ATS Formatting &amp; Section Clarity</text>
+<rect x="510" y="440" width="370" height="22" rx="4" fill="#162032"/>
+<rect x="510" y="440" width="347" height="22" rx="4" fill="#22c55e"/>
+<text x="892" y="455" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">94%</text>
+<text x="324" y="499" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">Role Seniority Alignment</text>
+<rect x="510" y="484" width="370" height="22" rx="4" fill="#162032"/>
+<rect x="510" y="484" width="325" height="22" rx="4" fill="#a855f7"/>
+<text x="892" y="499" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">88%</text>
+<rect x="960" y="246" width="440" height="310" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="984" y="280" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13.5" font-weight="700" letter-spacing="0.5">AI OPTIMIZATION RECOMMENDATIONS</text>
+<rect x="980" y="298" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="320" fill="#f59e0b" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Add Missing Keyword: Docker</text>
+<text x="1364" y="320" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">High Impact</text>
+<text x="996" y="339" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Target JD mentions containerized FastAPI deployments</text>
+<rect x="980" y="360" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="382" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Quantify Bullet #4 (Latency)</text>
+<text x="1364" y="382" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">Enhancement</text>
+<text x="996" y="401" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Specify % reduction or p95 response time improvement</text>
+<rect x="980" y="422" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="444" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Tailored Cover Letter Ready</text>
+<text x="1364" y="444" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">Generated</text>
+<text x="996" y="463" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Aligned with company product thesis &amp; 3 key projects</text>
+<rect x="980" y="484" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="506" fill="#a855f7" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Interview Prep Questions</text>
+<text x="1364" y="506" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">10 Ready</text>
+<text x="996" y="525" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Role-specific technical &amp; system design prompts</text>
+<rect x="300" y="576" width="1100" height="294" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="324" y="612" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="700" letter-spacing="0.5">BEFORE / AFTER AI RESUME BULLET OPTIMIZATION &amp; COVER LETTER CO-PILOT</text>
+<rect x="324" y="628" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="654" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">BULLET #01 · AI Engineering Experience</text>
+<text x="344" y="677" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Optimized: 'Architected multi-file document BI &amp; recruitment platforms serving live workflows'</text>
+<text x="730" y="654" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Replaced generic 'Worked on AI web apps' with concrete architectural scope &amp; outcome</text>
+<text x="730" y="677" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">VERIFIED · +18% Impact</text>
+<rect x="1240" y="646" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="666" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">VERIFIED</text>
+<rect x="324" y="706" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="732" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">BULLET #02 · Computer Vision &amp; Data Quality</text>
+<text x="344" y="755" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Optimized: 'Engineered read-only CV dataset auditing framework catching SHA-256 &amp; pHash leakage'</text>
+<text x="730" y="732" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Highlighted deterministic methodology, supported formats (YOLO/COCO/VOC) &amp; reproducibility</text>
+<text x="730" y="755" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">VERIFIED · +22% Impact</text>
+<rect x="1240" y="724" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="744" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">VERIFIED</text>
+<rect x="324" y="784" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="810" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">COVER-LETTER · Tailored Application Brief</text>
+<text x="344" y="833" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Generated 3-paragraph technical cover letter linking research publications to production role</text>
+<text x="730" y="810" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Exportable to PDF / Markdown · Ready for immediate submission</text>
+<text x="730" y="833" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">COMPLETED · Ready</text>
+<rect x="1240" y="802" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="822" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">COMPLETED</text>
+</svg>

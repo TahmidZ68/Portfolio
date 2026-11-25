@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900">
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#070a10"/>
+    <stop offset="100%" stop-color="#0b101b"/>
+  </linearGradient>
+</defs>
+<rect width="1440" height="900" fill="url(#bgGrad)"/>
+<rect x="0" y="0" width="260" height="900" fill="#090d15" stroke="#1e293b" stroke-width="1"/>
+<rect x="20" y="22" width="42" height="42" rx="10" fill="#10b981" fill-opacity="0.16" stroke="#10b981" stroke-width="1.5"/>
+<text x="41" y="48" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">AC</text>
+<text x="74" y="40" fill="#f8fafc" font-family="Inter, sans-serif" font-size="17" font-weight="700">Talent Candidate</text>
+<text x="74" y="58" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="11">JD Compatibility Engine</text>
+<line x1="0" y1="82" x2="260" y2="82" stroke="#1e293b" stroke-width="1"/>
+<text x="30" y="129" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Readiness Overview</text>
+<text x="30" y="177" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">ATS Resume Analyzer</text>
+<rect x="14" y="200" width="232" height="40" rx="8" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1.2"/>
+<text x="30" y="225" fill="#ffffff" font-family="Inter, sans-serif" font-size="13.5" font-weight="600">JD Compatibility Match</text>
+<text x="30" y="273" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">CV Bullet Optimizer</text>
+<text x="30" y="321" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Cover Letter Copilot</text>
+<text x="30" y="369" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Interview Coach</text>
+<line x1="0" y1="815" x2="260" y2="815" stroke="#1e293b" stroke-width="1"/>
+<circle cx="26" cy="842" r="4.5" fill="#10b981"/>
+<text x="38" y="846" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="12" font-weight="500">Semantic Parser: Active</text>
+<text x="22" y="870" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="11">Zero-Fabrication Guard Enforced</text>
+<text x="300" y="54" fill="#f8fafc" font-family="Inter, sans-serif" font-size="28" font-weight="700">Semantic Resume ↔ Job Description Matrix</text>
+<text x="300" y="80" fill="#94a3b8" font-family="Inter, sans-serif" font-size="14">Line-by-line competency alignment, keyword gap detection, and ATS filter simulation.</text>
+<rect x="300" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="320" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">MATCHED SKILLS</text>
+<text x="320" y="176" fill="#10b981" font-family="Inter, sans-serif" font-size="32" font-weight="700">18 / 20</text>
+<text x="320" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">90% required skill coverage</text>
+<rect x="579" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="599" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">SEMANTIC OVERLAP</text>
+<text x="599" y="176" fill="#38bdf8" font-family="Inter, sans-serif" font-size="32" font-weight="700">92.8%</text>
+<text x="599" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">High domain relevance</text>
+<rect x="858" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="878" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">PARSE CONFIDENCE</text>
+<text x="878" y="176" fill="#10b981" font-family="Inter, sans-serif" font-size="32" font-weight="700">99.4%</text>
+<text x="878" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Clean single-column structure</text>
+<rect x="1137" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="1157" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">PREP READINESS</text>
+<text x="1157" y="176" fill="#a855f7" font-family="Inter, sans-serif" font-size="32" font-weight="700">Ready</text>
+<text x="1157" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Top decile applicant profile</text>
+<rect x="300" y="246" width="640" height="310" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="324" y="280" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13.5" font-weight="700" letter-spacing="0.5">COMPETENCY COVERAGE BY DOMAIN</text>
+<rect x="338" y="324" width="72" height="171" rx="6" fill="#10b981"/>
+<text x="374" y="314" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">98%</text>
+<text x="374" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Python/ML</text>
+<rect x="436" y="329" width="72" height="166" rx="6" fill="#38bdf8"/>
+<text x="472" y="319" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">95%</text>
+<text x="472" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">LLM/RAG</text>
+<rect x="534" y="334" width="72" height="161" rx="6" fill="#3b82f6"/>
+<text x="570" y="324" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">92%</text>
+<text x="570" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">FastAPI</text>
+<rect x="632" y="338" width="72" height="157" rx="6" fill="#6366f1"/>
+<text x="668" y="328" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">90%</text>
+<text x="668" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">React/TS</text>
+<rect x="730" y="340" width="72" height="155" rx="6" fill="#a855f7"/>
+<text x="766" y="330" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">89%</text>
+<text x="766" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Postgres</text>
+<rect x="828" y="348" width="72" height="147" rx="6" fill="#14b8a6"/>
+<text x="864" y="338" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">84%</text>
+<text x="864" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Cloud/CI</text>
+<rect x="960" y="246" width="440" height="310" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="984" y="280" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13.5" font-weight="700" letter-spacing="0.5">EXTRACTED RESUME ENTITIES</text>
+<rect x="980" y="298" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="320" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Education: B.Sc. in CSE</text>
+<text x="1364" y="320" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">Verified</text>
+<text x="996" y="339" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Data Science &amp; Intelligent Systems specialization</text>
+<rect x="980" y="360" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="382" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Leadership: CBO &amp; AI Engineer</text>
+<text x="1364" y="382" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">Verified</text>
+<text x="996" y="401" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">End-to-end AI product architecture &amp; delivery</text>
+<rect x="980" y="422" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="444" fill="#a855f7" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Research: 4 Published Papers</text>
+<text x="1364" y="444" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">Verified</text>
+<text x="996" y="463" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Medical imaging, CNNs, classification &amp; sustainability</text>
+<rect x="980" y="484" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="506" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Open-Source: 9+ Systems</text>
+<text x="1364" y="506" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">Verified</text>
+<text x="996" y="525" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">DatasetMedic, API Detective, FlowSentry, Vellum</text>
+<rect x="300" y="576" width="1100" height="294" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="324" y="612" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="700" letter-spacing="0.5">TARGET JOB DESCRIPTION REQUIREMENT VERIFICATION LOG</text>
+<rect x="324" y="628" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="654" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">REQ-01 · Production LLM &amp; Document AI Experience</text>
+<text x="344" y="677" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Matched via Axios Talent, Axios Insight &amp; Vellum Research (14-stage LangGraph pipeline)</text>
+<text x="730" y="654" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Evidence found in Experience &amp; Selected AI Products sections</text>
+<text x="730" y="677" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">PASS · Strong Match</text>
+<rect x="1240" y="646" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="666" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">PASS</text>
+<rect x="324" y="706" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="732" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">REQ-02 · Deep Learning &amp; Computer Vision Foundations</text>
+<text x="344" y="755" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Matched via DatasetMedic (YOLO/COCO/VOC), BAU Spirulina CNNs &amp; VGG19 Autism Image study</text>
+<text x="730" y="732" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Evidence backed by published ResearchGate papers &amp; EWU funded grant</text>
+<text x="730" y="755" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">PASS · Strong Match</text>
+<rect x="1240" y="724" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="744" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">PASS</text>
+<rect x="324" y="784" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="810" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">REQ-03 · Full-Stack API &amp; Database Architecture</text>
+<text x="344" y="833" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Matched via FastAPI, React 18, Next.js 14, PostgreSQL 16 &amp; Supabase RLS implementations</text>
+<text x="730" y="810" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Verified across live Vercel deployments and public GitHub repositories</text>
+<text x="730" y="833" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">PASS · Strong Match</text>
+<rect x="1240" y="802" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="822" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">PASS</text>
+</svg>

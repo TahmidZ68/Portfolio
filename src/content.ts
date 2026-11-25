@@ -441,6 +441,16 @@ export const engineeredSystems: EngineeredSystem[] = [
       { label: 'GitHub', url: verifiedLinks.flowSentryRepo },
       { label: 'Documentation', url: verifiedLinks.flowSentryDocs },
     ],
+    previews: [
+      {
+        src: '/images/projects/flowsentry/01_reliability_overview.svg',
+        caption: 'Automation Reliability Overview & 6 Business-Outcome Verifiers',
+      },
+      {
+        src: '/images/projects/flowsentry/02_incident_rca_and_sanitization.svg',
+        caption: 'Incident Fingerprinting, Secret Sanitization & Deterministic Fallback RCA',
+      },
+    ],
   },
   {
     id: 'vellum-research',
@@ -497,6 +507,16 @@ export const engineeredSystems: EngineeredSystem[] = [
       { label: 'GitHub', url: verifiedLinks.vellumResearchRepo },
       { label: 'Documentation', url: verifiedLinks.vellumResearchDocs },
     ],
+    previews: [
+      {
+        src: '/images/projects/vellum-research/01_live_research_pipeline.svg',
+        caption: '14-Stage Controlled LangGraph Research Pipeline & Citation Inspector',
+      },
+      {
+        src: '/images/projects/vellum-research/02_source_library_and_security.svg',
+        caption: 'Filterable Source Library, Provenance Audit & SSRF Protection',
+      },
+    ],
   },
   {
     id: 'repo-medic',
@@ -541,6 +561,16 @@ export const engineeredSystems: EngineeredSystem[] = [
     ],
     technologies: ['Python', 'Static Analysis', 'AST & Manifest Parsing', 'CLI Diagnostics', 'CI/CD Auditing'],
     links: [{ label: 'GitHub', sublabel: 'Developer Profile', url: verifiedLinks.github }],
+    previews: [
+      {
+        src: '/images/projects/repo-medic/01_repo_health_dashboard.svg',
+        caption: 'Repository Health Scorecard, Config Drift & Dependency Hygiene',
+      },
+      {
+        src: '/images/projects/repo-medic/02_cli_preflight_audit.svg',
+        caption: 'Read-Only CLI Audit Summary & CI/CD Pre-Flight Quality Gate',
+      },
+    ],
   },
   {
     id: 'website-auditor',
@@ -584,6 +614,16 @@ export const engineeredSystems: EngineeredSystem[] = [
     ],
     technologies: ['Python', 'FastAPI', 'React', 'LLM Integration', 'Automated Web Extraction', 'Technical Auditing'],
     links: [{ label: 'GitHub', sublabel: 'Developer Profile', url: verifiedLinks.github }],
+    previews: [
+      {
+        src: '/images/projects/website-auditor/01_technical_audit_overview.svg',
+        caption: 'Multi-Pillar Technical SEO, HTTP Security & WCAG Accessibility Scorecard',
+      },
+      {
+        src: '/images/projects/website-auditor/02_llm_remediation_roadmap.svg',
+        caption: 'Evidence-Grounded LLM Engineering & Conversion Remediation Roadmap',
+      },
+    ],
   },
   {
     id: 'axios-insight',
@@ -639,6 +679,16 @@ export const engineeredSystems: EngineeredSystem[] = [
       { label: 'Live Demo', sublabel: 'Primary Deployment', url: verifiedLinks.axiosInsight },
       { label: 'Live Demo', sublabel: 'Workspace Build', url: verifiedLinks.axiosInsightWorkspace },
       { label: 'GitHub', sublabel: 'TahmidZ68/axios-insight', url: verifiedLinks.axiosInsightRepo },
+    ],
+    previews: [
+      {
+        src: '/images/projects/axios-insight/01_workspace_data_overview.svg',
+        caption: 'Persistent Multi-File Workspace, Dataset Profiling & 90-Day Forecasting',
+      },
+      {
+        src: '/images/projects/axios-insight/02_conversational_nl_query.svg',
+        caption: 'Conversational Natural-Language BI & Statistical Correlation Discovery',
+      },
     ],
   },
   {
@@ -696,6 +746,20 @@ export const engineeredSystems: EngineeredSystem[] = [
       { label: 'Live Demo', sublabel: 'Recruiter & HR Platform', url: verifiedLinks.axiosTalent },
       { label: 'GitHub', sublabel: 'Profile', url: verifiedLinks.github },
     ],
+    previews: [
+      {
+        src: '/images/projects/axios-talent/01_recruitment_overview.svg',
+        caption: 'Multi-Tenant Workforce & Hiring Funnel Dashboard (Supabase RLS)',
+      },
+      {
+        src: '/images/projects/axios-talent/02_bulk_cv_screening.svg',
+        caption: 'Bulk 100+ CV Screening, Pool Re-Matching & Explainable Groq Scoring',
+      },
+      {
+        src: '/images/projects/axios-talent/03_hr_copilot_policy_rag.svg',
+        caption: 'HR Copilot — Postgres Full-Text Search Policy RAG & Document Suite',
+      },
+    ],
   },
   {
     id: 'axios-talent-candidate',
@@ -742,6 +806,16 @@ export const engineeredSystems: EngineeredSystem[] = [
     links: [
       { label: 'Live Demo', sublabel: 'Candidate Application', url: verifiedLinks.axiosTalentCandidate },
       { label: 'GitHub', sublabel: 'Profile', url: verifiedLinks.github },
+    ],
+    previews: [
+      {
+        src: '/images/projects/axios-talent-candidate/01_candidate_readiness_dashboard.svg',
+        caption: 'Candidate ATS Readiness Score, Bullet Optimizer & Cover Letter Copilot',
+      },
+      {
+        src: '/images/projects/axios-talent-candidate/02_jd_compatibility_matrix.svg',
+        caption: 'Semantic Resume-to-JD Competency Matrix & Keyword Gap Verification',
+      },
     ],
   },
 ];
