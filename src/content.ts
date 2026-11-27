@@ -102,8 +102,6 @@ export interface SignalEntry {
 }
 
 export const verifiedLinks = {
-  portfolio: 'https://portfolio-nine-green-49.vercel.app/',
-  portfolioRepo: 'https://github.com/TahmidZ68/Portfolio',
   github: 'https://github.com/TahmidZ68',
   linkedin: 'https://www.linkedin.com/in/md-tahmid-zoayed-39355037b/',
   kaggle: 'https://www.kaggle.com/mdtahmidzoayed',
@@ -113,6 +111,10 @@ export const verifiedLinks = {
   axiosInsightRepo: 'https://github.com/TahmidZ68/axios-insight',
   axiosTalent: 'https://axios-talent-tau.vercel.app/',
   axiosTalentCandidate: 'https://axios-talent-candidate.vercel.app/',
+  degradeLabRepo: 'https://github.com/TahmidZ68/DegradeLab',
+  degradeLabDocs: 'https://github.com/TahmidZ68/DegradeLab#readme',
+  diagoraRepo: 'https://github.com/TahmidZ68/Diagora',
+  diagoraDocs: 'https://github.com/TahmidZ68/Diagora#readme',
   datasetMedicRepo: 'https://github.com/TahmidZ68/DatasetMedic',
   datasetMedicDocs: 'https://github.com/TahmidZ68/DatasetMedic#readme',
   apiDetectiveRepo: 'https://github.com/TahmidZ68/API-Detective',
@@ -235,8 +237,144 @@ export const intelligenceProfileData = {
 
 export const engineeredSystems: EngineeredSystem[] = [
   {
-    id: 'dataset-medic',
+    id: 'degradelab',
     code: 'SYS-01',
+    name: 'DegradeLab',
+    classification: 'Controlled Image Degradation & Computer Vision Robustness Toolkit',
+    domain: 'diagnostic-engine',
+    status: 'Open-Source · v0.1.0',
+    statusType: 'alpha',
+    shortDescription:
+      'Open-source Python toolkit and CLI for reproducible image degradation, dataset generation, computer vision classification robustness evaluation, visualization, and ImageNet-C / CIFAR-C benchmark validation.',
+    problemAddressed:
+      'Standard training-time data augmentation focuses on stochastic diversity rather than auditable test-time stress testing. Vision robustness research requires standardized 1..5 severity schedules, order-invariant per-image seeding, and strict separation between benchmark schedules and custom perturbations.',
+    architectureSummary:
+      'Applies 34 registered corruptions across 7 categories (noise, blur, lighting, weather, digital, spatial, resolution) in canonical float32 [0.0, 1.0] precision using isolated SHA-256 + PCG64 random streams that never mutate source files or global RNG state.',
+    architecturePipeline: [
+      {
+        stage: '01 / CORRUPT',
+        node: '34-Corruption Registry & Presets',
+        detail: 'Validated 1..5 severity schedules across 7 categories plus 7 YAML presets (nighttime_surveillance, foggy_environment, etc.).',
+      },
+      {
+        stage: '02 / SEED',
+        node: 'SHA-256 + PCG64 SeedManager',
+        detail: 'Derives deterministic per-image seeds from stable relative image_ids—invariant to discovery order and PYTHONHASHSEED.',
+      },
+      {
+        stage: '03 / EVALUATE',
+        node: 'Classification EvaluationRunner',
+        detail: 'Runs clean vs. corrupted evaluation sweeps with PyTorchClassificationAdapter and emits JSON/CSV reports & Matplotlib plots.',
+      },
+      {
+        stage: '04 / VALIDATE',
+        node: 'Benchmark Compatibility Matrix',
+        detail: 'Separates native schedules from validated ImageNet-C (<= 1e-6 numerical checks) & CIFAR-C registries with full .meta.json provenance.',
+      },
+    ],
+    technicalSpecifications: [
+      'Core engine runs on CPU using pure NumPy, OpenCV-headless, Pillow, and SciPy without requiring PyTorch or Matplotlib; optional [torch], [viz], and [eval] extras integrate cleanly.',
+      'Composable DegradationPipeline supports ordered multi-step corruptions with fixed or randomized parameter distributions (uniform, randint) and joint RGBA geometric warping.',
+      'Non-destructive dataset processor preserves class folder hierarchies, enforces overwrite=False safety, and writes manifest.json plus per-image sidecar metadata for exact replay.',
+    ],
+    technologies: [
+      'Python 3.11+',
+      'NumPy & OpenCV',
+      'PyTorch (Optional Adapter)',
+      'PCG64 & SHA-256 Seeding',
+      'Typer & Rich CLI',
+      'Matplotlib & YAML Profiles',
+    ],
+    links: [
+      { label: 'GitHub', url: verifiedLinks.degradeLabRepo },
+      { label: 'Documentation', url: verifiedLinks.degradeLabDocs },
+    ],
+    previews: [
+      {
+        src: '/images/projects/degradelab/01_degradelab_robustness_cli.svg',
+        caption: 'DegradeLab Robustness Evaluation & ImageNet-C Benchmark Matrix',
+      },
+      {
+        src: '/images/projects/degradelab/02_corruption_overview_grid.png',
+        caption: 'Real DegradeLab Output — Clean vs. Severity-3 Corruptions (seed=42)',
+      },
+      {
+        src: '/images/projects/degradelab/03_severity_1_to_5_sweep.png',
+        caption: 'Real DegradeLab Output — Deterministic Severity 1..5 Gaussian Noise Sweep',
+      },
+      {
+        src: '/images/projects/degradelab/04_pipeline_progression.png',
+        caption: 'Real DegradeLab Output — Multi-Step Pipeline (low_light -> motion_blur -> sensor_noise -> jpeg)',
+      },
+    ],
+  },
+  {
+    id: 'diagora',
+    code: 'SYS-02',
+    name: 'Diagora',
+    classification: 'Local-First Repository Diagnostics & Root-Cause CLI (diagora-cli)',
+    domain: 'diagnostic-engine',
+    status: 'Open-Source · v0.1.0a3',
+    statusType: 'alpha',
+    shortDescription:
+      'Open-source, local-first, read-only-by-default repository diagnostics CLI ("Find the cause. Verify the fix.") emitting deterministic, evidence-backed findings across Terminal, JSON, Markdown, and SARIF 2.1.0.',
+    problemAddressed:
+      'When onboarding onto multi-service codebases or debugging broken CI pipelines, failures span lockfiles, Python/Node.js runtime mismatches, undocumented env vars, Docker Compose configs, and deployment manifests—requiring unified cross-layer inspection.',
+    architectureSummary:
+      'Implements 38 static diagnostic rules across 5 ecosystems (Python PY001–PY010, Node.js ND001–ND009, Environment ENV001–ENV006, Docker DK001–DK010, Deployment/CI DP001–DP003) with strict untrusted-input containment and automatic secret redaction.',
+    architecturePipeline: [
+      {
+        stage: '01 / DISCOVER',
+        node: 'Boundary-Safe Repo Discoverer',
+        detail: 'Detects Python, Node.js, mixed monorepos & workspaces while blocking ../ traversal and symlink escapes.',
+      },
+      {
+        stage: '02 / ANALYZE',
+        node: '38-Rule Ecosystem Analyzers',
+        detail: 'Inspects pyproject/uv/poetry locks, package.json/tsconfig, .env*, Dockerfiles, and GitHub/Vercel manifests.',
+      },
+      {
+        stage: '03 / NORMALIZE',
+        node: 'FindingNormalizer & Correlator',
+        detail: 'Deduplicates findings with observed vs. expected evidence and tracks honest analyzer execution status.',
+      },
+      {
+        stage: '04 / REPORT',
+        node: 'SARIF 2.1.0 & Multi-Format Emitter',
+        detail: 'Outputs Rich terminal tables, schema-validated JSON (v1.0.0), Markdown, and SARIF 2.1.0 with exit codes 0–4.',
+      },
+    ],
+    technicalSpecifications: [
+      'Treats scanned repositories as untrusted input: zero script execution (setup.py parsed safely via ast.parse), max 5 MiB file cap, max scan depth 15, and 10,000-file resource bounds.',
+      'Honest execution tracking explicitly distinguishes completed scans from no_applicable_analyzers so unsupported languages are never falsely reported as clean.',
+      'Automatic secret redaction scrubs API keys, tokens, passwords, connection strings, and JWTs before rendering Terminal, JSON, Markdown, or SARIF outputs.',
+    ],
+    technologies: [
+      'Python 3.10+',
+      'Pydantic v2',
+      'AST & JSONC Parsing',
+      'SARIF 2.1.0',
+      'Docker & CI Static Analysis',
+      'Typer & Rich CLI',
+    ],
+    links: [
+      { label: 'GitHub', url: verifiedLinks.diagoraRepo },
+      { label: 'Documentation', url: verifiedLinks.diagoraDocs },
+    ],
+    previews: [
+      {
+        src: '/images/projects/diagora/01_diagora_scan_overview.svg',
+        caption: 'Diagora Scan Overview — 38 Implemented Rules Across 5 Ecosystems',
+      },
+      {
+        src: '/images/projects/diagora/02_sarif_and_rules_catalog.svg',
+        caption: 'SARIF 2.1.0 Code Scanning, Exit Codes & Security Boundaries',
+      },
+    ],
+  },
+  {
+    id: 'dataset-medic',
+    code: 'SYS-03',
     name: 'DatasetMedic',
     classification: 'Open-Source Computer Vision Data Quality & Leakage Framework',
     domain: 'diagnostic-engine',
@@ -312,7 +450,7 @@ export const engineeredSystems: EngineeredSystem[] = [
   },
   {
     id: 'api-detective',
-    code: 'SYS-02',
+    code: 'SYS-04',
     name: 'API Detective',
     classification: 'Autonomous API Integration Failure Investigator & Contract Engine',
     domain: 'diagnostic-engine',
@@ -389,7 +527,7 @@ export const engineeredSystems: EngineeredSystem[] = [
   },
   {
     id: 'flowsentry',
-    code: 'SYS-03',
+    code: 'SYS-05',
     name: 'FlowSentry',
     classification: 'Open-Core Automation Reliability & Business Outcome Monitoring Platform',
     domain: 'automation-reliability',
@@ -454,7 +592,7 @@ export const engineeredSystems: EngineeredSystem[] = [
   },
   {
     id: 'vellum-research',
-    code: 'SYS-04',
+    code: 'SYS-06',
     name: 'Vellum Research',
     classification: 'Open-Source 14-Stage LangGraph AI Research & Citation Verification Workspace',
     domain: 'automation-reliability',
@@ -520,7 +658,7 @@ export const engineeredSystems: EngineeredSystem[] = [
   },
   {
     id: 'repo-medic',
-    code: 'SYS-05',
+    code: 'SYS-07',
     name: 'RepoMedic',
     classification: 'Open-Source Software Repository Diagnostics & Health Auditor',
     domain: 'diagnostic-engine',
@@ -574,7 +712,7 @@ export const engineeredSystems: EngineeredSystem[] = [
   },
   {
     id: 'website-auditor',
-    code: 'SYS-06',
+    code: 'SYS-08',
     name: 'Website Auditor',
     classification: 'AI Automation System for Technical Web, SEO & Conversion Auditing',
     domain: 'automation-reliability',
@@ -627,7 +765,7 @@ export const engineeredSystems: EngineeredSystem[] = [
   },
   {
     id: 'axios-insight',
-    code: 'SYS-07',
+    code: 'SYS-09',
     name: 'Axios Insight',
     classification: 'Live AI Document & Multi-File Data Intelligence Platform',
     domain: 'production-ai',
@@ -693,7 +831,7 @@ export const engineeredSystems: EngineeredSystem[] = [
   },
   {
     id: 'axios-talent',
-    code: 'SYS-08',
+    code: 'SYS-10',
     name: 'Axios Talent',
     classification: 'Live Multi-Tenant B2B AI Recruitment & Workforce Intelligence Platform',
     domain: 'production-ai',
@@ -763,7 +901,7 @@ export const engineeredSystems: EngineeredSystem[] = [
   },
   {
     id: 'axios-talent-candidate',
-    code: 'SYS-09',
+    code: 'SYS-11',
     name: 'Axios Talent Candidate',
     classification: 'Live Candidate-Facing Career Intelligence & ATS Optimization Portal',
     domain: 'production-ai',
@@ -962,8 +1100,8 @@ export const openQuestionsData: OpenQuestionItem[] = [
     failureMode:
       'End-to-end detectors silently drop recall or produce high-confidence false positives when high-frequency spatial features are corrupted.',
     investigativeDirection:
-      'Decoupling degradation classification from downstream inference—routing inputs through condition-specific adaptive restoration before object detection.',
-    relatedSystem: 'Adaptive CV Pipeline & Spirulina Optical Assessment',
+      'Decoupling degradation classification from downstream inference—benchmarking failure curves systematically with DegradeLab before routing degraded inputs through condition-specific adaptive restoration.',
+    relatedSystem: 'DegradeLab (v0.1.0) & Adaptive CV Pipeline',
   },
   {
     id: 'oq-02',
@@ -1160,7 +1298,7 @@ export const technologyMatrixData: TechMatrixCategory[] = [
     description: 'Frameworks and methodologies applied across published research, medical/agricultural imaging, and LLM products.',
     items: [
       { name: 'Deep Learning & CNNs (VGG19, YOLO)', tier: 'Core Proficiency', context: 'Image classification, object detection, Spirulina & X-ray studies' },
-      { name: 'Computer Vision & OpenCV', tier: 'Core Proficiency', context: 'Image preprocessing, adaptive restoration, DatasetMedic auditing' },
+      { name: 'Computer Vision & OpenCV', tier: 'Core Proficiency', context: 'Image preprocessing, DegradeLab robustness & DatasetMedic auditing' },
       { name: 'LLM Applications & LangGraph Agents', tier: 'Core Proficiency', context: 'OpenAI, Groq & Gemini APIs, Vellum Research, HR Copilot' },
       { name: 'Document AI, OCR & NLP', tier: 'Core Proficiency', context: 'PDF/DOCX parsing, resume/JD matching, Bangla & Policy RAG' },
       { name: 'Scikit-learn, Pandas & NumPy', tier: 'Core Proficiency', context: 'Supervised classification, regression, tabular data profiling' },
@@ -1188,7 +1326,7 @@ export const technologyMatrixData: TechMatrixCategory[] = [
     description: 'Workflow, version control, visualization, and cloud hosting platforms used in daily engineering.',
     items: [
       { name: 'Git & GitHub', tier: 'Core Proficiency', context: 'Source control, open-source releases & CI/CD workflows' },
-      { name: 'Vercel', tier: 'Core Proficiency', context: 'Production deployment for Axios Insight, Axios Talent, Vellum & Portfolio' },
+      { name: 'Vercel', tier: 'Core Proficiency', context: 'Production deployment for Axios Insight, Axios Talent & Vellum Research' },
       { name: 'Jupyter & Google Colab', tier: 'Core Proficiency', context: 'ML experimentation, dataset exploration & model training' },
       { name: 'Matplotlib, Seaborn, Tableau & Power BI', tier: 'Core Proficiency', context: 'Scientific plotting, statistical visualization & BI dashboards' },
     ],
@@ -1206,8 +1344,8 @@ export const currentVectorData = {
       status: 'ACTIVE DEVELOPMENT',
       title: 'Deterministic-Bounded Diagnostic & Research Agents',
       description:
-        'Combining multi-step agent planning with strict local verification—exemplified by API Detective’s 7-step root-cause investigator and Vellum Research’s 14-stage citation-validated LangGraph pipeline.',
-      focusTags: ['Agent Reliability', 'Citation Verification', 'Controlled Code Repair'],
+        'Combining multi-step static analysis and agent planning with strict local verification—exemplified by Diagora’s 38-rule SARIF diagnostics, API Detective’s 7-step investigator, and Vellum Research’s citation-validated LangGraph pipeline.',
+      focusTags: ['Diagora CLI', 'SARIF 2.1.0', 'Controlled Code Repair'],
     },
     {
       code: 'VEC-02',
@@ -1228,10 +1366,10 @@ export const currentVectorData = {
     {
       code: 'VEC-04',
       status: 'ONGOING RESEARCH',
-      title: 'Pre-Training Dataset Hygiene & Adaptive Computer Vision',
+      title: 'Dataset Integrity & Computer Vision Robustness Tooling',
       description:
-        'Extending DatasetMedic’s cross-split leakage and reproducibility fingerprinting while exploring degradation-aware adaptive object detection for low-quality visual environments.',
-      focusTags: ['DatasetMedic', 'Domain Generalization', 'Explainable Computer Vision'],
+        'Advancing DatasetMedic’s cross-split leakage and reproducibility fingerprinting alongside DegradeLab’s deterministic 34-corruption robustness evaluation and ImageNet-C benchmark validation.',
+      focusTags: ['DegradeLab', 'DatasetMedic', 'Domain Generalization'],
     },
   ],
 };
@@ -1317,6 +1455,38 @@ export const signalData: SignalEntry[] = [
   {
     id: 'sig-06',
     code: 'NOTE-04',
+    type: 'ENGINEERING NOTE',
+    date: 'DEGRADELAB ROBUSTNESS',
+    title: 'Reproducible Computer Vision Stress-Testing: Order-Invariant Seeding & Benchmark Separation',
+    abstract:
+      'Training-time stochastic augmentation hides exact degradation parameters and mixes benchmark baselines. Scientific vision robustness evaluation demands isolated PCG64 seeding and explicit ImageNet-C separation.',
+    keyTakeaways: [
+      'Deriving per-image RNG streams via SHA-256 hashes of stable relative image_ids keeps degradation sweeps identical regardless of OS file discovery order or PYTHONHASHSEED.',
+      'DegradeLab strictly separates its 34 native schedules from the 10-entry ImageNet-C validation registry (validated within <= 1e-6 numerical tolerance) and never labels custom ratios as official ImageNet-C mCE.',
+      'Recording resolved step parameters, transformation order, and seeds in .meta.json sidecars turns robustness sweeps into auditable experiments.',
+    ],
+    externalUrl: verifiedLinks.degradeLabRepo,
+    externalLabel: 'View DegradeLab on GitHub',
+  },
+  {
+    id: 'sig-07',
+    code: 'NOTE-05',
+    type: 'SYSTEMS ARCHITECTURE',
+    date: 'DIAGORA STATIC ANALYSIS',
+    title: 'Honest Static Repository Diagnostics: Treating Codebases as Untrusted Input',
+    abstract:
+      'Repository scanners often crash on malformed manifests, execute setup.py inadvertently, or report unsupported languages as clean. Diagora enforces safe AST parsing, SARIF 2.1.0 output, and explicit execution tracking.',
+    keyTakeaways: [
+      'Parsing setup.py strictly with ast.parse and blocking ../ path traversal or symlink escapes ensures diagnostics remain safe on untrusted repositories.',
+      'Explicitly reporting execution_status (completed vs. no_applicable_analyzers) prevents unsupported stacks from receiving false-positive clean grades.',
+      'Emitting SARIF 2.1.0 alongside Rich terminal tables integrates deterministic Python, Node.js, Env, Docker, and Deployment rules directly into GitHub Code Scanning.',
+    ],
+    externalUrl: verifiedLinks.diagoraRepo,
+    externalLabel: 'View Diagora on GitHub',
+  },
+  {
+    id: 'sig-08',
+    code: 'NOTE-06',
     type: 'RESEARCH PAPER',
     date: 'BAU & EWU GRANT · 2022–2023',
     title: 'Optical CNN Assessment vs. Spectrometry in Spirulina Harvesting-Time Prediction',

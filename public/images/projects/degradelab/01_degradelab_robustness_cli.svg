@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900">
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#070a10"/>
+    <stop offset="100%" stop-color="#0b101b"/>
+  </linearGradient>
+</defs>
+<rect width="1440" height="900" fill="url(#bgGrad)"/>
+<rect x="0" y="0" width="260" height="900" fill="#090d15" stroke="#1e293b" stroke-width="1"/>
+<rect x="20" y="22" width="42" height="42" rx="10" fill="#38bdf8" fill-opacity="0.16" stroke="#38bdf8" stroke-width="1.5"/>
+<text x="41" y="48" text-anchor="middle" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">DL</text>
+<text x="74" y="40" fill="#f8fafc" font-family="Inter, sans-serif" font-size="17" font-weight="700">DegradeLab</text>
+<text x="74" y="58" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="11">CV Robustness Toolkit · v0.1.0</text>
+<line x1="0" y1="82" x2="260" y2="82" stroke="#1e293b" stroke-width="1"/>
+<text x="30" y="129" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Corruption Registry (34)</text>
+<text x="30" y="177" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Composable Pipelines</text>
+<text x="30" y="225" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">YAML Presets (7)</text>
+<text x="30" y="273" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Dataset Processing</text>
+<rect x="14" y="296" width="232" height="40" rx="8" fill="#38bdf8" fill-opacity="0.18" stroke="#38bdf8" stroke-width="1.2"/>
+<text x="30" y="321" fill="#ffffff" font-family="Inter, sans-serif" font-size="13.5" font-weight="600">Classification Eval</text>
+<text x="30" y="369" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Benchmark Matrix</text>
+<text x="30" y="417" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Provenance &amp; Seeds</text>
+<line x1="0" y1="815" x2="260" y2="815" stroke="#1e293b" stroke-width="1"/>
+<circle cx="26" cy="842" r="4.5" fill="#10b981"/>
+<text x="38" y="846" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="12" font-weight="500">SHA-256 + PCG64 Isolated RNG</text>
+<text x="22" y="870" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="11">github.com/TahmidZ68/DegradeLab</text>
+<text x="300" y="54" fill="#f8fafc" font-family="Inter, sans-serif" font-size="28" font-weight="700">Computer Vision Degradation &amp; Robustness Evaluation</text>
+<text x="300" y="80" fill="#94a3b8" font-family="Inter, sans-serif" font-size="14">34 registered corruptions across 7 categories with deterministic 1..5 severity schedules and ImageNet-C validation.</text>
+<rect x="300" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="320" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">REGISTERED CORRUPTIONS</text>
+<text x="320" y="176" fill="#38bdf8" font-family="Inter, sans-serif" font-size="32" font-weight="700">34 / 7 Cats</text>
+<text x="320" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Noise, Blur, Light, Weather, Digital, Spatial, Res</text>
+<rect x="579" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="599" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">DETERMINISTIC SEEDING</text>
+<text x="599" y="176" fill="#10b981" font-family="Inter, sans-serif" font-size="32" font-weight="700">PCG64</text>
+<text x="599" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">SHA-256 image_id hash (order-invariant)</text>
+<rect x="858" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="878" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">IMAGENET-C COVERAGE</text>
+<text x="878" y="176" fill="#a855f7" font-family="Inter, sans-serif" font-size="32" font-weight="700">9 + 1 Extra</text>
+<text x="878" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Bit-exact &lt;= 1e-6 numerical checks</text>
+<rect x="1137" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="1157" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">SOURCE MUTATION</text>
+<text x="1157" y="176" fill="#10b981" font-family="Inter, sans-serif" font-size="32" font-weight="700">0 Files</text>
+<text x="1157" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Non-destructive float32 [0,1] pipeline</text>
+<rect x="300" y="246" width="640" height="310" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="324" y="280" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13.5" font-weight="700" letter-spacing="0.5">CLASSIFICATION ROBUSTNESS SWEEP (CLEAN VS. SEVERITY 1..5)</text>
+<rect x="338" y="327" width="72" height="168" rx="6" fill="#10b981"/>
+<text x="374" y="317" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">94.8%</text>
+<text x="374" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Clean</text>
+<rect x="436" y="340" width="72" height="155" rx="6" fill="#38bdf8"/>
+<text x="472" y="330" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">87.4%</text>
+<text x="472" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Sev-1</text>
+<rect x="534" y="355" width="72" height="140" rx="6" fill="#3b82f6"/>
+<text x="570" y="345" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">78.2%</text>
+<text x="570" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Sev-2</text>
+<rect x="632" y="376" width="72" height="119" rx="6" fill="#6366f1"/>
+<text x="668" y="366" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">66.5%</text>
+<text x="668" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Sev-3</text>
+<rect x="730" y="401" width="72" height="94" rx="6" fill="#f59e0b"/>
+<text x="766" y="391" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">52.1%</text>
+<text x="766" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Sev-4</text>
+<rect x="828" y="424" width="72" height="71" rx="6" fill="#ef4444"/>
+<text x="864" y="414" text-anchor="middle" fill="#e2e8f0" font-family="JetBrains Mono, monospace" font-size="11.5" font-weight="600">39.8%</text>
+<text x="864" y="522" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Sev-5</text>
+<rect x="960" y="246" width="440" height="310" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="984" y="280" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13.5" font-weight="700" letter-spacing="0.5">BUILT-IN PRESETS &amp; BENCHMARK SEPARATION</text>
+<rect x="980" y="298" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="320" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">7 YAML Degradation Presets</text>
+<text x="1364" y="320" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">Reproducible</text>
+<text x="996" y="339" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">nighttime_surveillance, foggy_environment, rainy_outdoor</text>
+<rect x="980" y="360" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="382" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">DegradationPipeline (float32)</text>
+<text x="1364" y="382" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">Ordered Steps</text>
+<text x="996" y="401" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Composable fixed or uniform/randint param schedules</text>
+<rect x="980" y="422" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="444" fill="#a855f7" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Honest Metric Separation</text>
+<text x="1364" y="444" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">Audited</text>
+<text x="996" y="463" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Separates official ImageNet-C mCE from custom ratios</text>
+<rect x="980" y="484" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="506" fill="#f59e0b" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Sidecar Provenance (.meta.json)</text>
+<text x="1364" y="506" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">Full Replay</text>
+<text x="996" y="525" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Logs sampled params, order, seed &amp; library version</text>
+<rect x="300" y="576" width="1100" height="294" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="324" y="612" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="700" letter-spacing="0.5">TERMINAL EVALUATION TRACE &amp; BENCHMARK VALIDATION MATRIX</text>
+<rect x="324" y="628" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="654" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">CLI · degradelab eval classification -d ./val -o ./reports -c low_light,motion_blur -s 1,3,5</text>
+<text x="344" y="677" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Evaluated 1,000 validation images across 3 severities using PyTorchClassificationAdapter (seed=42)</text>
+<text x="730" y="654" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Generated evaluation_report.json, summary.csv &amp; Matplotlib accuracy_vs_severity.svg</text>
+<text x="730" y="677" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">COMPLETED · Report Emitted</text>
+<rect x="1240" y="646" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="666" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">COMPLETED</text>
+<rect x="324" y="706" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="732" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">BENCHMARK · imagenet_c_registry (10 Entries) &amp; cifar_c_registry (2 Entries)</text>
+<text x="344" y="755" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Verified deterministic corruptions against Hendrycks &amp; Dietterich (ICLR 2019) references (&lt;= 1e-6)</text>
+<text x="730" y="732" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Stochastic entries validated via statistical moment checks under isolated PCG64 streams</text>
+<text x="730" y="755" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">VERIFIED · Benchmark Audited</text>
+<rect x="1240" y="724" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="744" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">VERIFIED</text>
+<rect x="324" y="784" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="810" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">DATASET · process_dataset(input_dir='./clean', output_dir='./degraded_cctv', overwrite=False)</text>
+<text x="344" y="833" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Preserved class folder topology and emitted manifest.json with per-image seeds &amp; params</text>
+<text x="730" y="810" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Zero modification to source files; invariant to PYTHONHASHSEED and filesystem order</text>
+<text x="730" y="833" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">PASS · Deterministic Replay</text>
+<rect x="1240" y="802" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="822" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">PASS</text>
+</svg>

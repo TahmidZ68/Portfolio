@@ -219,6 +219,22 @@ export function App() {
                   </p>
                   <div className="grid grid-cols-2 gap-2 font-mono-tech text-xs">
                     <a
+                      href={verifiedLinks.degradeLabRepo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-[#8a8f98] hover:text-[#38bdf8] py-1"
+                    >
+                      DegradeLab ↗
+                    </a>
+                    <a
+                      href={verifiedLinks.diagoraRepo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-[#8a8f98] hover:text-[#38bdf8] py-1"
+                    >
+                      Diagora ↗
+                    </a>
+                    <a
                       href={verifiedLinks.datasetMedicRepo}
                       target="_blank"
                       rel="noreferrer"
@@ -486,6 +502,24 @@ export function App() {
                   </span>
                   <div className="flex flex-wrap gap-2">
                     <a
+                      href={verifiedLinks.degradeLabRepo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 font-mono-tech text-[11px] px-2.5 py-1 border border-white/[0.12] bg-[#0b0d12] text-[#f2f0ea] hover:border-[#38bdf8] transition-colors"
+                    >
+                      <span>DegradeLab</span>
+                      <ArrowUpRight size={11} className="text-[#38bdf8]" />
+                    </a>
+                    <a
+                      href={verifiedLinks.diagoraRepo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1 font-mono-tech text-[11px] px-2.5 py-1 border border-white/[0.12] bg-[#0b0d12] text-[#f2f0ea] hover:border-[#38bdf8] transition-colors"
+                    >
+                      <span>Diagora</span>
+                      <ArrowUpRight size={11} className="text-[#38bdf8]" />
+                    </a>
+                    <a
                       href={verifiedLinks.datasetMedicRepo}
                       target="_blank"
                       rel="noreferrer"
@@ -543,7 +577,7 @@ export function App() {
             </div>
             <div className="p-5 space-y-1">
               <span className="font-mono-tech text-[10px] text-[#38bdf8]">02 // SYSTEMS BUILT</span>
-              <p className="font-display text-2xl font-bold text-[#f2f0ea]">09 Engineered Systems</p>
+              <p className="font-display text-2xl font-bold text-[#f2f0ea]">11 Engineered Systems</p>
               <p className="font-mono-tech text-xs text-[#8a8f98]">
                 4 Live Vercel Platforms · 15+ Open-Source Repos
               </p>
@@ -1109,16 +1143,6 @@ export function App() {
                     Vellum Research <ArrowUpRight size={11} />
                   </a>
                 </li>
-                <li>
-                  <a
-                    href={verifiedLinks.portfolio}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-[#f2f0ea] inline-flex items-center gap-1"
-                  >
-                    Live Portfolio (Vercel) <ArrowUpRight size={11} />
-                  </a>
-                </li>
               </ul>
             </div>
 
@@ -1127,6 +1151,26 @@ export function App() {
                 GITHUB REPOSITORIES
               </span>
               <ul className="space-y-1.5 text-[#8a8f98]">
+                <li>
+                  <a
+                    href={verifiedLinks.degradeLabRepo}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-[#f2f0ea] inline-flex items-center gap-1"
+                  >
+                    TahmidZ68/DegradeLab <ArrowUpRight size={11} />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={verifiedLinks.diagoraRepo}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-[#f2f0ea] inline-flex items-center gap-1"
+                  >
+                    TahmidZ68/Diagora <ArrowUpRight size={11} />
+                  </a>
+                </li>
                 <li>
                   <a
                     href={verifiedLinks.datasetMedicRepo}
@@ -1185,16 +1229,6 @@ export function App() {
                     className="hover:text-[#f2f0ea] inline-flex items-center gap-1"
                   >
                     TahmidZ68/RAG_BanglaHSC <ArrowUpRight size={11} />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={verifiedLinks.portfolioRepo}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-[#f2f0ea] inline-flex items-center gap-1"
-                  >
-                    TahmidZ68/Portfolio <ArrowUpRight size={11} />
                   </a>
                 </li>
               </ul>

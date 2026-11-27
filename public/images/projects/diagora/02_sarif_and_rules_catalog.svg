@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900">
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#070a10"/>
+    <stop offset="100%" stop-color="#0b101b"/>
+  </linearGradient>
+</defs>
+<rect width="1440" height="900" fill="url(#bgGrad)"/>
+<rect x="0" y="0" width="260" height="900" fill="#090d15" stroke="#1e293b" stroke-width="1"/>
+<rect x="20" y="22" width="42" height="42" rx="10" fill="#10b981" fill-opacity="0.16" stroke="#10b981" stroke-width="1.5"/>
+<text x="41" y="48" text-anchor="middle" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="15" font-weight="700">DG</text>
+<text x="74" y="40" fill="#f8fafc" font-family="Inter, sans-serif" font-size="17" font-weight="700">Diagora</text>
+<text x="74" y="58" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="11">SARIF 2.1.0 &amp; CLI Matrix</text>
+<line x1="0" y1="82" x2="260" y2="82" stroke="#1e293b" stroke-width="1"/>
+<text x="30" y="129" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Scan Overview</text>
+<text x="30" y="177" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Python (PY001–PY010)</text>
+<text x="30" y="225" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Node.js (ND001–ND009)</text>
+<text x="30" y="273" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Environment (ENV001–006)</text>
+<text x="30" y="321" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Docker (DK001–DK010)</text>
+<text x="30" y="369" fill="#94a3b8" font-family="Inter, sans-serif" font-size="13.5" font-weight="500">Deployment &amp; CI (DP001–003)</text>
+<rect x="14" y="392" width="232" height="40" rx="8" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1.2"/>
+<text x="30" y="417" fill="#ffffff" font-family="Inter, sans-serif" font-size="13.5" font-weight="600">SARIF 2.1.0 Reports</text>
+<line x1="0" y1="815" x2="260" y2="815" stroke="#1e293b" stroke-width="1"/>
+<circle cx="26" cy="842" r="4.5" fill="#10b981"/>
+<text x="38" y="846" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="12" font-weight="500">Zero Script Execution</text>
+<text x="22" y="870" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="11">setup.py parsed via safe ast.parse</text>
+<text x="300" y="54" fill="#f8fafc" font-family="Inter, sans-serif" font-size="28" font-weight="700">Versioned JSON, SARIF 2.1.0 &amp; Security Boundaries</text>
+<text x="300" y="80" fill="#94a3b8" font-family="Inter, sans-serif" font-size="14">Treats scanned repositories as untrusted input with deterministic exit codes for GitHub Code Scanning.</text>
+<rect x="300" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="320" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">JSON SCHEMA</text>
+<text x="320" y="176" fill="#10b981" font-family="Inter, sans-serif" font-size="32" font-weight="700">v1.0.0</text>
+<text x="320" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Stable machine-readable envelope</text>
+<rect x="579" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="599" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">SARIF SPEC</text>
+<text x="599" y="176" fill="#38bdf8" font-family="Inter, sans-serif" font-size="32" font-weight="700">2.1.0</text>
+<text x="599" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Maps CRITICAL/HIGH -&gt; error</text>
+<rect x="858" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="878" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">EXIT CODES</text>
+<text x="878" y="176" fill="#a855f7" font-family="Inter, sans-serif" font-size="32" font-weight="700">0 – 4</text>
+<text x="878" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Policy gate on --severity threshold</text>
+<rect x="1137" y="106" width="262" height="118" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="1157" y="134" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11" font-weight="600">FALSE CLEAN SCANS</text>
+<text x="1157" y="176" fill="#10b981" font-family="Inter, sans-serif" font-size="32" font-weight="700">0%</text>
+<text x="1157" y="204" fill="#64748b" font-family="Inter, sans-serif" font-size="12">Reports no_applicable_analyzers</text>
+<rect x="300" y="246" width="640" height="310" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="324" y="280" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13.5" font-weight="700" letter-spacing="0.5">DIAGORA CLI &amp; SARIF EXECUTION PIPELINE</text>
+<rect x="320" y="296" width="600" height="240" rx="8" fill="#070a0f" stroke="#1e293b"/>
+<text x="338" y="324" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12">$ diagora scan ./monorepo --severity high --format sarif &gt; report.sarif</text>
+<text x="338" y="350" fill="#cbd5e1" font-family="JetBrains Mono, monospace" font-size="12">› [DISCOVER] Monorepo detected: ecosystems=[python, node, docker]</text>
+<text x="338" y="376" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12">› [SECURITY] Path &amp; symlink containment verified (0 escapes, 0 &gt;5MiB)</text>
+<text x="338" y="402" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12">› [PYTHON]   PY001-PY010 checked pyproject.toml, uv.lock, setup.py (AST)</text>
+<text x="338" y="428" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12">› [NODE]     ND001-ND009 checked package.json, tsconfig.json (JSONC)</text>
+<text x="338" y="454" fill="#f59e0b" font-family="JetBrains Mono, monospace" font-size="12">› [DEPLOY]   DP001-DP003 checked .github/workflows/*.yml, vercel.json</text>
+<text x="338" y="480" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12">› [SARIF]    Emitted SARIF 2.1.0 (runs[0].tool.driver.name='Diagora')</text>
+<rect x="960" y="246" width="440" height="310" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="984" y="280" fill="#f8fafc" font-family="Inter, sans-serif" font-size="13.5" font-weight="700" letter-spacing="0.5">SUPPORTED DEPLOYMENT &amp; MANIFEST FILES</text>
+<rect x="980" y="298" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="320" fill="#38bdf8" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Python Ecosystems</text>
+<text x="1364" y="320" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">10 Rules</text>
+<text x="996" y="339" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">pyproject.toml, poetry.lock, uv.lock, Pipfile, setup.py</text>
+<rect x="980" y="360" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="382" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Node.js &amp; TypeScript</text>
+<text x="1364" y="382" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">9 Rules</text>
+<text x="996" y="401" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">package.json, pnpm/yarn/npm locks, tsconfig.json</text>
+<rect x="980" y="422" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="444" fill="#6366f1" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">Docker &amp; Compose</text>
+<text x="1364" y="444" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">10 Rules</text>
+<text x="996" y="463" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">Dockerfile, compose.yaml, .dockerignore, ports</text>
+<rect x="980" y="484" width="400" height="54" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="996" y="506" fill="#a855f7" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">CI &amp; Cloud Manifests</text>
+<text x="1364" y="506" text-anchor="end" fill="#64748b" font-family="JetBrains Mono, monospace" font-size="11">3 Rules</text>
+<text x="996" y="525" fill="#94a3b8" font-family="Inter, sans-serif" font-size="11.5">GitHub Actions, vercel.json, render.yaml, fly.toml</text>
+<rect x="300" y="576" width="1100" height="294" rx="12" fill="#0f1623" stroke="#1e293b" stroke-width="1.2"/>
+<text x="324" y="612" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="700" letter-spacing="0.5">SECURITY MODEL &amp; HONEST EXECUTION GUARANTEES</text>
+<rect x="324" y="628" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="654" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">SEC-BOUNDARY · Path Containment &amp; Resource Limits</text>
+<text x="344" y="677" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Blocks ../ directory traversal and symlink escapes; caps recursion depth (15) and files (10,000)</text>
+<text x="730" y="654" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Never executes repository code or package install hooks during static analysis</text>
+<text x="730" y="677" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">PASS · Untrusted-Input Safe</text>
+<rect x="1240" y="646" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="666" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">PASS</text>
+<rect x="324" y="706" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="732" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">HONEST-STATUS · Explicit Analyzer Applicability Tracking</text>
+<text x="344" y="755" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Distinguishes 'completed' from 'no_applicable_analyzers' so unsupported languages never read clean</text>
+<text x="730" y="732" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Prevents false-positive green CI checks on Rust/Go-only repositories</text>
+<text x="730" y="755" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">VERIFIED · Zero False Clean</text>
+<rect x="1240" y="724" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="744" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">VERIFIED</text>
+<rect x="324" y="784" width="1052" height="68" rx="8" fill="#0a0f18" stroke="#1e293b" stroke-width="1"/>
+<text x="344" y="810" fill="#10b981" font-family="JetBrains Mono, monospace" font-size="12" font-weight="600">EXIT-GATE · Policy-Driven CI Enforcement (--severity high)</text>
+<text x="344" y="833" fill="#f8fafc" font-family="Inter, sans-serif" font-size="14" font-weight="600">Returns exit code 0 when clean, 1 on threshold breach, 2 on invalid args, 3 on security violation</text>
+<text x="730" y="810" fill="#94a3b8" font-family="JetBrains Mono, monospace" font-size="11.5">Ready for drop-in GitHub Actions &amp; SARIF security tab uploads</text>
+<text x="730" y="833" fill="#10b981" font-family="Inter, sans-serif" font-size="12.5" font-weight="500">COMPLETED · CI Ready</text>
+<rect x="1240" y="802" width="116" height="32" rx="6" fill="#10b981" fill-opacity="0.18" stroke="#10b981" stroke-width="1"/>
+<text x="1298" y="822" text-anchor="middle" fill="#f8fafc" font-family="JetBrains Mono, monospace" font-size="10.5" font-weight="600">COMPLETED</text>
+</svg>

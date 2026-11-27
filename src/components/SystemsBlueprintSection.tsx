@@ -57,8 +57,9 @@ function getStatusIndicator(statusType: EngineeredSystem['statusType']) {
 export function SystemsBlueprintSection() {
   const [domainFilter, setDomainFilter] = useState<DomainFilter>('all');
   const [expandedSpecs, setExpandedSpecs] = useState<Record<string, boolean>>({
+    degradelab: true,
+    diagora: true,
     'dataset-medic': true,
-    'api-detective': true,
     'axios-talent': true,
   });
   const [activePreviewIdx, setActivePreviewIdx] = useState<Record<string, number>>({});
@@ -107,9 +108,9 @@ export function SystemsBlueprintSection() {
               aria-label="Filter systems by domain"
             >
               {[
-                { id: 'all', label: 'All Systems (09)' },
+                { id: 'all', label: 'All Systems (11)' },
                 { id: 'production-ai', label: 'Live AI Platforms (03)' },
-                { id: 'diagnostic-engine', label: 'Diagnostic & Dev Tools (03)' },
+                { id: 'diagnostic-engine', label: 'Diagnostic & Robustness Tools (05)' },
                 { id: 'automation-reliability', label: 'Automation & AI Agents (03)' },
               ].map((tab) => {
                 const active = domainFilter === tab.id;
@@ -134,7 +135,7 @@ export function SystemsBlueprintSection() {
         {/* High-Density System Directory Index */}
         <div className="my-12 border border-white/[0.08] bg-[#0b0d12]">
           <div className="px-5 py-3 border-b border-white/[0.08] flex flex-wrap items-center justify-between gap-4 font-mono-tech text-[10px] uppercase tracking-widest text-[#8a8f98]">
-            <span>SYSTEM INDEX · 09 PROJECTS</span>
+            <span>SYSTEM INDEX · 11 PROJECTS</span>
             <span>SELECT ANY SYSTEM TO JUMP TO ARCHITECTURE</span>
           </div>
           <div className="divide-y divide-white/[0.06]">
