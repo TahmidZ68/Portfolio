@@ -83,31 +83,47 @@ body {
     linear-gradient(to bottom, rgba(242, 240, 234, 0.014) 1px, transparent 1px);
 }
 
-/* Soft Multi-Spectrum Atmospheric Glows */
+/* Soft Multi-Spectrum Atmospheric Glows Combined Cleanly With Non-Repeating Full-Canvas Coverage */
 .ambient-hero-glow {
   background-image:
-    radial-gradient(circle at 76% 36%, rgba(56, 189, 248, 0.12), transparent 44%),
-    radial-gradient(circle at 20% 24%, rgba(16, 185, 129, 0.08), transparent 42%),
-    radial-gradient(circle at 60% 82%, rgba(167, 139, 250, 0.08), transparent 45%);
+    linear-gradient(to right, rgba(242, 240, 234, 0.026) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(242, 240, 234, 0.026) 1px, transparent 1px),
+    radial-gradient(circle at 76% 36%, rgba(56, 189, 248, 0.14), transparent 44%),
+    radial-gradient(circle at 18% 24%, rgba(16, 185, 129, 0.1), transparent 42%),
+    radial-gradient(circle at 58% 82%, rgba(167, 139, 250, 0.09), transparent 45%);
+  background-size: 64px 64px, 64px 64px, 100% 100%, 100% 100%, 100% 100%;
+  background-repeat: repeat, repeat, no-repeat, no-repeat, no-repeat;
 }
 
 .ambient-systems-glow {
   background-image:
-    radial-gradient(circle at 18% 18%, rgba(56, 189, 248, 0.09), transparent 40%),
-    radial-gradient(circle at 86% 24%, rgba(16, 185, 129, 0.08), transparent 42%),
-    radial-gradient(circle at 52% 85%, rgba(245, 158, 11, 0.07), transparent 45%);
+    linear-gradient(to right, rgba(242, 240, 234, 0.024) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(242, 240, 234, 0.024) 1px, transparent 1px),
+    radial-gradient(circle at 16% 18%, rgba(56, 189, 248, 0.11), transparent 42%),
+    radial-gradient(circle at 86% 24%, rgba(16, 185, 129, 0.1), transparent 42%),
+    radial-gradient(circle at 52% 85%, rgba(245, 158, 11, 0.08), transparent 45%);
+  background-size: 64px 64px, 64px 64px, 100% 100%, 100% 100%, 100% 100%;
+  background-repeat: repeat, repeat, no-repeat, no-repeat, no-repeat;
 }
 
 .ambient-research-glow {
   background-image:
-    radial-gradient(circle at 22% 20%, rgba(167, 139, 250, 0.11), transparent 45%),
-    radial-gradient(circle at 80% 72%, rgba(56, 189, 248, 0.08), transparent 45%);
+    linear-gradient(to right, rgba(242, 240, 234, 0.015) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(242, 240, 234, 0.015) 1px, transparent 1px),
+    radial-gradient(circle at 22% 20%, rgba(167, 139, 250, 0.13), transparent 45%),
+    radial-gradient(circle at 80% 72%, rgba(56, 189, 248, 0.09), transparent 45%);
+  background-size: 20px 20px, 20px 20px, 100% 100%, 100% 100%;
+  background-repeat: repeat, repeat, no-repeat, no-repeat;
 }
 
 .ambient-network-glow {
   background-image:
-    radial-gradient(circle at 25% 40%, rgba(16, 185, 129, 0.09), transparent 46%),
-    radial-gradient(circle at 78% 35%, rgba(167, 139, 250, 0.09), transparent 45%);
+    linear-gradient(to right, rgba(242, 240, 234, 0.024) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(242, 240, 234, 0.024) 1px, transparent 1px),
+    radial-gradient(circle at 25% 40%, rgba(16, 185, 129, 0.11), transparent 46%),
+    radial-gradient(circle at 78% 35%, rgba(167, 139, 250, 0.1), transparent 45%);
+  background-size: 64px 64px, 64px 64px, 100% 100%, 100% 100%;
+  background-repeat: repeat, repeat, no-repeat, no-repeat;
 }
 
 /* Precision Crosshair Corner Accents */
