@@ -18,37 +18,31 @@ interface AccentPalette {
   hex: string;
   secondaryHex: string;
   label: string;
-  badgeClass: string;
+  pillClass: string;
 }
 
-/**
- * Maps each system to the intentional 4-pillar Multi-Spectrum Color System:
- * - Live AI Platforms (Axios Insight, Axios Talent, Candidate, Vellum Research): Emerald (#10b981)
- * - Computer Vision & Robustness (DegradeLab, DatasetMedic): Electric Cyan & Cobalt (#38bdf8 / #6366f1)
- * - Developer & Automation Systems (Diagora, API Detective, FlowSentry, RepoMedic, Website Auditor): Warm Amber (#f59e0b)
- */
 function getSystemPalette(sys: EngineeredSystem): AccentPalette {
   if (sys.id === 'degradelab' || sys.id === 'dataset-medic') {
     return {
-      hex: '#38bdf8',
-      secondaryHex: '#6366f1',
-      label: 'CV & ROBUSTNESS',
-      badgeClass: 'border-[#38bdf8]/45 text-[#38bdf8] bg-[#38bdf8]/10',
+      hex: '#3b82f6',
+      secondaryHex: '#60a5fa',
+      label: 'Computer Vision',
+      pillClass: 'border-blue-400/35 text-blue-300 bg-blue-500/15',
     };
   }
   if (sys.domain === 'production-ai' || sys.id === 'vellum-research') {
     return {
       hex: '#10b981',
       secondaryHex: '#34d399',
-      label: 'LIVE AI PLATFORM',
-      badgeClass: 'border-emerald-400/45 text-emerald-300 bg-emerald-400/10',
+      label: 'Live AI Platform',
+      pillClass: 'border-emerald-400/35 text-emerald-300 bg-emerald-500/15',
     };
   }
   return {
     hex: '#f59e0b',
-    secondaryHex: '#fb923c',
-    label: 'DEV & AUTOMATION',
-    badgeClass: 'border-amber-400/45 text-amber-300 bg-amber-400/10',
+    secondaryHex: '#fbbf24',
+    label: 'Dev & Automation',
+    pillClass: 'border-amber-400/35 text-amber-300 bg-amber-500/15',
   };
 }
 
@@ -122,42 +116,41 @@ export function SystemsBlueprintSection({ externalSelectedSystemId }: SystemsBlu
   return (
     <section
       id="systems"
-      className="border-b border-white/[0.08] bg-[#07090e] lab-grid-bg ambient-systems-glow scroll-mt-16"
+      className="bg-[#0c0d12] editorial-dark-glow text-[#f4f3ef] scroll-mt-16"
     >
-      <div className="spectrum-divider" />
-      <div className="max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-14 py-24 sm:py-32">
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 py-24 sm:py-32">
         {/* Section Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-10 border-b border-white/[0.08]">
-          <div className="lg:col-span-7 space-y-4">
-            <div className="flex flex-wrap items-center gap-3 font-mono-tech text-xs uppercase tracking-[0.2em]">
-              <span className="text-[#38bdf8]">03 // SYSTEMS</span>
-              <span className="text-white/20">—</span>
-              <span className="text-[#94a3b8]">11 ENGINEERED ARCHITECTURES &amp; LIVE PRODUCTS</span>
-            </div>
-            <h2 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold text-[#f2f0ea] leading-[0.95] uppercase">
+          <div className="lg:col-span-7 space-y-3">
+            <span className="inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-xs font-medium bg-emerald-500/10 text-emerald-300 border border-emerald-400/25">
+              03 · Selected Systems &amp; Products
+            </span>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#f4f3ef] leading-[1.02]">
               Engineered Systems.
             </h2>
           </div>
 
-          <div className="lg:col-span-5 space-y-3">
-            <p className="text-sm sm:text-base text-[#94a3b8] leading-relaxed">
-              Color-coded across three engineering pillars: live AI platforms in{' '}
-              <span className="text-emerald-400 font-medium">Emerald</span>, computer vision
-              robustness in <span className="text-[#38bdf8] font-medium">Cyan</span>, and developer
-              diagnostics &amp; automation in{' '}
-              <span className="text-amber-400 font-medium">Amber</span>.
+          <div className="lg:col-span-5">
+            <p className="text-base text-[#94a3b8] leading-relaxed">
+              Every project is built as a complete system—combining deterministic validation,
+              explicit data contracts, and practical AI/ML execution across live Vercel products,
+              computer vision tools, and developer diagnostics.
             </p>
           </div>
         </div>
 
-        {/* TIER 1: 4-CARD SPOTLIGHT BENTO (WITH VISUAL THUMBNAILS) */}
-        <div className="mt-12 space-y-4">
-          <div className="flex items-center justify-between font-mono-tech text-[10px] uppercase tracking-widest text-[#94a3b8]">
-            <span>FLAGSHIP SPOTLIGHT // LIVE PRODUCTS &amp; LATEST RELEASES</span>
-            <span className="text-[#38bdf8]">CLICK ANY CARD TO INSPECT FULL PIPELINE BELOW</span>
+        {/* TIER 1: 4-CARD FLAGSHIP SPOTLIGHT BENTO */}
+        <div className="mt-12 space-y-5">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <h3 className="text-sm font-semibold text-[#f4f3ef]">
+              Featured Live Products &amp; Latest Open-Source Tools
+            </h3>
+            <span className="text-xs text-[#94a3b8]">
+              Select any card to load its architecture below
+            </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {featuredSystems.map((sys) => {
               const pal = getSystemPalette(sys);
               const thumb = sys.previews?.[0];
@@ -165,52 +158,51 @@ export function SystemsBlueprintSection({ externalSelectedSystemId }: SystemsBlu
               return (
                 <div
                   key={`bento-${sys.id}`}
-                  style={{ borderTopWidth: '2px', borderTopColor: pal.hex }}
-                  className={`border border-white/[0.1] bg-[#0b101b]/90 flex flex-col justify-between transition-all hover:border-white/[0.25] ${
-                    isSelected ? 'ring-1 ring-white/20' : ''
+                  className={`rounded-3xl border bg-[#131620] overflow-hidden flex flex-col justify-between transition-all hover:-translate-y-0.5 hover:border-white/25 ${
+                    isSelected ? 'border-white/30 shadow-xl' : 'border-white/[0.09]'
                   }`}
                 >
                   <div>
                     {thumb && (
-                      <div className="relative h-40 overflow-hidden border-b border-white/[0.08] bg-[#05070c] group">
+                      <div className="relative h-44 overflow-hidden border-b border-white/[0.08] bg-[#080a10] group">
                         <img
                           src={thumb.src}
                           alt={thumb.caption}
                           loading="lazy"
-                          className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 group-hover:scale-[1.02] transition-all duration-300"
+                          className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 group-hover:scale-[1.03] transition-all duration-300"
                         />
-                        <div className="absolute top-2.5 left-2.5">
+                        <div className="absolute top-3 left-3">
                           <span
-                            className={`font-mono-tech text-[9.5px] px-2 py-0.5 border backdrop-blur-md ${pal.badgeClass}`}
+                            className={`rounded-full text-[11px] font-medium px-3 py-1 border backdrop-blur-md ${pal.pillClass}`}
                           >
-                            {sys.code} · {pal.label}
+                            {pal.label}
                           </span>
                         </div>
                       </div>
                     )}
 
-                    <div className="p-5 space-y-2.5">
-                      <div className="flex items-center justify-between gap-2 font-mono-tech text-[10px]">
-                        <span style={{ color: pal.hex }}>{sys.status}</span>
+                    <div className="p-6 space-y-2.5">
+                      <div className="text-xs font-medium" style={{ color: pal.hex }}>
+                        {sys.status}
                       </div>
-                      <h3 className="font-display text-2xl font-bold text-[#f2f0ea]">
+                      <h4 className="font-display text-2xl font-bold text-[#f4f3ef]">
                         {sys.name}
-                      </h3>
-                      <p className="text-xs text-[#94a3b8] leading-relaxed line-clamp-3">
+                      </h4>
+                      <p className="text-sm text-[#94a3b8] leading-relaxed line-clamp-3">
                         {sys.shortDescription}
                       </p>
                     </div>
                   </div>
 
-                  <div className="px-5 pb-5 pt-3 border-t border-white/[0.07] flex flex-wrap items-center justify-between gap-2">
+                  <div className="px-6 pb-6 pt-3 border-t border-white/[0.07] flex flex-wrap items-center justify-between gap-2">
                     <a
-                      href={`#system-explorer`}
+                      href="#system-explorer"
                       onClick={() => setSelectedSystemId(sys.id)}
                       style={{ color: pal.hex }}
-                      className="inline-flex items-center gap-1 font-mono-tech text-[11px] font-semibold hover:underline"
+                      className="inline-flex items-center gap-1 text-xs font-semibold hover:underline"
                     >
-                      <span>Inspect Architecture</span>
-                      <ArrowDownRight size={12} />
+                      <span>Inspect System</span>
+                      <ArrowDownRight size={13} />
                     </a>
 
                     {sys.links[0] && (
@@ -218,11 +210,11 @@ export function SystemsBlueprintSection({ externalSelectedSystemId }: SystemsBlu
                         href={sys.links[0].url}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-1 font-mono-tech text-[10px] px-2.5 py-1 border border-white/15 bg-[#07090e] text-[#f2f0ea] hover:border-white/40 transition-colors"
+                        className="inline-flex items-center gap-1.5 rounded-full text-xs font-medium px-3.5 py-1.5 border border-white/15 bg-[#0c0d12] text-[#f4f3ef] hover:border-white/40 transition-colors"
                       >
                         {getActionIcon(sys.links[0].label)}
                         <span>{sys.links[0].label}</span>
-                        <ArrowUpRight size={11} />
+                        <ArrowUpRight size={12} />
                       </a>
                     )}
                   </div>
@@ -232,26 +224,26 @@ export function SystemsBlueprintSection({ externalSelectedSystemId }: SystemsBlu
           </div>
         </div>
 
-        {/* TIER 2: INTERACTIVE MASTER-DETAIL SYSTEM EXPLORER (ALL 11 SYSTEMS) */}
-        <div id="system-explorer" className="mt-16 scroll-mt-24 space-y-5">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-white/[0.08]">
+        {/* TIER 2: INTERACTIVE ARCHITECTURE EXPLORER (ALL 11 SYSTEMS) */}
+        <div id="system-explorer" className="mt-16 scroll-mt-24 space-y-6">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
             <div>
-              <p className="font-mono-tech text-xs uppercase tracking-widest text-[#f2f0ea]">
-                INTERACTIVE ARCHITECTURE EXPLORER · ALL 11 SYSTEMS
-              </p>
-              <p className="text-xs text-[#94a3b8] mt-0.5">
-                Select any system from the registry to inspect its 4-stage pipeline, interface
-                previews, problem statement, and verified links.
+              <h3 className="font-display text-2xl font-bold text-[#f4f3ef]">
+                All 11 Engineered Systems
+              </h3>
+              <p className="text-sm text-[#94a3b8] mt-0.5">
+                Browse by domain or select any system to explore its interface previews, pipeline,
+                and verified links.
               </p>
             </div>
 
-            {/* Domain Filter Tabs */}
-            <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter systems by pillar">
+            {/* Domain Filter Pills */}
+            <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter systems by domain">
               {[
-                { id: 'all', label: 'All Systems (11)', color: '#f2f0ea' },
-                { id: 'production-ai', label: 'Live AI Platforms (04)', color: '#10b981' },
-                { id: 'cv-robustness', label: 'CV & Robustness (02)', color: '#38bdf8' },
-                { id: 'dev-automation', label: 'Dev & Automation (05)', color: '#f59e0b' },
+                { id: 'all', label: 'All (11)', color: '#3b82f6' },
+                { id: 'production-ai', label: 'Live AI Platforms (4)', color: '#10b981' },
+                { id: 'cv-robustness', label: 'Computer Vision (2)', color: '#3b82f6' },
+                { id: 'dev-automation', label: 'Dev & Automation (5)', color: '#f59e0b' },
               ].map((tab) => {
                 const active = domainFilter === tab.id;
                 return (
@@ -266,17 +258,27 @@ export function SystemsBlueprintSection({ externalSelectedSystemId }: SystemsBlu
                       );
                       if (firstMatch) setSelectedSystemId(firstMatch.id);
                     }}
-                    style={{
-                      borderColor: active ? tab.color : undefined,
-                      backgroundColor: active ? `${tab.color}1c` : undefined,
-                    }}
-                    className={`inline-flex items-center gap-2 font-mono-tech text-[11px] px-3 py-1.5 border transition-colors ${
+                    style={
                       active
-                        ? 'text-[#f2f0ea] font-semibold'
-                        : 'border-white/[0.12] bg-[#0b101b] text-[#94a3b8] hover:text-[#f2f0ea]'
+                        ? {
+                            backgroundColor: tab.color,
+                            borderColor: tab.color,
+                            color: '#0c0d12',
+                          }
+                        : undefined
+                    }
+                    className={`inline-flex items-center gap-2 rounded-full text-xs px-4 py-2 border font-medium transition-colors ${
+                      active
+                        ? 'font-semibold'
+                        : 'border-white/[0.12] bg-[#131620] text-[#cbd5e1] hover:text-white hover:border-white/30'
                     }`}
                   >
-                    <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: tab.color }} />
+                    {!active && (
+                      <span
+                        className="w-2 h-2 rounded-full"
+                        style={{ backgroundColor: tab.color }}
+                      />
+                    )}
                     <span>{tab.label}</span>
                   </button>
                 );
@@ -284,14 +286,10 @@ export function SystemsBlueprintSection({ externalSelectedSystemId }: SystemsBlu
             </div>
           </div>
 
-          {/* Master-Detail Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 border border-white/[0.1] bg-[#0b101b]/95">
-            {/* Left Selector Rail (4 cols) */}
-            <div className="lg:col-span-4 border-b lg:border-b-0 lg:border-r border-white/[0.08] divide-y divide-white/[0.06] bg-[#080b13]">
-              <div className="px-5 py-3 font-mono-tech text-[10px] uppercase tracking-widest text-[#64748b] flex items-center justify-between">
-                <span>SYSTEM_INDEX</span>
-                <span>{filteredSystems.length} MATCHING</span>
-              </div>
+          {/* Master-Detail Explorer Container */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            {/* Left Selector List (4 cols) */}
+            <div className="lg:col-span-4 rounded-3xl border border-white/[0.1] bg-[#131620] overflow-hidden divide-y divide-white/[0.06]">
               {filteredSystems.map((sys) => {
                 const pal = getSystemPalette(sys);
                 const isSel = activeSystem.id === sys.id;
@@ -301,56 +299,57 @@ export function SystemsBlueprintSection({ externalSelectedSystemId }: SystemsBlu
                     id={`sys-${sys.id}`}
                     type="button"
                     onClick={() => setSelectedSystemId(sys.id)}
-                    style={{
-                      borderLeftWidth: isSel ? '3px' : '3px',
-                      borderLeftColor: isSel ? pal.hex : 'transparent',
-                      backgroundColor: isSel ? `${pal.hex}12` : undefined,
-                    }}
-                    className="w-full text-left px-5 py-4 transition-colors hover:bg-white/[0.025] flex items-start justify-between gap-3 scroll-mt-24"
+                    style={
+                      isSel
+                        ? {
+                            backgroundColor: `${pal.hex}18`,
+                          }
+                        : undefined
+                    }
+                    className="w-full text-left px-5 py-4 transition-colors hover:bg-white/[0.03] flex items-center justify-between gap-3 scroll-mt-24"
                   >
-                    <div className="space-y-1 min-w-0">
-                      <div className="flex items-center gap-2 font-mono-tech text-[10px]">
-                        <span style={{ color: pal.hex }} className="font-semibold">
-                          {sys.code}
-                        </span>
-                        <span className="text-white/20">·</span>
-                        <span className="text-[#94a3b8] truncate">{sys.status}</span>
+                    <div className="space-y-0.5 min-w-0">
+                      <div className="flex items-center gap-2 text-[11px] font-medium">
+                        <span style={{ color: pal.hex }}>{sys.status}</span>
                       </div>
                       <div
-                        className={`font-display text-lg font-bold truncate ${
-                          isSel ? 'text-[#f2f0ea]' : 'text-[#cbd5e1]'
+                        className={`font-display text-base sm:text-lg font-bold truncate ${
+                          isSel ? 'text-white' : 'text-[#cbd5e1]'
                         }`}
                       >
                         {sys.name}
                       </div>
-                      <p className="text-xs text-[#64748b] line-clamp-1">{sys.classification}</p>
+                      <p className="text-xs text-[#64748b] truncate">{sys.classification}</p>
                     </div>
                     <span
-                      className="w-2 h-2 rounded-full mt-1.5 shrink-0"
-                      style={{ backgroundColor: pal.hex, opacity: isSel ? 1 : 0.45 }}
+                      className="w-2.5 h-2.5 rounded-full shrink-0 transition-transform"
+                      style={{
+                        backgroundColor: pal.hex,
+                        transform: isSel ? 'scale(1.2)' : 'scale(0.85)',
+                        opacity: isSel ? 1 : 0.4,
+                      }}
                     />
                   </button>
                 );
               })}
             </div>
 
-            {/* Right Active Blueprint Inspector (8 cols) */}
-            <div
-              className="lg:col-span-8 p-6 sm:p-8 lg:p-10 space-y-7 bg-[#090c14]"
-              style={{ borderTopWidth: '3px', borderTopColor: activePalette.hex }}
-            >
-              {/* Header & Action Links */}
+            {/* Right Active System Detail Card (8 cols) */}
+            <div className="lg:col-span-8 rounded-3xl border border-white/[0.12] bg-[#131620] p-6 sm:p-8 lg:p-10 space-y-7 shadow-2xl">
+              {/* Top Header & Action Pills */}
               <div className="flex flex-col xl:flex-row xl:items-start justify-between gap-6 pb-6 border-b border-white/[0.08]">
                 <div className="space-y-2.5">
-                  <div className="flex flex-wrap items-center gap-2.5 font-mono-tech text-[11px]">
+                  <div className="flex flex-wrap items-center gap-2.5">
                     <span
-                      className={`px-2.5 py-0.5 border font-semibold ${activePalette.badgeClass}`}
+                      className={`rounded-full text-xs font-medium px-3 py-1 border ${activePalette.pillClass}`}
                     >
-                      {activeSystem.code} · {activePalette.label}
+                      {activePalette.label}
                     </span>
-                    <span className="text-[#94a3b8]">{activeSystem.status}</span>
+                    <span className="text-xs text-[#94a3b8] font-medium">
+                      {activeSystem.status}
+                    </span>
                   </div>
-                  <h3 className="font-display text-3xl sm:text-5xl font-bold text-[#f2f0ea]">
+                  <h3 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-[#f4f3ef]">
                     {activeSystem.name}
                   </h3>
                   <p className="text-sm sm:text-base text-[#cbd5e1] leading-relaxed max-w-3xl">
@@ -375,10 +374,10 @@ export function SystemsBlueprintSection({ externalSelectedSystemId }: SystemsBlu
                               }
                             : undefined
                         }
-                        className={`inline-flex items-center gap-2 font-mono-tech text-xs px-4 py-2.5 border transition-all ${
+                        className={`inline-flex items-center gap-2 rounded-full text-xs px-4 py-2.5 border font-semibold transition-all ${
                           isPrimary
-                            ? 'text-[#07090e] font-semibold hover:opacity-90'
-                            : 'border-white/15 bg-[#0e1422] text-[#f2f0ea] hover:border-white/40'
+                            ? 'text-[#0c0d12] hover:opacity-90'
+                            : 'border-white/15 bg-[#0c0d12] text-[#f4f3ef] hover:border-white/40'
                         }`}
                       >
                         {getActionIcon(link.label)}
@@ -393,16 +392,12 @@ export function SystemsBlueprintSection({ externalSelectedSystemId }: SystemsBlu
                 </div>
               </div>
 
-              {/* Interactive Multi-View Interface & Output Preview Gallery */}
+              {/* Multi-View Interface & Output Previews */}
               {activeSystem.previews && activeSystem.previews.length > 0 && currentPreview && (
-                <div className="border border-white/[0.1] bg-[#06080d] p-4 space-y-3">
-                  <div className="flex flex-wrap items-center justify-between gap-3 pb-2.5 border-b border-white/[0.07]">
-                    <span
-                      className="font-mono-tech text-[10px] uppercase tracking-widest flex items-center gap-2"
-                      style={{ color: activePalette.hex }}
-                    >
-                      <ImageIcon size={13} />
-                      PREVIEW {currentImgIdx + 1}/{activeSystem.previews.length} ·{' '}
+                <div className="rounded-2xl border border-white/[0.1] bg-[#0a0c12] p-4 space-y-3">
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <span className="text-xs font-medium text-[#cbd5e1] flex items-center gap-2">
+                      <ImageIcon size={14} style={{ color: activePalette.hex }} />
                       {currentPreview.caption}
                     </span>
                     <div className="flex flex-wrap gap-1.5">
@@ -416,27 +411,27 @@ export function SystemsBlueprintSection({ externalSelectedSystemId }: SystemsBlu
                               ? {
                                   backgroundColor: activePalette.hex,
                                   borderColor: activePalette.hex,
-                                  color: '#07090e',
+                                  color: '#0c0d12',
                                 }
                               : undefined
                           }
-                          className={`font-mono-tech text-[10px] px-2.5 py-1 border font-semibold transition-colors ${
+                          className={`rounded-full text-[11px] px-3 py-1 border font-semibold transition-colors ${
                             idx === currentImgIdx
                               ? ''
-                              : 'border-white/15 bg-[#0b101b] text-[#94a3b8] hover:text-[#f2f0ea]'
+                              : 'border-white/15 bg-[#131620] text-[#94a3b8] hover:text-white'
                           }`}
                         >
-                          0{idx + 1}
+                          View {idx + 1}
                         </button>
                       ))}
                     </div>
                   </div>
-                  <div className="overflow-hidden border border-white/[0.06] bg-[#040509]">
+                  <div className="rounded-xl overflow-hidden border border-white/[0.06] bg-[#06070b]">
                     <img
                       src={currentPreview.src}
                       alt={currentPreview.caption}
                       loading="lazy"
-                      className="w-full max-h-[440px] object-contain mx-auto block"
+                      className="w-full max-h-[420px] object-contain mx-auto block"
                     />
                   </div>
                 </div>
@@ -444,55 +439,49 @@ export function SystemsBlueprintSection({ externalSelectedSystemId }: SystemsBlu
 
               {/* Problem Addressed vs System Architecture */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="border border-white/[0.08] bg-[#07090e] p-5 space-y-2">
+                <div className="rounded-2xl border border-white/[0.08] bg-[#0c0d12] p-5 space-y-2">
                   <span
-                    className="font-mono-tech text-[10px] uppercase tracking-widest flex items-center gap-1.5"
+                    className="text-xs font-semibold flex items-center gap-2"
                     style={{ color: activePalette.hex }}
                   >
-                    <Terminal size={12} /> PROBLEM ADDRESSED
+                    <Terminal size={13} /> Problem Addressed
                   </span>
-                  <p className="text-xs sm:text-sm text-[#94a3b8] leading-relaxed">
+                  <p className="text-sm text-[#94a3b8] leading-relaxed">
                     {activeSystem.problemAddressed}
                   </p>
                 </div>
 
-                <div className="border border-white/[0.08] bg-[#07090e] p-5 space-y-2">
+                <div className="rounded-2xl border border-white/[0.08] bg-[#0c0d12] p-5 space-y-2">
                   <span
-                    className="font-mono-tech text-[10px] uppercase tracking-widest flex items-center gap-1.5"
+                    className="text-xs font-semibold flex items-center gap-2"
                     style={{ color: activePalette.secondaryHex }}
                   >
-                    <Cpu size={12} /> SYSTEM ARCHITECTURE &amp; APPROACH
+                    <Cpu size={13} /> System Architecture
                   </span>
-                  <p className="text-xs sm:text-sm text-[#cbd5e1] leading-relaxed">
+                  <p className="text-sm text-[#cbd5e1] leading-relaxed">
                     {activeSystem.architectureSummary}
                   </p>
                 </div>
               </div>
 
-              {/* 4-Stage Pipeline Schematic */}
+              {/* 4-Stage Pipeline Cards */}
               <div className="space-y-3">
-                <div className="flex items-center justify-between font-mono-tech text-[10px] uppercase tracking-widest text-[#94a3b8]">
-                  <span className="flex items-center gap-1.5">
-                    <Layers size={12} style={{ color: activePalette.hex }} />
-                    4-STAGE EXECUTION PIPELINE · {activeSystem.name.toUpperCase()}
-                  </span>
-                  <span style={{ color: activePalette.hex }}>{activeSystem.code}</span>
-                </div>
+                <span className="text-xs font-semibold text-[#cbd5e1] flex items-center gap-2">
+                  <Layers size={14} style={{ color: activePalette.hex }} />
+                  4-Stage Execution Pipeline
+                </span>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3">
                   {activeSystem.architecturePipeline.map((node, i) => (
                     <div
                       key={node.stage}
-                      style={{ borderTopWidth: '2px', borderTopColor: activePalette.hex }}
-                      className="border border-white/[0.08] bg-[#0c111d] p-4 flex flex-col justify-between gap-2"
+                      className="rounded-2xl border border-white/[0.08] bg-[#0c0d12] p-4 flex flex-col justify-between gap-2"
                     >
-                      <div className="flex items-center justify-between font-mono-tech text-[10px]">
-                        <span style={{ color: activePalette.hex }}>{node.stage}</span>
-                        <span className="text-[#64748b]">
-                          {i < activeSystem.architecturePipeline.length - 1 ? '──►' : '● OUT'}
-                        </span>
+                      <div className="flex items-center justify-between text-[11px] font-semibold">
+                        <span style={{ color: activePalette.hex }}>Step 0{i + 1}</span>
+                        <span className="text-[#64748b]">{i < 3 ? '→' : '●'}</span>
                       </div>
-                      <h4 className="font-display text-sm font-semibold text-[#f2f0ea]">
+                      <h4 className="font-display text-sm font-bold text-[#f4f3ef]">
                         {node.node}
                       </h4>
                       <p className="text-xs text-[#94a3b8] leading-relaxed">{node.detail}</p>
@@ -501,30 +490,25 @@ export function SystemsBlueprintSection({ externalSelectedSystemId }: SystemsBlu
                 </div>
               </div>
 
-              {/* Technical Specifications & Stack */}
+              {/* Specifications & Technology Pills */}
               <div className="border-t border-white/[0.08] pt-5 space-y-4">
-                <ul className="space-y-2 text-xs sm:text-sm text-[#cbd5e1]">
+                <ul className="space-y-2 text-sm text-[#cbd5e1]">
                   {activeSystem.technicalSpecifications.map((spec) => (
                     <li key={spec} className="flex items-start gap-2.5">
                       <span
-                        className="font-mono-tech mt-0.5"
-                        style={{ color: activePalette.hex }}
-                      >
-                        ›
-                      </span>
+                        className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0"
+                        style={{ backgroundColor: activePalette.hex }}
+                      />
                       <span>{spec}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="flex flex-wrap items-center gap-1.5 pt-2">
-                  <span className="font-mono-tech text-[10px] uppercase tracking-widest text-[#64748b] mr-1">
-                    STACK:
-                  </span>
+                <div className="flex flex-wrap items-center gap-2 pt-2">
                   {activeSystem.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="font-mono-tech text-[11px] px-2.5 py-1 border border-white/[0.09] bg-[#07090e] text-[#cbd5e1]"
+                      className="rounded-full text-xs font-medium px-3 py-1 border border-white/[0.1] bg-[#0c0d12] text-[#cbd5e1]"
                     >
                       {tech}
                     </span>

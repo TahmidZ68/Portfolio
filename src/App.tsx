@@ -29,7 +29,7 @@ import { SystemsBlueprintSection } from '@/components/SystemsBlueprintSection';
 import { ResearchAndNotebookSection } from '@/components/ResearchAndNotebookSection';
 
 function LiveDhakaClock() {
-  const [time, setTime] = useState('--:--:--');
+  const [time, setTime] = useState('--:--');
 
   useEffect(() => {
     const update = () => {
@@ -39,25 +39,24 @@ function LiveDhakaClock() {
             timeZone: 'Asia/Dhaka',
             hour: '2-digit',
             minute: '2-digit',
-            second: '2-digit',
             hour12: false,
           }).format(new Date()),
         );
       } catch {
-        setTime('UTC+06:00');
+        setTime('UTC+6');
       }
     };
     update();
-    const id = setInterval(update, 1000);
+    const id = setInterval(update, 30000);
     return () => clearInterval(id);
   }, []);
 
-  return <span>{time} UTC+6 · Dhaka</span>;
+  return <span>{time} · Dhaka</span>;
 }
 
-const DOMAIN_COLORS = ['#10b981', '#a78bfa', '#f59e0b', '#38bdf8', '#a78bfa', '#10b981'];
-const MATRIX_COLORS = ['#38bdf8', '#a78bfa', '#10b981', '#f59e0b'];
-const VECTOR_COLORS = ['#f59e0b', '#f59e0b', '#10b981', '#38bdf8'];
+const DOMAIN_COLORS = ['#10b981', '#7c3aed', '#d97706', '#2563eb', '#7c3aed', '#059669'];
+const MATRIX_COLORS = ['#2563eb', '#7c3aed', '#059669', '#d97706'];
+const VECTOR_COLORS = ['#2563eb', '#d97706', '#059669', '#7c3aed'];
 
 export function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -96,43 +95,8 @@ export function App() {
   const activeSignal = signalData.find((s) => s.id === activeSignalId) || signalData[0];
 
   return (
-    <div className="min-h-screen bg-[#07090e] text-[#f2f0ea] relative selection:bg-[#38bdf8] selection:text-[#07090e]">
-      {/* Right-Edge Precision Section Navigation Rail (Desktop) */}
-      <aside
-        aria-label="Section index rail"
-        className="hidden xl:flex fixed right-4 top-1/2 -translate-y-1/2 z-30 flex-col items-end gap-2.5"
-      >
-        {navigationSections.map((sec) => {
-          const isCurrent = activeSection === sec.id;
-          return (
-            <a
-              key={sec.id}
-              href={`#${sec.id}`}
-              aria-label={`${sec.num} ${sec.label}`}
-              className="group flex items-center gap-2.5 py-0.5"
-            >
-              <span
-                className={`font-mono-tech text-[9px] tracking-widest transition-opacity ${
-                  isCurrent
-                    ? 'opacity-100 text-[#38bdf8]'
-                    : 'opacity-0 group-hover:opacity-100 text-[#94a3b8]'
-                }`}
-              >
-                {sec.num} // {sec.label}
-              </span>
-              <span
-                className={`block h-[1px] transition-all duration-150 ${
-                  isCurrent
-                    ? 'w-6 bg-[#38bdf8]'
-                    : 'w-2.5 bg-white/20 group-hover:w-4 group-hover:bg-white/60'
-                }`}
-              />
-            </a>
-          );
-        })}
-      </aside>
-
-      {/* Fullscreen Navigation Index Overlay */}
+    <div className="min-h-screen bg-[#0c0d12] text-[#f4f3ef] relative selection:bg-[#2563eb] selection:text-white">
+      {/* Fullscreen Navigation Drawer */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -140,33 +104,33 @@ export function App() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.18 }}
-            className="fixed inset-0 z-50 bg-[#07090e]/98 backdrop-blur-md flex flex-col justify-between p-6 sm:p-12 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-[#0c0d12]/98 backdrop-blur-md flex flex-col justify-between p-6 sm:p-12 overflow-y-auto"
           >
             <div className="flex items-center justify-between border-b border-white/[0.1] pb-5">
-              <div className="flex items-center gap-3 font-mono-tech text-xs tracking-widest text-[#f2f0ea]">
-                <span className="w-2 h-2 rounded-full bg-gradient-to-r from-[#38bdf8] to-[#10b981]" />
-                <span>{heroData.brandName}</span>
+              <div className="flex items-center gap-3 text-sm font-semibold tracking-tight text-[#f4f3ef]">
+                <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-tr from-[#3b82f6] to-[#10b981]" />
+                <span>Md Tahmid Zoayed</span>
               </div>
               <button
                 onClick={() => setMenuOpen(false)}
-                className="inline-flex items-center gap-2 font-mono-tech text-xs uppercase tracking-widest text-[#94a3b8] hover:text-[#f2f0ea] px-4 py-2 border border-white/15"
+                className="inline-flex items-center gap-2 rounded-full text-xs font-medium text-[#cbd5e1] hover:text-white px-4 py-2 border border-white/15"
               >
                 <span>Close</span>
                 <X size={14} />
               </button>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 my-auto py-8 max-w-[1500px] w-full mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 my-auto py-8 max-w-[1440px] w-full mx-auto">
               <nav className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
                 {navigationSections.map((item) => (
                   <a
                     key={item.id}
                     href={`#${item.id}`}
                     onClick={() => setMenuOpen(false)}
-                    className="group flex items-baseline gap-4 py-2.5 border-b border-white/[0.07] hover:border-[#38bdf8] transition-colors"
+                    className="group flex items-baseline gap-4 py-2.5 border-b border-white/[0.08] hover:border-[#3b82f6] transition-colors"
                   >
-                    <span className="font-mono-tech text-xs text-[#38bdf8]">{item.num}</span>
-                    <span className="font-display text-xl sm:text-2xl font-bold text-[#f2f0ea] group-hover:text-[#38bdf8] transition-colors">
+                    <span className="font-mono-tech text-xs text-[#3b82f6]">{item.num}</span>
+                    <span className="font-display text-xl sm:text-2xl font-bold text-[#f4f3ef] group-hover:text-[#3b82f6] transition-colors">
                       {item.label}
                     </span>
                   </a>
@@ -175,10 +139,10 @@ export function App() {
 
               <div className="lg:col-span-5 space-y-6 border-t lg:border-t-0 lg:border-l border-white/[0.1] pt-6 lg:pt-0 lg:pl-10">
                 <div>
-                  <p className="font-mono-tech text-[10px] uppercase tracking-widest text-[#10b981] mb-3">
-                    LIVE DEPLOYMENTS (VERCEL)
+                  <p className="text-xs font-semibold uppercase tracking-wider text-emerald-400 mb-3">
+                    Live Applications on Vercel
                   </p>
-                  <div className="space-y-2 font-mono-tech text-xs">
+                  <div className="space-y-2 text-xs font-medium">
                     {[
                       { label: 'Axios Insight (AI Data & BI)', url: verifiedLinks.axiosInsight },
                       { label: 'Axios Talent (B2B Recruitment & HR)', url: verifiedLinks.axiosTalent },
@@ -190,7 +154,7 @@ export function App() {
                         href={app.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center justify-between py-2 px-3 border border-emerald-400/20 bg-emerald-400/[0.04] text-[#f2f0ea] hover:border-emerald-400"
+                        className="flex items-center justify-between rounded-xl py-2.5 px-3.5 border border-emerald-400/20 bg-emerald-400/[0.05] text-[#f4f3ef] hover:border-emerald-400"
                       >
                         <span>{app.label}</span>
                         <ArrowUpRight size={13} className="text-emerald-400" />
@@ -200,15 +164,15 @@ export function App() {
                 </div>
 
                 <div>
-                  <p className="font-mono-tech text-[10px] uppercase tracking-widest text-[#94a3b8] mb-3">
-                    OPEN-SOURCE REPOSITORIES &amp; PROFILES
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[#94a3b8] mb-3">
+                    Open-Source &amp; Profiles
                   </p>
-                  <div className="grid grid-cols-2 gap-2 font-mono-tech text-xs">
+                  <div className="grid grid-cols-2 gap-2 text-xs font-medium">
                     <a
                       href={verifiedLinks.degradeLabRepo}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-[#38bdf8] hover:underline py-1"
+                      className="text-blue-400 hover:underline py-1"
                     >
                       DegradeLab ↗
                     </a>
@@ -216,7 +180,7 @@ export function App() {
                       href={verifiedLinks.diagoraRepo}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-[#f59e0b] hover:underline py-1"
+                      className="text-amber-400 hover:underline py-1"
                     >
                       Diagora ↗
                     </a>
@@ -224,7 +188,7 @@ export function App() {
                       href={verifiedLinks.datasetMedicRepo}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-[#38bdf8] hover:underline py-1"
+                      className="text-blue-400 hover:underline py-1"
                     >
                       DatasetMedic ↗
                     </a>
@@ -232,7 +196,7 @@ export function App() {
                       href={verifiedLinks.apiDetectiveRepo}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-[#f59e0b] hover:underline py-1"
+                      className="text-amber-400 hover:underline py-1"
                     >
                       API Detective ↗
                     </a>
@@ -240,7 +204,7 @@ export function App() {
                       href={verifiedLinks.flowSentryRepo}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-[#f59e0b] hover:underline py-1"
+                      className="text-amber-400 hover:underline py-1"
                     >
                       FlowSentry ↗
                     </a>
@@ -248,7 +212,7 @@ export function App() {
                       href={verifiedLinks.vellumResearchRepo}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-[#10b981] hover:underline py-1"
+                      className="text-emerald-400 hover:underline py-1"
                     >
                       Vellum Research ↗
                     </a>
@@ -256,15 +220,15 @@ export function App() {
                       href={verifiedLinks.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-[#94a3b8] hover:text-[#f2f0ea] py-1"
+                      className="text-[#cbd5e1] hover:text-white py-1"
                     >
-                      GitHub Profile ↗
+                      GitHub ↗
                     </a>
                     <a
                       href={verifiedLinks.linkedin}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-[#94a3b8] hover:text-[#f2f0ea] py-1"
+                      className="text-[#cbd5e1] hover:text-white py-1"
                     >
                       LinkedIn ↗
                     </a>
@@ -272,7 +236,7 @@ export function App() {
                       href={verifiedLinks.kaggle}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-[#a78bfa] hover:underline py-1"
+                      className="text-violet-400 hover:underline py-1"
                     >
                       Kaggle ↗
                     </a>
@@ -280,16 +244,16 @@ export function App() {
                       href={verifiedLinks.cvPdf}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-[#94a3b8] hover:text-[#f2f0ea] py-1"
+                      className="text-[#cbd5e1] hover:text-white py-1"
                     >
-                      Curriculum Vitae ↗
+                      CV (PDF) ↗
                     </a>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center justify-between gap-4 pt-5 border-t border-white/[0.1] font-mono-tech text-xs text-[#94a3b8]">
+            <div className="flex flex-wrap items-center justify-between gap-4 pt-5 border-t border-white/[0.1] text-xs text-[#94a3b8]">
               <span>{verifiedLinks.email}</span>
               <LiveDhakaClock />
             </div>
@@ -297,30 +261,28 @@ export function App() {
         )}
       </AnimatePresence>
 
-      {/* STICKY PORTFOLIO HEADER */}
-      <header className="sticky top-0 z-40 border-b border-white/[0.08] bg-[#07090e]/92 backdrop-blur-md">
-        <div className="spectrum-divider" />
-        <div className="max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-14 h-16 flex items-center justify-between gap-4">
+      {/* STICKY EDITORIAL HEADER */}
+      <header className="sticky top-0 z-40 border-b border-white/[0.08] bg-[#0c0d12]/90 backdrop-blur-md">
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 h-16 flex items-center justify-between gap-4">
           <a
             href="#hero"
-            className="flex items-center gap-3 font-mono-tech text-xs sm:text-sm font-semibold tracking-wider text-[#f2f0ea] hover:text-[#38bdf8] transition-colors"
+            className="flex items-center gap-2.5 text-sm font-bold tracking-tight text-[#f4f3ef] hover:text-white transition-colors"
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-tr from-[#38bdf8] via-[#a78bfa] to-[#10b981]" />
-            <span>MD TAHMID ZOAYED</span>
+            <span className="w-2.5 h-2.5 rounded-full bg-gradient-to-tr from-[#3b82f6] via-[#a78bfa] to-[#10b981]" />
+            <span className="font-display">Md Tahmid Zoayed</span>
           </a>
 
           <nav
             aria-label="Primary sections"
-            className="hidden lg:flex items-center gap-6 font-mono-tech text-[11px] tracking-wider"
+            className="hidden lg:flex items-center gap-6 text-xs font-medium"
           >
             {[
-              { num: '02', label: 'PROFILE', href: '#profile', id: 'profile', color: '#38bdf8' },
-              { num: '03', label: 'SYSTEMS', href: '#systems', id: 'systems', color: '#10b981' },
-              { num: '04', label: 'RESEARCH', href: '#research-lab', id: 'research-lab', color: '#a78bfa' },
-              { num: '05', label: 'QUESTIONS', href: '#open-questions', id: 'open-questions', color: '#a78bfa' },
-              { num: '06', label: 'TIMELINE', href: '#evolution', id: 'evolution', color: '#f59e0b' },
-              { num: '08', label: 'STACK', href: '#tech-matrix', id: 'tech-matrix', color: '#38bdf8' },
-              { num: '11', label: 'CONTACT', href: '#network', id: 'network', color: '#10b981' },
+              { label: 'Profile', href: '#profile', id: 'profile', color: '#3b82f6' },
+              { label: 'Systems', href: '#systems', id: 'systems', color: '#10b981' },
+              { label: 'Research', href: '#research-lab', id: 'research-lab', color: '#a78bfa' },
+              { label: 'Timeline', href: '#evolution', id: 'evolution', color: '#f59e0b' },
+              { label: 'Stack', href: '#tech-matrix', id: 'tech-matrix', color: '#3b82f6' },
+              { label: 'Contact', href: '#network', id: 'network', color: '#10b981' },
             ].map((nav) => {
               const active = activeSection === nav.id;
               return (
@@ -329,10 +291,9 @@ export function App() {
                   href={nav.href}
                   style={active ? { color: nav.color } : undefined}
                   className={`transition-colors ${
-                    active ? 'font-semibold' : 'text-[#94a3b8] hover:text-[#f2f0ea]'
+                    active ? 'font-semibold' : 'text-[#94a3b8] hover:text-white'
                   }`}
                 >
-                  <span className="text-[#64748b] mr-1">{nav.num}.</span>
                   {nav.label}
                 </a>
               );
@@ -340,7 +301,7 @@ export function App() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <div className="hidden sm:flex items-center gap-2 font-mono-tech text-[10px] text-[#94a3b8] px-3 py-1.5 border border-white/[0.08] bg-[#0b101b]">
+            <div className="hidden sm:flex items-center gap-2 rounded-full text-[11px] font-medium text-[#cbd5e1] px-3.5 py-1.5 border border-white/[0.1] bg-[#131620]">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
               <LiveDhakaClock />
             </div>
@@ -348,9 +309,9 @@ export function App() {
             <button
               onClick={() => setMenuOpen(true)}
               aria-label="Open navigation menu"
-              className="inline-flex items-center gap-2 font-mono-tech text-xs text-[#f2f0ea] hover:text-[#38bdf8] px-3.5 py-1.5 border border-white/[0.15] hover:border-[#38bdf8] bg-[#0b101b] transition-colors"
+              className="inline-flex items-center gap-2 rounded-full text-xs font-semibold text-[#f4f3ef] hover:text-white px-4 py-1.5 border border-white/[0.15] hover:border-[#3b82f6] bg-[#131620] transition-colors"
             >
-              <span>MENU</span>
+              <span>Menu</span>
               <Menu size={14} />
             </button>
           </div>
@@ -358,57 +319,52 @@ export function App() {
       </header>
 
       {/* =====================================================================
-          01 — HERO (MULTI-SPECTRUM ATMOSPHERIC GLOW + INTERACTIVE GLOBE)
+          01 — HERO (DEEP OBSIDIAN + SMOOTH AMBIENT GLOW + INTERACTIVE GLOBE)
          ===================================================================== */}
       <section
         id="hero"
-        className="border-b border-white/[0.08] bg-[#07090e] lab-grid-bg ambient-hero-glow relative overflow-hidden"
+        className="editorial-hero-bg border-b border-white/[0.08] relative overflow-hidden"
       >
-        <div className="max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-14 pt-10 pb-20 sm:pt-14 sm:pb-28">
-          {/* Top Location & Availability Strip */}
-          <div className="flex flex-wrap items-center justify-between gap-4 pb-5 mb-10 border-b border-white/[0.08] font-mono-tech text-[11px] text-[#94a3b8]">
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="text-[#38bdf8]">01 // OVERVIEW</span>
-              <span className="text-white/20">|</span>
-              <span>{heroData.location}</span>
-            </div>
-            <div className="flex items-center gap-2 text-emerald-300">
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 pt-10 pb-20 sm:pt-14 sm:pb-24">
+          {/* Top Location & Availability Pills */}
+          <div className="flex flex-wrap items-center justify-between gap-3 pb-8">
+            <span className="inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-xs font-medium bg-white/[0.05] text-[#cbd5e1] border border-white/[0.1]">
+              {heroData.location}
+            </span>
+            <span className="inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-xs font-medium bg-emerald-500/10 text-emerald-300 border border-emerald-400/25">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span>{heroData.availability}</span>
-            </div>
+              {heroData.availability}
+            </span>
           </div>
 
           {/* Main Hero Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-10 items-center">
-            {/* Left 7 Columns: Editorial Typography & Core Identity */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            {/* Left 7 Columns */}
             <div className="lg:col-span-7 space-y-7">
-              <div className="space-y-3">
-                <div className="inline-flex flex-wrap items-center gap-2.5 font-mono-tech text-xs uppercase tracking-[0.16em] text-[#f2f0ea] px-3.5 py-1.5 border border-[#38bdf8]/40 bg-[#38bdf8]/[0.08]">
-                  <span className="text-[#38bdf8] font-semibold">{heroData.name}</span>
-                  <span className="text-white/30">//</span>
-                  <span className="text-[#cbd5e1]">{heroData.role}</span>
-                </div>
+              <div className="space-y-4">
+                <p className="text-xs sm:text-sm font-semibold tracking-wide text-[#60a5fa]">
+                  {heroData.name} · {heroData.role}
+                </p>
 
-                <h1 className="font-display text-5xl sm:text-7xl xl:text-[88px] font-bold tracking-tight text-[#f2f0ea] leading-[0.93] uppercase pt-2">
-                  I BUILD
-                  <br />
-                  <span className="bg-gradient-to-r from-[#38bdf8] via-[#a78bfa] to-[#10b981] bg-clip-text text-transparent">
-                    INTELLIGENT
+                <h1 className="font-display text-5xl sm:text-7xl xl:text-[84px] font-extrabold tracking-tight text-[#f4f3ef] leading-[0.96]">
+                  I build{' '}
+                  <span className="bg-gradient-to-r from-[#3b82f6] via-[#a78bfa] to-[#10b981] bg-clip-text text-transparent">
+                    intelligent
                   </span>
                   <br />
-                  SYSTEMS.
+                  systems.
                 </h1>
               </div>
 
-              <p className="text-lg sm:text-xl text-[#e2e8f0] leading-relaxed max-w-2xl font-normal border-l-2 border-[#38bdf8] pl-5">
+              <p className="text-lg sm:text-xl text-[#cbd5e1] leading-relaxed max-w-2xl">
                 {heroData.supportingDescription}
               </p>
 
-              {/* Primary CTAs */}
-              <div className="flex flex-wrap items-center gap-4 pt-1">
+              {/* Primary Pill CTAs */}
+              <div className="flex flex-wrap items-center gap-3.5 pt-1">
                 <a
                   href="#systems"
-                  className="inline-flex items-center gap-3 font-mono-tech text-xs sm:text-sm font-semibold uppercase tracking-wider px-7 py-4 bg-gradient-to-r from-[#38bdf8] to-[#10b981] text-[#07090e] hover:opacity-90 transition-opacity"
+                  className="inline-flex items-center gap-2.5 rounded-full text-sm font-semibold px-7 py-3.5 bg-[#2563eb] hover:bg-[#3b82f6] text-white shadow-lg shadow-blue-600/25 transition-all"
                 >
                   <span>Explore Systems</span>
                   <ArrowDownRight size={16} />
@@ -416,7 +372,7 @@ export function App() {
 
                 <a
                   href="#research-lab"
-                  className="inline-flex items-center gap-3 font-mono-tech text-xs sm:text-sm uppercase tracking-wider px-7 py-4 border border-[#a78bfa]/50 bg-[#a78bfa]/[0.08] text-[#f2f0ea] hover:bg-[#a78bfa] hover:text-[#07090e] font-semibold transition-colors"
+                  className="inline-flex items-center gap-2.5 rounded-full text-sm font-semibold px-7 py-3.5 border border-white/20 bg-[#131620] text-[#f4f3ef] hover:border-emerald-400 hover:text-emerald-300 transition-colors"
                 >
                   <span>Research &amp; Papers</span>
                   <ArrowDownRight size={16} />
@@ -426,18 +382,18 @@ export function App() {
                   href={verifiedLinks.cvPdf}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 font-mono-tech text-xs uppercase tracking-wider px-5 py-4 border border-white/15 bg-[#0b101b] text-[#f2f0ea] hover:border-amber-400 hover:text-amber-300 transition-colors"
+                  className="inline-flex items-center gap-2 rounded-full text-sm font-medium px-5 py-3.5 border border-white/10 text-[#cbd5e1] hover:text-white hover:border-white/30 transition-colors"
                 >
-                  <FileText size={14} />
-                  <span>Download CV (PDF)</span>
+                  <FileText size={15} />
+                  <span>Download CV</span>
                 </a>
               </div>
 
-              {/* Domain-Colored Live Platforms & Open-Source Bar */}
-              <div className="pt-6 border-t border-white/[0.08] grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <span className="block font-mono-tech text-[10px] uppercase tracking-widest text-emerald-400">
-                    LIVE AI PLATFORMS (VERCEL)
+              {/* Quick Links: Live Products & Open-Source Tools */}
+              <div className="pt-6 border-t border-white/[0.08] grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div className="space-y-2.5">
+                  <span className="block text-[11px] font-semibold uppercase tracking-wider text-emerald-400">
+                    Live AI Platforms (Vercel)
                   </span>
                   <div className="flex flex-wrap gap-2">
                     {[
@@ -451,7 +407,7 @@ export function App() {
                         href={app.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-1.5 font-mono-tech text-[11px] px-2.5 py-1 border border-emerald-400/30 bg-emerald-400/[0.07] text-[#f2f0ea] hover:border-emerald-400 transition-colors"
+                        className="inline-flex items-center gap-1.5 rounded-full text-xs font-medium px-3 py-1 border border-emerald-400/25 bg-emerald-400/[0.08] text-[#f4f3ef] hover:border-emerald-400 transition-colors"
                       >
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                         <span>{app.label}</span>
@@ -461,34 +417,34 @@ export function App() {
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <span className="block font-mono-tech text-[10px] uppercase tracking-widest text-[#38bdf8]">
-                    CV &amp; DEVELOPER DIAGNOSTICS (GITHUB)
+                <div className="space-y-2.5">
+                  <span className="block text-[11px] font-semibold uppercase tracking-wider text-[#60a5fa]">
+                    Open-Source Tools (GitHub)
                   </span>
                   <div className="flex flex-wrap gap-2">
                     <a
                       href={verifiedLinks.degradeLabRepo}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1 font-mono-tech text-[11px] px-2.5 py-1 border border-[#38bdf8]/35 bg-[#38bdf8]/[0.07] text-[#f2f0ea] hover:border-[#38bdf8] transition-colors"
+                      className="inline-flex items-center gap-1 rounded-full text-xs font-medium px-3 py-1 border border-blue-400/25 bg-blue-400/[0.08] text-[#f4f3ef] hover:border-blue-400 transition-colors"
                     >
                       <span>DegradeLab</span>
-                      <ArrowUpRight size={11} className="text-[#38bdf8]" />
+                      <ArrowUpRight size={11} className="text-blue-400" />
                     </a>
                     <a
                       href={verifiedLinks.datasetMedicRepo}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1 font-mono-tech text-[11px] px-2.5 py-1 border border-[#38bdf8]/35 bg-[#38bdf8]/[0.07] text-[#f2f0ea] hover:border-[#38bdf8] transition-colors"
+                      className="inline-flex items-center gap-1 rounded-full text-xs font-medium px-3 py-1 border border-blue-400/25 bg-blue-400/[0.08] text-[#f4f3ef] hover:border-blue-400 transition-colors"
                     >
                       <span>DatasetMedic</span>
-                      <ArrowUpRight size={11} className="text-[#38bdf8]" />
+                      <ArrowUpRight size={11} className="text-blue-400" />
                     </a>
                     <a
                       href={verifiedLinks.diagoraRepo}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1 font-mono-tech text-[11px] px-2.5 py-1 border border-amber-400/35 bg-amber-400/[0.07] text-[#f2f0ea] hover:border-amber-400 transition-colors"
+                      className="inline-flex items-center gap-1 rounded-full text-xs font-medium px-3 py-1 border border-amber-400/25 bg-amber-400/[0.08] text-[#f4f3ef] hover:border-amber-400 transition-colors"
                     >
                       <span>Diagora</span>
                       <ArrowUpRight size={11} className="text-amber-400" />
@@ -497,7 +453,7 @@ export function App() {
                       href={verifiedLinks.apiDetectiveRepo}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1 font-mono-tech text-[11px] px-2.5 py-1 border border-amber-400/35 bg-amber-400/[0.07] text-[#f2f0ea] hover:border-amber-400 transition-colors"
+                      className="inline-flex items-center gap-1 rounded-full text-xs font-medium px-3 py-1 border border-amber-400/25 bg-amber-400/[0.08] text-[#f4f3ef] hover:border-amber-400 transition-colors"
                     >
                       <span>API Detective</span>
                       <ArrowUpRight size={11} className="text-amber-400" />
@@ -506,7 +462,7 @@ export function App() {
                       href={verifiedLinks.flowSentryRepo}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1 font-mono-tech text-[11px] px-2.5 py-1 border border-amber-400/35 bg-amber-400/[0.07] text-[#f2f0ea] hover:border-amber-400 transition-colors"
+                      className="inline-flex items-center gap-1 rounded-full text-xs font-medium px-3 py-1 border border-amber-400/25 bg-amber-400/[0.08] text-[#f4f3ef] hover:border-amber-400 transition-colors"
                     >
                       <span>FlowSentry</span>
                       <ArrowUpRight size={11} className="text-amber-400" />
@@ -526,35 +482,27 @@ export function App() {
             </div>
           </div>
 
-          {/* Bottom 4-Cell Color-Accented Summary Strip */}
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border border-white/[0.1] bg-[#0b101b]/90 divide-y sm:divide-y-0 sm:divide-x divide-white/[0.08]">
-            <div className="p-5 space-y-1 border-t-2 border-t-[#10b981]">
-              <span className="font-mono-tech text-[10px] text-[#10b981]">01 // CURRENT ROLE</span>
-              <p className="font-display text-2xl font-bold text-[#f2f0ea]">Axios Station</p>
-              <p className="font-mono-tech text-xs text-[#94a3b8]">
-                CBO &amp; AI Engineer · June 2025–Present
-              </p>
+          {/* Bottom 4-Cell Rounded Summary Strip */}
+          <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="rounded-2xl border border-white/[0.09] bg-[#131620]/90 p-5 space-y-1">
+              <span className="text-xs font-semibold text-emerald-400">Current Role</span>
+              <p className="font-display text-2xl font-bold text-[#f4f3ef]">Axios Station</p>
+              <p className="text-xs text-[#94a3b8]">CBO &amp; AI Engineer · June 2025–Present</p>
             </div>
-            <div className="p-5 space-y-1 border-t-2 border-t-[#38bdf8]">
-              <span className="font-mono-tech text-[10px] text-[#38bdf8]">02 // SYSTEMS BUILT</span>
-              <p className="font-display text-2xl font-bold text-[#f2f0ea]">11 Engineered Systems</p>
-              <p className="font-mono-tech text-xs text-[#94a3b8]">
-                4 Live Vercel Platforms · 15+ Open-Source Repos
-              </p>
+            <div className="rounded-2xl border border-white/[0.09] bg-[#131620]/90 p-5 space-y-1">
+              <span className="text-xs font-semibold text-[#60a5fa]">Systems Built</span>
+              <p className="font-display text-2xl font-bold text-[#f4f3ef]">11 Engineered Systems</p>
+              <p className="text-xs text-[#94a3b8]">4 Live Vercel Platforms · 15+ Open-Source Repos</p>
             </div>
-            <div className="p-5 space-y-1 border-t-2 border-t-[#a78bfa]">
-              <span className="font-mono-tech text-[10px] text-[#a78bfa]">03 // RESEARCH</span>
-              <p className="font-display text-2xl font-bold text-[#f2f0ea]">05 Research Studies</p>
-              <p className="font-mono-tech text-xs text-[#94a3b8]">
-                4 Published Papers + EWU/BAU Funded Grant
-              </p>
+            <div className="rounded-2xl border border-white/[0.09] bg-[#131620]/90 p-5 space-y-1">
+              <span className="text-xs font-semibold text-violet-400">Research</span>
+              <p className="font-display text-2xl font-bold text-[#f4f3ef]">05 Research Studies</p>
+              <p className="text-xs text-[#94a3b8]">4 Published Papers + EWU/BAU Funded Grant</p>
             </div>
-            <div className="p-5 space-y-1 border-t-2 border-t-[#f59e0b]">
-              <span className="font-mono-tech text-[10px] text-[#f59e0b]">
-                04 // ACADEMIC FOUNDATION
-              </span>
-              <p className="font-display text-2xl font-bold text-[#f2f0ea]">B.Sc. in CSE</p>
-              <p className="font-mono-tech text-xs text-[#94a3b8]">
+            <div className="rounded-2xl border border-white/[0.09] bg-[#131620]/90 p-5 space-y-1">
+              <span className="text-xs font-semibold text-amber-400">Education</span>
+              <p className="font-display text-2xl font-bold text-[#f4f3ef]">B.Sc. in CSE</p>
+              <p className="text-xs text-[#94a3b8]">
                 East West University · Data Science &amp; Intelligent Systems
               </p>
             </div>
@@ -563,97 +511,88 @@ export function App() {
       </section>
 
       {/* =====================================================================
-          02 — PROFILE (MIDNIGHT SLATE + DOMAIN-COLORED CAPABILITY CARDS)
+          02 — PROFILE (WARM IVORY HIGH-CONTRAST EDITORIAL)
          ===================================================================== */}
       <section
         id="profile"
-        className="border-b border-white/[0.08] bg-[#0b101b] lab-subgrid-bg scroll-mt-16"
+        className="editorial-ivory-bg text-[#111318] border-b border-black/[0.08] scroll-mt-16"
       >
-        <div className="spectrum-divider" />
-        <div className="max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-14 py-24 sm:py-32">
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 py-24 sm:py-32">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-5 space-y-6">
-              <div className="flex items-center gap-3 font-mono-tech text-xs uppercase tracking-[0.2em] text-[#38bdf8]">
-                <span>{intelligenceProfileData.headerCode}</span>
-              </div>
-              <h2 className="font-display text-3xl sm:text-5xl font-bold text-[#f2f0ea] leading-[1.02] uppercase">
+              <span className="inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-xs font-semibold bg-blue-600/10 text-blue-700 border border-blue-600/20">
+                02 · Profile &amp; Capabilities
+              </span>
+              <h2 className="font-display text-3xl sm:text-5xl font-bold text-[#111318] leading-[1.05]">
                 {intelligenceProfileData.headline}
               </h2>
 
-              {/* Portrait Frame */}
-              <div className="border border-white/[0.12] border-t-2 border-t-[#38bdf8] bg-[#07090e] p-3 max-w-xs crosshair-corner">
-                <div className="flex items-center justify-between font-mono-tech text-[10px] text-[#94a3b8] pb-2 mb-2 border-b border-white/[0.07]">
-                  <span>MD TAHMID ZOAYED</span>
-                  <span className="text-[#10b981]">AI / ML ENGINEER</span>
+              {/* Portrait Card */}
+              <div className="rounded-3xl border border-black/[0.09] bg-white p-3.5 max-w-xs shadow-md">
+                <div className="overflow-hidden rounded-2xl">
+                  <img
+                    src="/images/1761230135831.png"
+                    alt="Md Tahmid Zoayed"
+                    loading="lazy"
+                    className="w-full aspect-[4/5] object-cover object-top"
+                  />
                 </div>
-                <img
-                  src="/images/1761230135831.png"
-                  alt="Md Tahmid Zoayed"
-                  loading="lazy"
-                  className="w-full aspect-[4/5] object-cover object-top contrast-[1.03]"
-                />
-                <div className="pt-2 mt-2 border-t border-white/[0.07] flex items-center justify-between font-mono-tech text-[10px] text-[#94a3b8]">
-                  <span>CBO @ AXIOS STATION</span>
-                  <span className="text-[#38bdf8]">DHAKA, BD</span>
+                <div className="pt-3 px-1 flex items-center justify-between text-xs font-semibold text-[#111318]">
+                  <span>Md Tahmid Zoayed</span>
+                  <span className="text-[#2563eb]">Dhaka, BD</span>
                 </div>
               </div>
             </div>
 
             <div className="lg:col-span-7 space-y-8">
-              <div className="border border-white/[0.1] border-l-2 border-l-[#38bdf8] bg-[#07090e] p-6 sm:p-8 space-y-5">
-                <div className="flex items-center justify-between font-mono-tech text-[10px] uppercase tracking-widest text-[#38bdf8] border-b border-white/[0.07] pb-3">
-                  <span>ENGINEERING PHILOSOPHY</span>
-                  <span className="text-[#a78bfa]">RESEARCH → ARCHITECTURE → PRODUCTION</span>
+              <div className="rounded-3xl border border-black/[0.08] bg-white p-6 sm:p-8 space-y-4 shadow-sm">
+                <div className="text-xs font-bold uppercase tracking-wider text-[#2563eb]">
+                  Engineering Philosophy
                 </div>
                 {intelligenceProfileData.narrative.map((paragraph, index) => (
                   <p
                     key={index}
-                    className="text-base sm:text-lg text-[#e2e8f0] leading-relaxed"
+                    className="text-base sm:text-lg text-[#111318]/85 leading-relaxed"
                   >
                     {paragraph}
                   </p>
                 ))}
               </div>
 
-              {/* 6-Domain Color-Coded Capability Matrix */}
-              <div className="space-y-3">
-                <div className="flex items-center justify-between font-mono-tech text-[10px] uppercase tracking-widest text-[#94a3b8]">
-                  <span>CORE CAPABILITY DOMAINS // 06 AREAS</span>
-                  <span className="text-[#10b981]">APPLIED &amp; RESEARCH</span>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {intelligenceProfileData.domains.map((dom, idx) => {
-                    const col = DOMAIN_COLORS[idx % DOMAIN_COLORS.length];
-                    return (
-                      <div
-                        key={dom.index}
-                        style={{ borderTopWidth: '2px', borderTopColor: col }}
-                        className="border border-white/[0.09] bg-[#07090e] p-5 flex flex-col justify-between gap-4 hover:border-white/25 transition-colors"
-                      >
-                        <div className="space-y-2">
-                          <div className="flex items-center justify-between font-mono-tech text-[11px]">
-                            <span style={{ color: col }} className="font-semibold">
-                              {dom.index}
-                            </span>
-                            <span className="text-[#64748b] text-[10px]">{dom.focus}</span>
-                          </div>
-                          <h3 className="font-display text-xl font-bold text-[#f2f0ea]">
-                            {dom.title}
-                          </h3>
-                          <p className="text-xs sm:text-sm text-[#94a3b8] leading-relaxed">
-                            {dom.summary}
-                          </p>
+              {/* 6-Domain Capability Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {intelligenceProfileData.domains.map((dom, idx) => {
+                  const col = DOMAIN_COLORS[idx % DOMAIN_COLORS.length];
+                  return (
+                    <div
+                      key={dom.index}
+                      className="rounded-2xl border border-black/[0.08] bg-white p-6 flex flex-col justify-between gap-4 shadow-sm hover:shadow-md transition-shadow"
+                    >
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between text-xs font-semibold">
+                          <span className="inline-flex items-center gap-2" style={{ color: col }}>
+                            <span
+                              className="w-2 h-2 rounded-full"
+                              style={{ backgroundColor: col }}
+                            />
+                            {dom.index}
+                          </span>
+                          <span className="text-[#64748b] text-[11px]">{dom.focus}</span>
                         </div>
-                        <div
-                          className="pt-3 border-t border-white/[0.06] font-mono-tech text-[10px]"
-                          style={{ color: col }}
-                        >
-                          {dom.metrics}
-                        </div>
+                        <h3 className="font-display text-xl font-bold text-[#111318]">
+                          {dom.title}
+                        </h3>
+                        <p className="text-sm text-[#525866] leading-relaxed">{dom.summary}</p>
                       </div>
-                    );
-                  })}
-                </div>
+                      <div
+                        className="pt-3 border-t border-black/[0.06] text-xs font-semibold"
+                        style={{ color: col }}
+                      >
+                        {dom.metrics}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -661,99 +600,90 @@ export function App() {
       </section>
 
       {/* =====================================================================
-          03 — SYSTEMS (SPOTLIGHT BENTO + INTERACTIVE MASTER-DETAIL EXPLORER)
+          03 — SYSTEMS (OBSIDIAN SPOTLIGHT BENTO + INTERACTIVE EXPLORER)
          ===================================================================== */}
       <SystemsBlueprintSection externalSelectedSystemId={selectedSystemFromGlobe} />
 
       {/* =====================================================================
-          04 — RESEARCH, 05 — OPEN QUESTIONS, 06 — EVOLUTION, 07 — AXIOS STATION
+          04 — RESEARCH & 05 — OPEN QUESTIONS (IVORY) + 06 — TIMELINE & 07 — AXIOS STATION (OBSIDIAN)
          ===================================================================== */}
       <ResearchAndNotebookSection />
 
       {/* =====================================================================
-          08 — TECHNOLOGY MATRIX (WITH PROFICIENCY METER INDICATORS)
+          08 — TECHNOLOGY MATRIX & 09 — CURRENT VECTOR (WARM IVORY)
          ===================================================================== */}
       <section
         id="tech-matrix"
-        className="border-b border-white/[0.08] bg-[#0b101b] lab-subgrid-bg scroll-mt-16"
+        className="editorial-ivory-bg text-[#111318] border-b border-black/[0.08] scroll-mt-16"
       >
-        <div className="spectrum-divider" />
-        <div className="max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-14 py-24 sm:py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-12 border-b border-white/[0.08]">
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 py-24 sm:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-12 border-b border-black/[0.08]">
             <div className="lg:col-span-7 space-y-3">
-              <div className="flex items-center gap-3 font-mono-tech text-xs uppercase tracking-[0.2em]">
-                <span className="text-[#38bdf8]">08 // TECHNOLOGY MATRIX</span>
-                <span className="text-white/20">—</span>
-                <span className="text-[#94a3b8]">PRODUCTION &amp; RESEARCH STACK</span>
-              </div>
-              <h2 className="font-display text-4xl sm:text-6xl font-bold text-[#f2f0ea] leading-[0.96] uppercase">
-                Technical Specification Matrix.
+              <span className="inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-xs font-semibold bg-blue-600/10 text-blue-700 border border-blue-600/20">
+                08 · Technology Matrix
+              </span>
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#111318] leading-[1.02]">
+                Production &amp; Research Stack.
               </h2>
             </div>
-            <div className="lg:col-span-5 flex flex-wrap lg:justify-end gap-4 font-mono-tech text-xs">
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 border border-[#10b981]/40 bg-[#10b981]/10 text-emerald-300">
-                <span className="w-2 h-2 rounded-full bg-[#10b981]" /> Core Proficiency
+            <div className="lg:col-span-5 flex flex-wrap lg:justify-end gap-3 text-xs font-semibold">
+              <span className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 bg-emerald-50 border border-emerald-200 text-emerald-800">
+                <span className="w-2 h-2 rounded-full bg-emerald-600" /> Core Proficiency
               </span>
-              <span className="inline-flex items-center gap-2 px-3 py-1.5 border border-white/15 bg-[#07090e] text-[#94a3b8]">
-                <span className="w-2 h-2 rounded-full bg-[#64748b]" /> Applied / Working
+              <span className="inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 bg-white border border-black/[0.1] text-[#525866]">
+                <span className="w-2 h-2 rounded-full bg-[#94a3b8]" /> Applied / Working
               </span>
             </div>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6">
             {technologyMatrixData.map((group, gIdx) => {
               const col = MATRIX_COLORS[gIdx % MATRIX_COLORS.length];
               return (
                 <div
                   key={group.code}
-                  style={{ borderTopWidth: '2px', borderTopColor: col }}
-                  className="border border-white/[0.1] bg-[#07090e] flex flex-col justify-between"
+                  className="rounded-3xl border border-black/[0.08] bg-white overflow-hidden shadow-sm"
                 >
-                  <div className="p-6 border-b border-white/[0.08] bg-[#0d121f] space-y-1.5">
-                    <div className="flex items-center justify-between font-mono-tech text-xs">
-                      <span style={{ color: col }} className="font-semibold">
-                        {group.code}
-                      </span>
-                      <span className="text-[#94a3b8]">{group.items.length} TECHNOLOGIES</span>
+                  <div className="p-6 border-b border-black/[0.07] bg-[#faf9f6] space-y-1">
+                    <div className="flex items-center justify-between text-xs font-semibold">
+                      <span style={{ color: col }}>{group.category}</span>
+                      <span className="text-[#64748b]">{group.items.length} Tools</span>
                     </div>
-                    <h3 className="font-display text-2xl font-bold text-[#f2f0ea]">
-                      {group.category}
-                    </h3>
-                    <p className="text-xs text-[#94a3b8]">{group.description}</p>
+                    <p className="text-xs text-[#525866]">{group.description}</p>
                   </div>
 
-                  <div className="divide-y divide-white/[0.06]">
+                  <div className="divide-y divide-black/[0.06]">
                     {group.items.map((tech) => {
                       const isCore = tech.tier === 'Core Proficiency';
                       return (
                         <div
                           key={tech.name}
-                          className="px-6 py-4 grid grid-cols-1 sm:grid-cols-12 gap-2.5 items-center hover:bg-white/[0.02] transition-colors"
+                          className="px-6 py-4 grid grid-cols-1 sm:grid-cols-12 gap-2.5 items-center hover:bg-[#f6f4ef]/60 transition-colors"
                         >
                           <div className="sm:col-span-5 flex items-center gap-2.5">
                             <span
-                              style={{ backgroundColor: isCore ? col : '#64748b' }}
+                              style={{ backgroundColor: isCore ? col : '#94a3b8' }}
                               className="w-2 h-2 rounded-full shrink-0"
                             />
-                            <span className="font-display text-sm font-semibold text-[#f2f0ea]">
+                            <span className="font-display text-sm font-bold text-[#111318]">
                               {tech.name}
                             </span>
                           </div>
                           <div className="sm:col-span-3 space-y-1">
-                            <div className="h-1.5 w-full bg-white/[0.07] overflow-hidden">
+                            <div className="h-1.5 w-full rounded-full bg-black/[0.07] overflow-hidden">
                               <div
                                 style={{
                                   width: isCore ? '92%' : '62%',
-                                  backgroundColor: isCore ? col : '#64748b',
+                                  backgroundColor: isCore ? col : '#94a3b8',
                                 }}
-                                className="h-full"
+                                className="h-full rounded-full"
                               />
                             </div>
-                            <span className="block font-mono-tech text-[9.5px] text-[#94a3b8]">
+                            <span className="block text-[10px] font-medium text-[#525866]">
                               {tech.tier}
                             </span>
                           </div>
-                          <div className="sm:col-span-4 text-xs text-[#94a3b8]">{tech.context}</div>
+                          <div className="sm:col-span-4 text-xs text-[#525866]">{tech.context}</div>
                         </div>
                       );
                     })}
@@ -762,156 +692,125 @@ export function App() {
               );
             })}
           </div>
-        </div>
-      </section>
 
-      {/* =====================================================================
-          09 — CURRENT VECTOR (MULTI-SPECTRUM TRAJECTORIES)
-         ===================================================================== */}
-      <section
-        id="current-vector"
-        className="border-b border-white/[0.08] bg-[#07090e] lab-grid-bg scroll-mt-16"
-      >
-        <div className="max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-14 py-24 sm:py-32">
-          <div className="border border-white/[0.12] border-t-2 border-t-[#38bdf8] bg-[#0b101b] p-6 sm:p-10 lg:p-14 crosshair-corner">
-            <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b border-white/[0.08] font-mono-tech text-xs">
-              <span className="text-[#38bdf8] flex items-center gap-2">
-                <Compass size={14} />
-                {currentVectorData.headerCode}
-              </span>
-              <span className="text-emerald-300 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                ACTIVE FOCUS · 2025–2026
-              </span>
-            </div>
+          {/* 09 — CURRENT VECTOR */}
+          <div id="current-vector" className="mt-24 scroll-mt-24">
+            <div className="rounded-3xl border border-black/[0.09] bg-white p-6 sm:p-10 lg:p-14 shadow-sm">
+              <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b border-black/[0.08] text-xs font-semibold">
+                <span className="text-[#2563eb] flex items-center gap-2">
+                  <Compass size={15} />
+                  09 · Current Direction
+                </span>
+                <span className="rounded-full px-3 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200">
+                  Active Focus · 2025–2026
+                </span>
+              </div>
 
-            <div className="space-y-4 mb-12">
-              <p className="font-mono-tech text-xs uppercase tracking-[0.2em] text-[#94a3b8]">
-                CURRENT ENGINEERING DIRECTION
-              </p>
-              <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold leading-[0.96] uppercase bg-gradient-to-r from-[#f2f0ea] via-[#38bdf8] to-[#10b981] bg-clip-text text-transparent">
-                {currentVectorData.vectorBanner}
-              </h2>
-              <p className="text-base sm:text-lg text-[#94a3b8] max-w-3xl leading-relaxed">
-                {currentVectorData.statement}
-              </p>
-            </div>
+              <div className="space-y-4 mb-10">
+                <h2 className="font-display text-3xl sm:text-5xl font-bold leading-[1.02] text-[#111318]">
+                  AI Agents, Automation &amp;{' '}
+                  <span className="bg-gradient-to-r from-[#2563eb] to-[#059669] bg-clip-text text-transparent">
+                    Intelligent Systems.
+                  </span>
+                </h2>
+                <p className="text-base sm:text-lg text-[#525866] max-w-3xl leading-relaxed">
+                  {currentVectorData.statement}
+                </p>
+              </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-              {currentVectorData.trajectories.map((vec, idx) => {
-                const col = VECTOR_COLORS[idx % VECTOR_COLORS.length];
-                return (
-                  <div
-                    key={vec.code}
-                    style={{ borderTopWidth: '2px', borderTopColor: col }}
-                    className="border border-white/[0.09] bg-[#07090e] p-6 flex flex-col justify-between gap-6 hover:border-white/25 transition-colors"
-                  >
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between font-mono-tech text-[10px]">
-                        <span style={{ color: col }} className="font-semibold">
-                          {vec.code}
-                        </span>
-                        <span className="text-[#94a3b8] px-2 py-0.5 border border-white/10">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                {currentVectorData.trajectories.map((vec, idx) => {
+                  const col = VECTOR_COLORS[idx % VECTOR_COLORS.length];
+                  return (
+                    <div
+                      key={vec.code}
+                      className="rounded-2xl border border-black/[0.08] bg-[#f6f4ef] p-6 flex flex-col justify-between gap-5"
+                    >
+                      <div className="space-y-2.5">
+                        <span
+                          style={{ color: col }}
+                          className="inline-block text-[11px] font-bold uppercase tracking-wider"
+                        >
                           {vec.status}
                         </span>
+                        <h3 className="font-display text-xl font-bold text-[#111318] leading-snug">
+                          {vec.title}
+                        </h3>
+                        <p className="text-xs sm:text-sm text-[#525866] leading-relaxed">
+                          {vec.description}
+                        </p>
                       </div>
-                      <h3 className="font-display text-xl font-bold text-[#f2f0ea] leading-snug">
-                        {vec.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-[#94a3b8] leading-relaxed">
-                        {vec.description}
-                      </p>
-                    </div>
 
-                    <div className="flex flex-wrap gap-1.5 pt-3 border-t border-white/[0.07]">
-                      {vec.focusTags.map((tag) => (
-                        <span
-                          key={tag}
-                          style={{
-                            color: col,
-                            borderColor: `${col}45`,
-                            backgroundColor: `${col}12`,
-                          }}
-                          className="font-mono-tech text-[10px] px-2 py-0.5 border"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                      <div className="flex flex-wrap gap-1.5 pt-3 border-t border-black/[0.07]">
+                        {vec.focusTags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-full text-[11px] font-medium px-2.5 py-0.5 bg-white border border-black/[0.08] text-[#111318]"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* =====================================================================
-          10 — SIGNAL (ARTICLES, RESEARCH NOTES & PUBLICATIONS)
+          10 — SIGNAL & 11 — CONTACT (DEEP OBSIDIAN)
          ===================================================================== */}
       <section
         id="signal"
-        className="border-b border-white/[0.08] bg-[#0a0b15] lab-subgrid-bg scroll-mt-16"
+        className="editorial-dark-glow border-b border-white/[0.08] scroll-mt-16"
       >
-        <div className="spectrum-divider" />
-        <div className="max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-14 py-24 sm:py-32">
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 py-24 sm:py-32">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end pb-12 border-b border-white/[0.08]">
             <div className="lg:col-span-7 space-y-3">
-              <div className="flex items-center gap-3 font-mono-tech text-xs uppercase tracking-[0.2em]">
-                <span className="text-[#f59e0b] flex items-center gap-2">
-                  <Radio size={14} /> 10 // SIGNAL
-                </span>
-                <span className="text-white/20">—</span>
-                <span className="text-[#94a3b8]">ENGINEERING NOTES, ARCHITECTURE &amp; WRITING</span>
-              </div>
-              <h2 className="font-display text-4xl sm:text-6xl font-bold text-[#f2f0ea] leading-[0.96] uppercase">
-                Technical Notes &amp; Papers.
+              <span className="inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-xs font-medium bg-amber-500/10 text-amber-300 border border-amber-400/25">
+                <Radio size={13} /> 10 · Technical Notes &amp; Writing
+              </span>
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[#f4f3ef] leading-[1.02]">
+                Engineering Notes &amp; Papers.
               </h2>
             </div>
             <div className="lg:col-span-5">
               <p className="text-sm sm:text-base text-[#94a3b8] leading-relaxed">
-                Selected engineering insights from building DegradeLab, Diagora, FlowSentry,
-                DatasetMedic, Vellum Research, and API Detective alongside published research briefs.
+                Insights from building DegradeLab, Diagora, FlowSentry, DatasetMedic, Vellum
+                Research, and API Detective alongside published research studies.
               </p>
             </div>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 border border-white/[0.1] bg-[#07090e]">
+          <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 rounded-3xl border border-white/[0.1] bg-[#131620] overflow-hidden">
             {/* Left Feed List */}
-            <div className="lg:col-span-5 border-b lg:border-b-0 lg:border-r border-white/[0.08] divide-y divide-white/[0.07]">
+            <div className="lg:col-span-5 border-b lg:border-b-0 lg:border-r border-white/[0.08] divide-y divide-white/[0.06]">
               {signalData.map((entry) => {
                 const isSelected = entry.id === activeSignal.id;
                 const entryColor =
                   entry.type === 'RESEARCH PAPER'
                     ? '#a78bfa'
                     : entry.type === 'ENGINEERING NOTE'
-                      ? '#38bdf8'
+                      ? '#3b82f6'
                       : '#f59e0b';
                 return (
                   <button
                     key={entry.id}
                     type="button"
                     onClick={() => setActiveSignalId(entry.id)}
-                    style={
-                      isSelected
-                        ? {
-                            borderLeftWidth: '3px',
-                            borderLeftColor: entryColor,
-                            backgroundColor: `${entryColor}14`,
-                          }
-                        : undefined
-                    }
-                    className="w-full text-left p-5 transition-colors flex flex-col gap-1.5 hover:bg-white/[0.02]"
+                    style={isSelected ? { backgroundColor: `${entryColor}16` } : undefined}
+                    className="w-full text-left p-5 transition-colors flex flex-col gap-1.5 hover:bg-white/[0.03]"
                   >
-                    <div className="flex items-center justify-between font-mono-tech text-[10px]">
-                      <span style={{ color: entryColor }} className="font-semibold">
-                        {entry.code} · {entry.type}
-                      </span>
+                    <div className="flex items-center justify-between text-[11px] font-semibold">
+                      <span style={{ color: entryColor }}>{entry.type}</span>
                       <span className="text-[#64748b]">{entry.date}</span>
                     </div>
                     <h3
                       className={`font-display text-base font-bold leading-snug ${
-                        isSelected ? 'text-[#f2f0ea]' : 'text-[#94a3b8]'
+                        isSelected ? 'text-white' : 'text-[#94a3b8]'
                       }`}
                     >
                       {entry.title}
@@ -927,28 +826,23 @@ export function App() {
                 activeSignal.type === 'RESEARCH PAPER'
                   ? '#a78bfa'
                   : activeSignal.type === 'ENGINEERING NOTE'
-                    ? '#38bdf8'
+                    ? '#3b82f6'
                     : '#f59e0b';
               return (
-                <div
-                  style={{ borderTopWidth: '2px', borderTopColor: activeCol }}
-                  className="lg:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-between gap-8 bg-[#0b101b]"
-                >
+                <div className="lg:col-span-7 p-6 sm:p-10 lg:p-12 flex flex-col justify-between gap-8 bg-[#0c0d12]/60">
                   <div className="space-y-6">
-                    <div className="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-white/[0.08] font-mono-tech text-xs">
-                      <span style={{ color: activeCol }} className="font-semibold">
-                        {activeSignal.code} · {activeSignal.type}
-                      </span>
+                    <div className="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-white/[0.08] text-xs font-semibold">
+                      <span style={{ color: activeCol }}>{activeSignal.type}</span>
                       <span className="text-[#94a3b8]">{activeSignal.date}</span>
                     </div>
 
-                    <h3 className="font-display text-2xl sm:text-4xl font-bold text-[#f2f0ea] leading-tight">
+                    <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#f4f3ef] leading-snug">
                       {activeSignal.title}
                     </h3>
 
                     <p
                       style={{ borderLeftColor: activeCol }}
-                      className="text-base sm:text-lg text-[#e2e8f0] leading-relaxed border-l-2 pl-4"
+                      className="text-base sm:text-lg text-[#cbd5e1] leading-relaxed border-l-2 pl-4"
                     >
                       {activeSignal.abstract}
                     </p>
@@ -956,19 +850,17 @@ export function App() {
                     <div className="space-y-3 pt-2">
                       <span
                         style={{ color: activeCol }}
-                        className="block font-mono-tech text-[10px] uppercase tracking-widest"
+                        className="block text-xs font-semibold uppercase tracking-wider"
                       >
-                        KEY OBSERVATIONS &amp; TAKEAWAYS
+                        Key Takeaways
                       </span>
                       <ul className="space-y-2.5 text-sm text-[#94a3b8]">
                         {activeSignal.keyTakeaways.map((point) => (
-                          <li key={point} className="flex items-start gap-3">
+                          <li key={point} className="flex items-start gap-2.5">
                             <span
-                              style={{ color: activeCol }}
-                              className="font-mono-tech mt-0.5"
-                            >
-                              ›
-                            </span>
+                              style={{ backgroundColor: activeCol }}
+                              className="mt-2 w-1.5 h-1.5 rounded-full shrink-0"
+                            />
                             <span className="leading-relaxed">{point}</span>
                           </li>
                         ))}
@@ -977,13 +869,13 @@ export function App() {
                   </div>
 
                   {activeSignal.externalUrl && (
-                    <div className="pt-6 border-t border-white/[0.08] flex items-center justify-between">
+                    <div className="pt-6 border-t border-white/[0.08]">
                       <a
                         href={activeSignal.externalUrl}
                         target="_blank"
                         rel="noreferrer"
-                        style={{ backgroundColor: activeCol, borderColor: activeCol }}
-                        className="inline-flex items-center gap-2 font-mono-tech text-xs px-5 py-3 border text-[#07090e] font-semibold hover:opacity-90 transition-opacity"
+                        style={{ backgroundColor: activeCol }}
+                        className="inline-flex items-center gap-2 rounded-full text-xs font-semibold px-6 py-3 text-[#0c0d12] hover:opacity-90 transition-opacity"
                       >
                         <span>{activeSignal.externalLabel || 'Open Link'}</span>
                         <ArrowUpRight size={14} />
@@ -998,49 +890,38 @@ export function App() {
       </section>
 
       {/* =====================================================================
-          11 — NETWORK & CONTACT
+          11 — CONTACT & FOOTER
          ===================================================================== */}
       <footer
         id="network"
-        className="bg-[#07090e] lab-grid-bg ambient-network-glow text-[#f2f0ea] scroll-mt-16"
+        className="bg-[#0c0d12] editorial-hero-bg text-[#f4f3ef] scroll-mt-16"
       >
-        <div className="spectrum-divider" />
-        <div className="max-w-[1600px] mx-auto px-5 sm:px-10 lg:px-14 py-24 sm:py-32">
-          <div className="flex items-center gap-3 font-mono-tech text-xs uppercase tracking-[0.2em] mb-8">
-            <span className="text-[#10b981]">11 // CONTACT &amp; NETWORK</span>
-            <span className="text-white/20">—</span>
-            <span className="text-[#94a3b8]">DIRECT COMMUNICATION &amp; PROFILES</span>
-          </div>
-
+        <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-14 py-24 sm:py-32">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-20 border-b border-white/[0.1] items-end">
             <div className="lg:col-span-7 space-y-6">
-              <p className="font-mono-tech text-xs sm:text-sm uppercase tracking-[0.18em] text-[#94a3b8]">
-                HAVE AN INTERESTING PROBLEM?
-              </p>
-              <h2 className="font-display text-5xl sm:text-7xl lg:text-[80px] font-bold text-[#f2f0ea] leading-[0.94] uppercase">
-                LET&apos;S BUILD
+              <span className="inline-flex items-center gap-2 rounded-full px-3.5 py-1 text-xs font-medium bg-emerald-500/10 text-emerald-300 border border-emerald-400/25">
+                11 · Get In Touch
+              </span>
+              <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold text-[#f4f3ef] leading-[0.98]">
+                Have an interesting problem?
                 <br />
-                SOMETHING
-                <br />
-                <span className="bg-gradient-to-r from-[#38bdf8] via-[#a78bfa] to-[#10b981] bg-clip-text text-transparent">
-                  INTELLIGENT.
+                <span className="bg-gradient-to-r from-[#3b82f6] via-[#a78bfa] to-[#10b981] bg-clip-text text-transparent">
+                  Let&apos;s build something intelligent.
                 </span>
               </h2>
 
-              <div className="flex flex-wrap items-center gap-4 pt-4">
+              <div className="flex flex-wrap items-center gap-3.5 pt-4">
                 <button
                   onClick={handleCopyEmail}
-                  className="inline-flex items-center gap-3 font-mono-tech text-xs sm:text-sm font-semibold px-6 py-4 bg-gradient-to-r from-[#38bdf8] to-[#10b981] text-[#07090e] hover:opacity-90 transition-opacity"
+                  className="inline-flex items-center gap-2.5 rounded-full text-xs sm:text-sm font-semibold px-6 py-3.5 bg-[#2563eb] hover:bg-[#3b82f6] text-white shadow-lg shadow-blue-600/25 transition-all"
                 >
                   {copiedEmail ? <Check size={15} /> : <Copy size={15} />}
-                  <span>
-                    {copiedEmail ? 'Email Copied to Clipboard' : verifiedLinks.email}
-                  </span>
+                  <span>{copiedEmail ? 'Email Copied' : verifiedLinks.email}</span>
                 </button>
 
                 <a
                   href={`mailto:${verifiedLinks.email}`}
-                  className="inline-flex items-center gap-2 font-mono-tech text-xs sm:text-sm px-6 py-4 border border-white/20 bg-[#0b101b] text-[#f2f0ea] hover:border-[#38bdf8] hover:text-[#38bdf8] transition-colors"
+                  className="inline-flex items-center gap-2 rounded-full text-xs sm:text-sm font-medium px-6 py-3.5 border border-white/20 bg-[#131620] text-[#f4f3ef] hover:border-emerald-400 hover:text-emerald-300 transition-colors"
                 >
                   <Mail size={15} />
                   <span>Send Email</span>
@@ -1049,7 +930,7 @@ export function App() {
 
                 <a
                   href={`tel:${verifiedLinks.phone.replace(/\s+/g, '')}`}
-                  className="inline-flex items-center gap-2 font-mono-tech text-xs px-5 py-4 border border-white/10 bg-[#0b101b] text-[#94a3b8] hover:text-[#f2f0ea] transition-colors"
+                  className="inline-flex items-center gap-2 rounded-full text-xs px-5 py-3.5 border border-white/10 bg-[#131620] text-[#94a3b8] hover:text-white transition-colors"
                 >
                   <Phone size={14} />
                   <span>{verifiedLinks.phone}</span>
@@ -1057,22 +938,22 @@ export function App() {
               </div>
             </div>
 
-            {/* Verified Profiles & Credentials */}
-            <div className="lg:col-span-5 border border-white/[0.12] border-t-2 border-t-[#10b981] bg-[#0b101b] p-6 sm:p-8 space-y-6 crosshair-corner">
-              <div className="flex items-center justify-between font-mono-tech text-[10px] uppercase tracking-widest text-[#94a3b8] border-b border-white/[0.08] pb-3">
-                <span>PROFILES &amp; CREDENTIALS</span>
-                <span className="text-[#10b981]">VERIFIED</span>
+            {/* Verified Profiles Card */}
+            <div className="lg:col-span-5 rounded-3xl border border-white/[0.1] bg-[#131620] p-6 sm:p-8 space-y-5 shadow-xl">
+              <div className="flex items-center justify-between text-xs font-semibold text-[#94a3b8] border-b border-white/[0.08] pb-3">
+                <span>Profiles &amp; Credentials</span>
+                <span className="text-emerald-400">Verified</span>
               </div>
 
-              <div className="divide-y divide-white/[0.07] font-mono-tech text-xs">
+              <div className="divide-y divide-white/[0.07] text-sm font-medium">
                 <a
                   href={verifiedLinks.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="py-3.5 flex items-center justify-between text-[#f2f0ea] hover:text-[#38bdf8] transition-colors"
+                  className="py-3.5 flex items-center justify-between text-[#f4f3ef] hover:text-[#60a5fa] transition-colors"
                 >
                   <span className="flex items-center gap-2.5">
-                    <Github size={14} className="text-[#38bdf8]" />
+                    <Github size={15} className="text-[#60a5fa]" />
                     <span>GitHub · github.com/TahmidZ68</span>
                   </span>
                   <ArrowUpRight size={14} />
@@ -1082,10 +963,10 @@ export function App() {
                   href={verifiedLinks.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="py-3.5 flex items-center justify-between text-[#f2f0ea] hover:text-[#38bdf8] transition-colors"
+                  className="py-3.5 flex items-center justify-between text-[#f4f3ef] hover:text-[#60a5fa] transition-colors"
                 >
                   <span className="flex items-center gap-2.5">
-                    <Linkedin size={14} className="text-[#38bdf8]" />
+                    <Linkedin size={15} className="text-[#60a5fa]" />
                     <span>LinkedIn · Md Tahmid Zoayed</span>
                   </span>
                   <ArrowUpRight size={14} />
@@ -1095,11 +976,11 @@ export function App() {
                   href={verifiedLinks.kaggle}
                   target="_blank"
                   rel="noreferrer"
-                  className="py-3.5 flex items-center justify-between text-[#f2f0ea] hover:text-[#a78bfa] transition-colors"
+                  className="py-3.5 flex items-center justify-between text-[#f4f3ef] hover:text-violet-400 transition-colors"
                 >
                   <span className="flex items-center gap-2.5">
-                    <span className="text-[#a78bfa] font-bold">K</span>
-                    <span>Kaggle · kaggle.com/mdtahmidzoayed</span>
+                    <span className="text-violet-400 font-bold w-4 text-center">K</span>
+                    <span>Kaggle · mdtahmidzoayed</span>
                   </span>
                   <ArrowUpRight size={14} />
                 </a>
@@ -1108,10 +989,10 @@ export function App() {
                   href={verifiedLinks.axiosStation}
                   target="_blank"
                   rel="noreferrer"
-                  className="py-3.5 flex items-center justify-between text-[#f2f0ea] hover:text-[#10b981] transition-colors"
+                  className="py-3.5 flex items-center justify-between text-[#f4f3ef] hover:text-emerald-400 transition-colors"
                 >
                   <span className="flex items-center gap-2.5">
-                    <span className="text-[#10b981] font-bold">AX</span>
+                    <span className="text-emerald-400 font-bold w-4 text-center">A</span>
                     <span>Axios Station · axiosstation.com</span>
                   </span>
                   <ArrowUpRight size={14} />
@@ -1121,10 +1002,10 @@ export function App() {
                   href={verifiedLinks.cvPdf}
                   target="_blank"
                   rel="noreferrer"
-                  className="py-3.5 flex items-center justify-between text-[#f2f0ea] hover:text-[#f59e0b] transition-colors"
+                  className="py-3.5 flex items-center justify-between text-[#f4f3ef] hover:text-amber-400 transition-colors"
                 >
                   <span className="flex items-center gap-2.5">
-                    <FileText size={14} className="text-[#f59e0b]" />
+                    <FileText size={15} className="text-amber-400" />
                     <span>Curriculum Vitae (PDF)</span>
                   </span>
                   <ArrowUpRight size={14} />
@@ -1133,19 +1014,19 @@ export function App() {
             </div>
           </div>
 
-          {/* Bottom Complete System & Deployment Footer Matrix */}
-          <div className="py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 border-b border-white/[0.08] font-mono-tech text-xs">
-            <div className="space-y-2.5">
-              <span className="text-[10px] uppercase tracking-widest text-[#10b981]">
-                LIVE DEPLOYMENTS (VERCEL)
+          {/* Footer Links Directory */}
+          <div className="py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 border-b border-white/[0.08] text-xs font-medium">
+            <div className="space-y-3">
+              <span className="block text-[11px] font-semibold uppercase tracking-wider text-emerald-400">
+                Live Deployments (Vercel)
               </span>
-              <ul className="space-y-1.5 text-[#94a3b8]">
+              <ul className="space-y-2 text-[#94a3b8]">
                 <li>
                   <a
                     href={verifiedLinks.axiosInsight}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-[#10b981] inline-flex items-center gap-1"
+                    className="hover:text-emerald-300 inline-flex items-center gap-1"
                   >
                     Axios Insight <ArrowUpRight size={11} />
                   </a>
@@ -1155,7 +1036,7 @@ export function App() {
                     href={verifiedLinks.axiosTalent}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-[#10b981] inline-flex items-center gap-1"
+                    className="hover:text-emerald-300 inline-flex items-center gap-1"
                   >
                     Axios Talent <ArrowUpRight size={11} />
                   </a>
@@ -1165,7 +1046,7 @@ export function App() {
                     href={verifiedLinks.axiosTalentCandidate}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-[#10b981] inline-flex items-center gap-1"
+                    className="hover:text-emerald-300 inline-flex items-center gap-1"
                   >
                     Axios Talent Candidate <ArrowUpRight size={11} />
                   </a>
@@ -1175,7 +1056,7 @@ export function App() {
                     href={verifiedLinks.vellumResearchLive}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-[#10b981] inline-flex items-center gap-1"
+                    className="hover:text-emerald-300 inline-flex items-center gap-1"
                   >
                     Vellum Research <ArrowUpRight size={11} />
                   </a>
@@ -1183,17 +1064,17 @@ export function App() {
               </ul>
             </div>
 
-            <div className="space-y-2.5">
-              <span className="text-[10px] uppercase tracking-widest text-[#38bdf8]">
-                GITHUB REPOSITORIES
+            <div className="space-y-3">
+              <span className="block text-[11px] font-semibold uppercase tracking-wider text-[#60a5fa]">
+                GitHub Repositories
               </span>
-              <ul className="space-y-1.5 text-[#94a3b8]">
+              <ul className="space-y-2 text-[#94a3b8]">
                 <li>
                   <a
                     href={verifiedLinks.degradeLabRepo}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-[#38bdf8] inline-flex items-center gap-1"
+                    className="hover:text-[#60a5fa] inline-flex items-center gap-1"
                   >
                     TahmidZ68/DegradeLab <ArrowUpRight size={11} />
                   </a>
@@ -1203,7 +1084,7 @@ export function App() {
                     href={verifiedLinks.diagoraRepo}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-[#f59e0b] inline-flex items-center gap-1"
+                    className="hover:text-amber-300 inline-flex items-center gap-1"
                   >
                     TahmidZ68/Diagora <ArrowUpRight size={11} />
                   </a>
@@ -1213,7 +1094,7 @@ export function App() {
                     href={verifiedLinks.datasetMedicRepo}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-[#38bdf8] inline-flex items-center gap-1"
+                    className="hover:text-[#60a5fa] inline-flex items-center gap-1"
                   >
                     TahmidZ68/DatasetMedic <ArrowUpRight size={11} />
                   </a>
@@ -1223,7 +1104,7 @@ export function App() {
                     href={verifiedLinks.apiDetectiveRepo}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-[#f59e0b] inline-flex items-center gap-1"
+                    className="hover:text-amber-300 inline-flex items-center gap-1"
                   >
                     TahmidZ68/API-Detective <ArrowUpRight size={11} />
                   </a>
@@ -1233,7 +1114,7 @@ export function App() {
                     href={verifiedLinks.flowSentryRepo}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-[#f59e0b] inline-flex items-center gap-1"
+                    className="hover:text-amber-300 inline-flex items-center gap-1"
                   >
                     TahmidZ68/flowsentry <ArrowUpRight size={11} />
                   </a>
@@ -1243,7 +1124,7 @@ export function App() {
                     href={verifiedLinks.vellumResearchRepo}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-[#10b981] inline-flex items-center gap-1"
+                    className="hover:text-emerald-300 inline-flex items-center gap-1"
                   >
                     TahmidZ68/vellum-research <ArrowUpRight size={11} />
                   </a>
@@ -1253,7 +1134,7 @@ export function App() {
                     href={verifiedLinks.axiosInsightRepo}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-[#10b981] inline-flex items-center gap-1"
+                    className="hover:text-emerald-300 inline-flex items-center gap-1"
                   >
                     TahmidZ68/axios-insight <ArrowUpRight size={11} />
                   </a>
@@ -1263,7 +1144,7 @@ export function App() {
                     href={verifiedLinks.ragBanglaHscRepo}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-[#a78bfa] inline-flex items-center gap-1"
+                    className="hover:text-violet-300 inline-flex items-center gap-1"
                   >
                     TahmidZ68/RAG_BanglaHSC <ArrowUpRight size={11} />
                   </a>
@@ -1271,17 +1152,17 @@ export function App() {
               </ul>
             </div>
 
-            <div className="space-y-2.5">
-              <span className="text-[10px] uppercase tracking-widest text-[#a78bfa]">
-                PUBLISHED RESEARCH (RESEARCHGATE)
+            <div className="space-y-3">
+              <span className="block text-[11px] font-semibold uppercase tracking-wider text-violet-400">
+                Published Research (ResearchGate)
               </span>
-              <ul className="space-y-1.5 text-[#94a3b8]">
+              <ul className="space-y-2 text-[#94a3b8]">
                 <li>
                   <a
                     href={verifiedLinks.papers.autismClassification}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-[#a78bfa] inline-flex items-center gap-1"
+                    className="hover:text-violet-300 inline-flex items-center gap-1"
                   >
                     Autism Classification (2023) <ArrowUpRight size={11} />
                   </a>
@@ -1291,7 +1172,7 @@ export function App() {
                     href={verifiedLinks.papers.autismImageVgg19}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-[#a78bfa] inline-flex items-center gap-1"
+                    className="hover:text-violet-300 inline-flex items-center gap-1"
                   >
                     Autism Image / CNN (2022) <ArrowUpRight size={11} />
                   </a>
@@ -1301,7 +1182,7 @@ export function App() {
                     href={verifiedLinks.papers.rainwaterHarvesting}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-[#a78bfa] inline-flex items-center gap-1"
+                    className="hover:text-violet-300 inline-flex items-center gap-1"
                   >
                     Rainwater Harvesting (2023) <ArrowUpRight size={11} />
                   </a>
@@ -1311,7 +1192,7 @@ export function App() {
                     href={verifiedLinks.papers.startupPrediction}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover:text-[#a78bfa] inline-flex items-center gap-1"
+                    className="hover:text-violet-300 inline-flex items-center gap-1"
                   >
                     Startup Success ML (2022) <ArrowUpRight size={11} />
                   </a>
@@ -1319,19 +1200,19 @@ export function App() {
               </ul>
             </div>
 
-            <div className="space-y-2.5">
-              <span className="text-[10px] uppercase tracking-widest text-[#f59e0b]">
-                LOCATION &amp; LOCAL TIME
+            <div className="space-y-3">
+              <span className="block text-[11px] font-semibold uppercase tracking-wider text-amber-400">
+                Location &amp; Local Time
               </span>
               <p className="text-[#94a3b8]">Dhaka, Bangladesh</p>
               <p className="text-[#94a3b8]">23.8103° N · 90.4125° E</p>
-              <p className="text-[#f2f0ea]">
+              <p className="text-[#f4f3ef]">
                 <LiveDhakaClock />
               </p>
             </div>
           </div>
 
-          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono-tech text-[11px] text-[#64748b]">
+          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#64748b]">
             <span>© {new Date().getFullYear()} Md Tahmid Zoayed · All Rights Reserved</span>
             <span>AI / ML Engineer · Systems Builder · CBO at Axios Station</span>
           </div>
