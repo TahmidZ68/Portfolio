@@ -10,6 +10,7 @@ interface GlobeWorkNode {
   name: string;
   shortLabel: string;
   kind: NodeKind;
+  kindLabel: string;
   status: string;
   summary: string;
   sectionHref: string;
@@ -26,6 +27,7 @@ const WORK_NODES: GlobeWorkNode[] = [
     name: 'DegradeLab',
     shortLabel: 'DegradeLab',
     kind: 'vision',
+    kindLabel: 'COMPUTER VISION',
     status: 'Open-Source · v0.1.0',
     summary: '34-corruption CV robustness evaluation & ImageNet-C benchmark validation toolkit.',
     sectionHref: '#sys-degradelab',
@@ -40,6 +42,7 @@ const WORK_NODES: GlobeWorkNode[] = [
     name: 'Diagora',
     shortLabel: 'Diagora',
     kind: 'dev',
+    kindLabel: 'DEV DIAGNOSTICS',
     status: 'Open-Source · v0.1.0a3',
     summary: 'Local-first 38-rule static repository diagnostics CLI with SARIF 2.1.0 output.',
     sectionHref: '#sys-diagora',
@@ -54,6 +57,7 @@ const WORK_NODES: GlobeWorkNode[] = [
     name: 'DatasetMedic',
     shortLabel: 'DatasetMedic',
     kind: 'vision',
+    kindLabel: 'VISION DATA AUDIT',
     status: 'Public Alpha · v0.2.0',
     summary: 'Read-only CV dataset auditing, SHA-256/pHash leakage forensics & manifests.',
     sectionHref: '#sys-dataset-medic',
@@ -68,6 +72,7 @@ const WORK_NODES: GlobeWorkNode[] = [
     name: 'API Detective',
     shortLabel: 'API Detective',
     kind: 'dev',
+    kindLabel: 'CONTRACT ENGINE',
     status: 'Public Alpha · v0.1.0a2',
     summary: '43-check deterministic API investigator & 4-level controlled unified-diff repair.',
     sectionHref: '#sys-api-detective',
@@ -82,6 +87,7 @@ const WORK_NODES: GlobeWorkNode[] = [
     name: 'FlowSentry',
     shortLabel: 'FlowSentry',
     kind: 'dev',
+    kindLabel: 'RELIABILITY',
     status: 'Open-Core · v1.0',
     summary: 'n8n automation reliability, silent 200-OK outcome monitors & incident grouping.',
     sectionHref: '#sys-flowsentry',
@@ -96,6 +102,7 @@ const WORK_NODES: GlobeWorkNode[] = [
     name: 'Vellum Research',
     shortLabel: 'Vellum',
     kind: 'live',
+    kindLabel: 'LIVE AI PLATFORM',
     status: 'Live on Vercel',
     summary: '14-stage LangGraph AI research workspace with verified inline [n] citations.',
     sectionHref: '#sys-vellum-research',
@@ -110,6 +117,7 @@ const WORK_NODES: GlobeWorkNode[] = [
     name: 'RepoMedic',
     shortLabel: 'RepoMedic',
     kind: 'dev',
+    kindLabel: 'REPO AUDITOR',
     status: 'Engineering Tool',
     summary: 'Static repository health scoring, dependency hygiene & CI pre-flight auditing.',
     sectionHref: '#sys-repo-medic',
@@ -124,6 +132,7 @@ const WORK_NODES: GlobeWorkNode[] = [
     name: 'Website Auditor',
     shortLabel: 'Web Auditor',
     kind: 'dev',
+    kindLabel: 'WEB AUTOMATION',
     status: 'AI Automation',
     summary: 'Automated technical SEO, security headers, WCAG accessibility & UX scorecarding.',
     sectionHref: '#sys-website-auditor',
@@ -138,6 +147,7 @@ const WORK_NODES: GlobeWorkNode[] = [
     name: 'Axios Insight',
     shortLabel: 'Axios Insight',
     kind: 'live',
+    kindLabel: 'LIVE AI PLATFORM',
     status: 'Live on Vercel',
     summary: 'Multi-file workspace data & document BI with natural-language querying.',
     sectionHref: '#sys-axios-insight',
@@ -152,6 +162,7 @@ const WORK_NODES: GlobeWorkNode[] = [
     name: 'Axios Talent',
     shortLabel: 'Axios Talent',
     kind: 'live',
+    kindLabel: 'LIVE AI PLATFORM',
     status: 'Live on Vercel',
     summary: 'Multi-tenant B2B AI recruitment, bulk CV screening & HR Copilot (Supabase RLS).',
     sectionHref: '#sys-axios-talent',
@@ -166,6 +177,7 @@ const WORK_NODES: GlobeWorkNode[] = [
     name: 'Axios Talent Candidate',
     shortLabel: 'Candidate',
     kind: 'live',
+    kindLabel: 'LIVE AI PLATFORM',
     status: 'Live on Vercel',
     summary: 'Candidate ATS readiness scoring, resume optimization & cover-letter copilot.',
     sectionHref: '#sys-axios-talent-candidate',
@@ -180,6 +192,7 @@ const WORK_NODES: GlobeWorkNode[] = [
     name: 'Autism Classification (ICDMIS)',
     shortLabel: 'Autism ML',
     kind: 'research',
+    kindLabel: 'RESEARCH STUDY',
     status: 'Published · 2023',
     summary: 'Supervised ML classification benchmark on clinical autism screening features.',
     sectionHref: '#research-lab',
@@ -194,6 +207,7 @@ const WORK_NODES: GlobeWorkNode[] = [
     name: 'Autism Image Model (VGG19 / CNN)',
     shortLabel: 'Autism CNN',
     kind: 'research',
+    kindLabel: 'RESEARCH STUDY',
     status: 'Published · 2022',
     summary: 'Deep CNN & transfer learning architecture for image-based autism detection.',
     sectionHref: '#research-lab',
@@ -208,6 +222,7 @@ const WORK_NODES: GlobeWorkNode[] = [
     name: 'Spirulina Harvesting CNN (BAU)',
     shortLabel: 'Spirulina CV',
     kind: 'research',
+    kindLabel: 'FUNDED GRANT',
     status: 'EWU Funded Grant',
     summary: '20-day BAU lab image dataset & CNNs as low-cost alternative to spectrometry.',
     sectionHref: '#research-lab',
@@ -222,6 +237,7 @@ const WORK_NODES: GlobeWorkNode[] = [
     name: 'Rainwater & Startup ML Papers',
     shortLabel: 'Applied Papers',
     kind: 'research',
+    kindLabel: 'PUBLISHED PAPERS',
     status: 'Published · 2022–23',
     summary: 'Biological threat mitigation in rainwater harvesting & startup success ML prediction.',
     sectionHref: '#research-lab',
@@ -235,26 +251,26 @@ const WORK_NODES: GlobeWorkNode[] = [
 function getKindColor(kind: NodeKind): string {
   switch (kind) {
     case 'live':
-      return '#10b981'; // Emerald
+      return '#00D6B4';
     case 'vision':
-      return '#3b82f6'; // Cobalt Blue
+      return '#38BDF8';
     case 'dev':
-      return '#f59e0b'; // Warm Amber
+      return '#FFC857';
     case 'research':
-      return '#a78bfa'; // Soft Violet
+      return '#8B5CF6';
   }
 }
 
 function getKindRgba(kind: NodeKind, alpha: number): string {
   switch (kind) {
     case 'live':
-      return `rgba(16, 185, 129, ${alpha})`;
+      return `rgba(0, 214, 180, ${alpha})`;
     case 'vision':
-      return `rgba(59, 130, 246, ${alpha})`;
+      return `rgba(56, 189, 248, ${alpha})`;
     case 'dev':
-      return `rgba(245, 158, 11, ${alpha})`;
+      return `rgba(255, 200, 87, ${alpha})`;
     case 'research':
-      return `rgba(167, 139, 250, ${alpha})`;
+      return `rgba(139, 92, 246, ${alpha})`;
   }
 }
 
@@ -273,7 +289,7 @@ interface DotMatrixGlobeProps {
 }
 
 /**
- * Interactive Work & Research Globe with sleek rounded editorial framing.
+ * Dark Swiss Editorial Work & Research Atlas — 15 Interactive Nodes anchored to Dhaka Hub.
  */
 export function DotMatrixGlobe({ onInspectSystem }: DotMatrixGlobeProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -335,14 +351,14 @@ export function DotMatrixGlobe({ onInspectSystem }: DotMatrixGlobeProps) {
       setAutoRotate(false);
     }
 
-    let width = 420;
-    let height = 420;
+    let width = 330;
+    let height = 330;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
     const resize = () => {
       const rect = canvas.parentElement?.getBoundingClientRect();
-      width = rect?.width || 420;
-      height = rect?.height || 420;
+      width = Math.max(240, rect?.width || 330);
+      height = Math.max(240, rect?.height || 330);
       canvas.width = width * dpr;
       canvas.height = height * dpr;
       canvas.style.width = `${width}px`;
@@ -351,7 +367,7 @@ export function DotMatrixGlobe({ onInspectSystem }: DotMatrixGlobeProps) {
     };
     resize();
 
-    const numPoints = 360;
+    const numPoints = 380;
     const bgPoints: Array<{ x: number; y: number; z: number }> = [];
     const goldenAngle = Math.PI * (3 - Math.sqrt(5));
     for (let i = 0; i < numPoints; i++) {
@@ -374,6 +390,8 @@ export function DotMatrixGlobe({ onInspectSystem }: DotMatrixGlobeProps) {
     const pointer = { x: 0, y: 0, targetX: 0, targetY: 0 };
 
     const onPointerMove = (e: PointerEvent) => {
+      if (e.pointerType === 'touch') return;
+
       const rect = canvas.getBoundingClientRect();
       const inside =
         e.clientX >= rect.left &&
@@ -383,8 +401,8 @@ export function DotMatrixGlobe({ onInspectSystem }: DotMatrixGlobeProps) {
 
       const nx = e.clientX / window.innerWidth - 0.5;
       const ny = e.clientY / window.innerHeight - 0.5;
-      pointer.targetX = nx * 0.25;
-      pointer.targetY = ny * 0.18;
+      pointer.targetX = nx * 0.22;
+      pointer.targetY = ny * 0.16;
 
       if (inside) {
         const mx = e.clientX - rect.left;
@@ -400,7 +418,7 @@ export function DotMatrixGlobe({ onInspectSystem }: DotMatrixGlobeProps) {
           }
         }
         setHoveredId(closestId);
-        canvas.style.cursor = closestId ? 'pointer' : 'grab';
+        canvas.style.cursor = closestId ? 'pointer' : 'crosshair';
       } else if (stateRef.current.hoveredId !== null) {
         setHoveredId(null);
       }
@@ -411,7 +429,7 @@ export function DotMatrixGlobe({ onInspectSystem }: DotMatrixGlobeProps) {
       const mx = e.clientX - rect.left;
       const my = e.clientY - rect.top;
       let closestId: string | null = null;
-      let closestDist = 26;
+      let closestDist = 28;
       for (const pn of stateRef.current.projectedNodes) {
         if (pn.z < -0.15) continue;
         const d = Math.hypot(pn.px - mx, pn.py - my);
@@ -436,7 +454,7 @@ export function DotMatrixGlobe({ onInspectSystem }: DotMatrixGlobeProps) {
     if (canvas.parentElement) ro.observe(canvas.parentElement);
 
     let angleY = Math.PI / 2 - (60 * Math.PI) / 180;
-    let tiltX = 0.24;
+    let tiltX = 0.22;
     let rafId = 0;
 
     const projectVec = (
@@ -484,7 +502,7 @@ export function DotMatrixGlobe({ onInspectSystem }: DotMatrixGlobeProps) {
           stateRef.current.targetAngleY = null;
         }
       } else if (curAutoRotate && !curHovered && !prefersReducedMotion) {
-        angleY += 0.0022;
+        angleY += 0.002;
       }
 
       if (stateRef.current.targetTiltX !== null) {
@@ -498,30 +516,48 @@ export function DotMatrixGlobe({ onInspectSystem }: DotMatrixGlobeProps) {
 
       const cx = width / 2;
       const cy = height / 2;
-      const outerRadius = Math.min(width, height) * 0.45;
+      const outerRadius = Math.min(width, height) * 0.44;
       const sphereRadius = Math.min(width, height) * 0.37;
 
-      // Soft Ambient Glow inside Globe
-      const grad = ctx.createRadialGradient(cx, cy, sphereRadius * 0.1, cx, cy, outerRadius);
-      grad.addColorStop(0, 'rgba(59, 130, 246, 0.11)');
-      grad.addColorStop(0.55, 'rgba(16, 185, 129, 0.05)');
-      grad.addColorStop(1, 'rgba(12, 13, 18, 0)');
+      const grad = ctx.createRadialGradient(cx, cy, sphereRadius * 0.12, cx, cy, outerRadius);
+      grad.addColorStop(0, 'rgba(139, 92, 246, 0.12)');
+      grad.addColorStop(0.55, 'rgba(59, 130, 246, 0.05)');
+      grad.addColorStop(1, 'rgba(9, 10, 15, 0)');
       ctx.fillStyle = grad;
       ctx.beginPath();
       ctx.arc(cx, cy, outerRadius, 0, Math.PI * 2);
       ctx.fill();
 
-      // Subtle Outer Orbital Ring
+      ctx.strokeStyle = 'rgba(41, 45, 58, 0.75)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(cx - outerRadius - 6, cy);
+      ctx.lineTo(cx + outerRadius + 6, cy);
+      ctx.moveTo(cx, cy - outerRadius - 6);
+      ctx.lineTo(cx, cy + outerRadius + 6);
+      ctx.stroke();
+
       ctx.beginPath();
       ctx.arc(cx, cy, outerRadius, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(244, 243, 239, 0.08)';
+      ctx.strokeStyle = '#292D3A';
       ctx.lineWidth = 1;
       ctx.stroke();
 
-      // Sphere Boundary Ring
+      for (let deg = 0; deg < 360; deg += 15) {
+        const rad = (deg * Math.PI) / 180;
+        const rIn = deg % 45 === 0 ? outerRadius - 6 : outerRadius - 3;
+        ctx.beginPath();
+        ctx.moveTo(cx + Math.cos(rad) * rIn, cy + Math.sin(rad) * rIn);
+        ctx.lineTo(cx + Math.cos(rad) * outerRadius, cy + Math.sin(rad) * outerRadius);
+        ctx.strokeStyle = deg % 45 === 0 ? '#707586' : '#292D3A';
+        ctx.stroke();
+      }
+
       ctx.beginPath();
       ctx.arc(cx, cy, sphereRadius, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(244, 243, 239, 0.14)';
+      ctx.fillStyle = 'rgba(17, 19, 27, 0.85)';
+      ctx.fill();
+      ctx.strokeStyle = '#292D3A';
       ctx.stroke();
 
       const rotY = angleY + (stateRef.current.targetAngleY === null ? pointer.x : 0);
@@ -531,15 +567,14 @@ export function DotMatrixGlobe({ onInspectSystem }: DotMatrixGlobeProps) {
       const cosX = Math.cos(rotX);
       const sinX = Math.sin(rotX);
 
-      // Background Fibonacci Sphere Points
       for (const p of bgPoints) {
         const proj = projectVec(p, cx, cy, sphereRadius, cosY, sinY, cosX, sinX);
         const depth = (proj.z + 1) * 0.5;
-        const alpha = 0.05 + depth * 0.32;
-        const size = 0.7 + depth * 0.65;
+        const alpha = 0.08 + depth * 0.34;
+        const size = 0.65 + depth * 0.58;
         ctx.beginPath();
         ctx.arc(proj.px, proj.py, size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(244, 243, 239, ${alpha.toFixed(3)})`;
+        ctx.fillStyle = `rgba(161, 165, 179, ${alpha.toFixed(3)})`;
         ctx.fill();
       }
 
@@ -563,15 +598,15 @@ export function DotMatrixGlobe({ onInspectSystem }: DotMatrixGlobeProps) {
           const midY = (dhakaProj.py + proj.py) * 0.5;
           const dx = midX - cx;
           const dy = midY - cy;
-          const lift = isActive ? 1.34 : 1.16;
+          const lift = isActive ? 1.32 : 1.14;
           const ctrlX = cx + dx * lift;
           const ctrlY = cy + dy * lift;
 
           ctx.beginPath();
           ctx.moveTo(dhakaProj.px, dhakaProj.py);
           ctx.quadraticCurveTo(ctrlX, ctrlY, proj.px, proj.py);
-          ctx.strokeStyle = isActive ? color : getKindRgba(node.kind, 0.28);
-          ctx.lineWidth = isActive ? 1.8 : 0.85;
+          ctx.strokeStyle = isActive ? color : getKindRgba(node.kind, 0.22);
+          ctx.lineWidth = isActive ? 1.6 : 0.75;
           if (!isActive) ctx.setLineDash([2, 3]);
           ctx.stroke();
           ctx.setLineDash([]);
@@ -580,8 +615,8 @@ export function DotMatrixGlobe({ onInspectSystem }: DotMatrixGlobeProps) {
         if (!matchesFilter) {
           if (isFront) {
             ctx.beginPath();
-            ctx.arc(proj.px, proj.py, 1.5, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(244, 243, 239, 0.14)';
+            ctx.arc(proj.px, proj.py, 1.3, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(112, 117, 134, 0.2)';
             ctx.fill();
           }
           continue;
@@ -589,78 +624,80 @@ export function DotMatrixGlobe({ onInspectSystem }: DotMatrixGlobeProps) {
 
         if (proj.z < -0.15 && !isActive) {
           ctx.beginPath();
-          ctx.arc(proj.px, proj.py, 1.6, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(244, 243, 239, 0.18)';
+          ctx.arc(proj.px, proj.py, 1.5, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(112, 117, 134, 0.28)';
           ctx.fill();
           continue;
         }
 
         if (isActive) {
           ctx.beginPath();
-          ctx.arc(proj.px, proj.py, 13, 0, Math.PI * 2);
-          ctx.fillStyle = getKindRgba(node.kind, 0.18);
+          ctx.arc(proj.px, proj.py, 10, 0, Math.PI * 2);
+          ctx.fillStyle = getKindRgba(node.kind, 0.15);
           ctx.fill();
 
           ctx.beginPath();
           ctx.arc(proj.px, proj.py, 8, 0, Math.PI * 2);
           ctx.strokeStyle = color;
-          ctx.lineWidth = 1.5;
+          ctx.lineWidth = 1.3;
           ctx.stroke();
 
-          ctx.beginPath();
-          ctx.arc(proj.px, proj.py, 4, 0, Math.PI * 2);
           ctx.fillStyle = color;
-          ctx.fill();
+          ctx.fillRect(proj.px - 3, proj.py - 3, 6, 6);
 
-          const tag = node.shortLabel;
-          ctx.font = '600 11px "Inter", sans-serif';
+          const tag = `${node.code} · ${node.shortLabel}`;
+          ctx.font = '600 9.5px "JetBrains Mono", monospace';
           const textW = ctx.measureText(tag).width;
-          const labelX = proj.px + 14 + textW + 14 > width ? proj.px - textW - 26 : proj.px + 12;
-          const labelY = proj.py - 10;
-          ctx.fillStyle = 'rgba(12, 13, 18, 0.94)';
-          ctx.beginPath();
-          ctx.roundRect(labelX, labelY, textW + 14, 20, 999);
-          ctx.fill();
+          const boxW = textW + 12;
+          const rawX = proj.px + 11 + boxW > width - 6 ? proj.px - boxW - 11 : proj.px + 11;
+          const labelX = Math.max(6, Math.min(width - boxW - 6, rawX));
+          const labelY = Math.max(6, Math.min(height - 26, proj.py - 10));
+
+          ctx.fillStyle = 'rgba(9, 10, 15, 0.94)';
+          ctx.fillRect(labelX, labelY, boxW, 19);
           ctx.strokeStyle = color;
-          ctx.lineWidth = 1.1;
-          ctx.stroke();
-          ctx.fillStyle = '#f4f3ef';
-          ctx.fillText(tag, labelX + 7, labelY + 13.5);
+          ctx.lineWidth = 1;
+          ctx.strokeRect(labelX, labelY, boxW, 19);
+          ctx.fillStyle = '#F5F5F7';
+          ctx.fillText(tag, labelX + 6, labelY + 12.5);
         } else {
           ctx.beginPath();
           ctx.arc(proj.px, proj.py, 5.2, 0, Math.PI * 2);
-          ctx.strokeStyle = getKindRgba(node.kind, 0.42);
-          ctx.lineWidth = 1;
+          ctx.strokeStyle = getKindRgba(node.kind, 0.35);
+          ctx.lineWidth = 0.9;
           ctx.stroke();
 
           ctx.beginPath();
-          ctx.arc(proj.px, proj.py, 2.8, 0, Math.PI * 2);
+          ctx.arc(proj.px, proj.py, 2.7, 0, Math.PI * 2);
           ctx.fillStyle = color;
           ctx.fill();
 
-          if (proj.z > 0.48) {
-            ctx.font = '500 10px "Inter", sans-serif';
-            ctx.fillStyle = 'rgba(244, 243, 239, 0.8)';
-            ctx.fillText(node.shortLabel, proj.px + 8, proj.py + 3.5);
+          if (proj.z > 0.44 && width >= 300) {
+            ctx.font = '500 9px "JetBrains Mono", monospace';
+            ctx.fillStyle = '#A1A5B3';
+            ctx.fillText(node.shortLabel, proj.px + 8, proj.py + 3);
           }
         }
       }
 
       if (dhakaProj.z > -0.2) {
+        ctx.strokeStyle = '#FF5B5B';
+        ctx.lineWidth = 1.1;
         ctx.beginPath();
-        ctx.arc(dhakaProj.px, dhakaProj.py, 7.5, 0, Math.PI * 2);
-        ctx.strokeStyle = 'rgba(244, 243, 239, 0.7)';
-        ctx.lineWidth = 1;
+        ctx.moveTo(dhakaProj.px - 6, dhakaProj.py);
+        ctx.lineTo(dhakaProj.px + 6, dhakaProj.py);
+        ctx.moveTo(dhakaProj.px, dhakaProj.py - 6);
+        ctx.lineTo(dhakaProj.px, dhakaProj.py + 6);
         ctx.stroke();
 
         ctx.beginPath();
-        ctx.arc(dhakaProj.px, dhakaProj.py, 3, 0, Math.PI * 2);
-        ctx.fillStyle = '#f4f3ef';
+        ctx.arc(dhakaProj.px, dhakaProj.py, 2.8, 0, Math.PI * 2);
+        ctx.fillStyle = '#FF5B5B';
         ctx.fill();
 
-        ctx.font = '600 9.5px "Inter", sans-serif';
-        ctx.fillStyle = '#f4f3ef';
-        ctx.fillText('Dhaka Hub', dhakaProj.px + 10, dhakaProj.py - 6);
+        ctx.font = '600 8.5px "JetBrains Mono", monospace';
+        ctx.fillStyle = '#F5F5F7';
+        ctx.fillText('DHAKA', Math.min(width - 42, dhakaProj.px + 8), Math.max(12, dhakaProj.py - 5));
       }
 
       stateRef.current.projectedNodes = projectedList;
@@ -677,45 +714,58 @@ export function DotMatrixGlobe({ onInspectSystem }: DotMatrixGlobeProps) {
   }, []);
 
   const activeColor = getKindColor(activeNode.kind);
+  const handleInspectClick = () => {
+    if (activeNode.sectionHref.startsWith('#sys-') && onInspectSystem) {
+      onInspectSystem(activeNode.id);
+    }
+  };
 
   return (
-    <div className="relative w-full flex flex-col justify-between rounded-3xl border border-white/[0.12] bg-[#131620]/90 p-5 shadow-2xl">
-      {/* Header & Orbit Toggle */}
-      <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-white/[0.08]">
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#3b82f6]" />
-          <span className="text-xs font-semibold tracking-tight text-[#f4f3ef]">
-            Interactive Work &amp; Research Map
+    <div className="w-full rounded-md border border-[#292D3A] bg-[#11131B] flex flex-col justify-between overflow-hidden">
+      {/* Header & Orbit Control */}
+      <div className="flex items-center justify-between gap-2 px-3.5 sm:px-4 py-3 border-b border-[#292D3A] bg-[#171A25]">
+        <div className="flex items-center gap-2 min-w-0">
+          <span className="w-2 h-2 rounded-xs bg-[#8B5CF6] shrink-0" />
+          <span className="font-mono-tech text-[10.5px] sm:text-[11px] font-semibold uppercase tracking-wider text-[#F5F5F7] truncate">
+            FIG. 00 · WORK &amp; RESEARCH ATLAS
           </span>
-          <span className="text-[11px] text-[#94a3b8]">· 15 nodes</span>
+          <span className="hidden sm:inline font-mono-tech text-[10.5px] text-[#707586] shrink-0">
+            / 15 NODES
+          </span>
         </div>
 
         <button
           type="button"
           onClick={() => setAutoRotate((prev) => !prev)}
           aria-label={autoRotate ? 'Pause globe rotation' : 'Resume globe rotation'}
-          className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-medium border border-white/[0.12] bg-[#0c0d12] text-[#cbd5e1] hover:text-white hover:border-[#3b82f6] transition-colors"
+          className="inline-flex items-center gap-1.5 rounded px-2.5 py-1 font-mono-tech text-[10px] uppercase tracking-wider border border-[#292D3A] bg-[#090A0F] text-[#A1A5B3] hover:text-[#F5F5F7] hover:border-[#3B82F6] transition-colors shrink-0 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
         >
           {autoRotate ? <Pause size={10} /> : <Play size={10} />}
-          <span>{autoRotate ? 'Auto-Orbit' : 'Paused'}</span>
+          <span>{autoRotate ? 'Orbit On' : 'Paused'}</span>
         </button>
       </div>
 
-      {/* Category Filter Pills & Stepper */}
-      <div className="flex flex-wrap items-center justify-between gap-2 py-3 border-b border-white/[0.06]">
-        <div className="flex flex-wrap gap-1.5 text-[11px] font-medium">
+      {/* Category Filter Rail & Node Stepper */}
+      <div className="flex flex-wrap items-center justify-between gap-1.5 px-3.5 sm:px-4 py-2 border-b border-[#292D3A] bg-[#11131B]">
+        <div
+          className="flex flex-wrap gap-1 font-mono-tech text-[10px]"
+          role="tablist"
+          aria-label="Filter globe nodes"
+        >
           {[
-            { id: 'all', label: 'All (15)', dot: '#f4f3ef' },
-            { id: 'live', label: 'Live AI (4)', dot: '#10b981' },
-            { id: 'vision', label: 'Vision (2)', dot: '#3b82f6' },
-            { id: 'dev', label: 'Dev Tools (5)', dot: '#f59e0b' },
-            { id: 'research', label: 'Research (4)', dot: '#a78bfa' },
+            { id: 'all', label: 'ALL (15)', color: '#F5F5F7' },
+            { id: 'live', label: 'LIVE AI (4)', color: '#00D6B4' },
+            { id: 'vision', label: 'VISION (2)', color: '#38BDF8' },
+            { id: 'dev', label: 'DEV TOOLS (5)', color: '#FFC857' },
+            { id: 'research', label: 'RESEARCH (4)', color: '#8B5CF6' },
           ].map((tab) => {
             const isSel = filterKind === tab.id;
             return (
               <button
                 key={tab.id}
                 type="button"
+                role="tab"
+                aria-selected={isSel}
                 onClick={() => {
                   const nextKind = tab.id as 'all' | NodeKind;
                   setFilterKind(nextKind);
@@ -725,29 +775,34 @@ export function DotMatrixGlobe({ onInspectSystem }: DotMatrixGlobeProps) {
                       : WORK_NODES.find((n) => n.kind === nextKind);
                   if (first) focusNode(first);
                 }}
-                style={{
-                  borderColor: isSel ? tab.dot : undefined,
-                  backgroundColor: isSel ? `${tab.dot}22` : undefined,
-                }}
-                className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 border transition-colors ${
+                style={
                   isSel
-                    ? 'text-white font-semibold'
-                    : 'border-white/[0.1] bg-[#0c0d12] text-[#94a3b8] hover:text-white'
+                    ? {
+                        borderColor: tab.color,
+                        backgroundColor: `${tab.color}18`,
+                        color: tab.color,
+                      }
+                    : undefined
+                }
+                className={`inline-flex items-center gap-1.5 rounded px-2 py-1 border transition-colors uppercase focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] ${
+                  isSel
+                    ? 'font-semibold'
+                    : 'border-[#292D3A] bg-[#171A25] text-[#A1A5B3] hover:text-[#F5F5F7] hover:border-[#707586]'
                 }`}
               >
-                <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: tab.dot }} />
+                <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: tab.color }} />
                 <span>{tab.label}</span>
               </button>
             );
           })}
         </div>
 
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 shrink-0">
           <button
             type="button"
             onClick={() => stepNode(-1)}
             aria-label="Previous project node"
-            className="p-1.5 rounded-full border border-white/[0.1] bg-[#0c0d12] text-[#94a3b8] hover:text-white hover:border-[#3b82f6] transition-colors"
+            className="p-1.5 rounded border border-[#292D3A] bg-[#171A25] text-[#A1A5B3] hover:text-[#F5F5F7] hover:border-[#3B82F6] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
           >
             <ChevronLeft size={12} />
           </button>
@@ -755,7 +810,7 @@ export function DotMatrixGlobe({ onInspectSystem }: DotMatrixGlobeProps) {
             type="button"
             onClick={() => stepNode(1)}
             aria-label="Next project node"
-            className="p-1.5 rounded-full border border-white/[0.1] bg-[#0c0d12] text-[#94a3b8] hover:text-white hover:border-[#3b82f6] transition-colors"
+            className="p-1.5 rounded border border-[#292D3A] bg-[#171A25] text-[#A1A5B3] hover:text-[#F5F5F7] hover:border-[#3B82F6] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
           >
             <ChevronRight size={12} />
           </button>
@@ -763,19 +818,19 @@ export function DotMatrixGlobe({ onInspectSystem }: DotMatrixGlobeProps) {
       </div>
 
       {/* Interactive Globe Canvas */}
-      <div className="relative w-full aspect-square max-w-[330px] mx-auto my-1">
+      <div className="relative w-full aspect-square max-w-[310px] sm:max-w-[330px] mx-auto my-1.5 px-2">
         <canvas
           ref={canvasRef}
-          className="block w-full h-full"
+          className="block w-full h-full touch-pan-y"
           aria-label="Interactive globe mapping Md Tahmid Zoayed's projects and research nodes"
         />
       </div>
 
-      {/* Selectable Project Chips */}
-      <div className="flex flex-wrap gap-1.5 py-2.5 border-t border-white/[0.06] max-h-[68px] overflow-y-auto">
+      {/* Selectable Project Node Index Strip */}
+      <div className="flex flex-wrap gap-1.5 px-3.5 sm:px-4 py-2.5 border-t border-[#292D3A] bg-[#090A0F]/60 max-h-[88px] sm:max-h-[76px] overflow-y-auto">
         {visibleNodes.map((node) => {
           const isSel = node.id === activeNode.id;
-          const dotColor = getKindColor(node.kind);
+          const col = getKindColor(node.kind);
           return (
             <button
               key={node.id}
@@ -784,57 +839,65 @@ export function DotMatrixGlobe({ onInspectSystem }: DotMatrixGlobeProps) {
                 focusNode(node);
                 setAutoRotate(false);
               }}
-              style={{
-                borderColor: isSel ? dotColor : undefined,
-                backgroundColor: isSel ? `${dotColor}22` : undefined,
-              }}
-              className={`inline-flex items-center gap-1.5 rounded-full text-[10.5px] font-medium px-2.5 py-0.5 border transition-colors ${
+              style={
                 isSel
-                  ? 'text-white font-semibold'
-                  : 'border-white/[0.08] bg-[#0c0d12] text-[#94a3b8] hover:text-white hover:border-white/25'
+                  ? {
+                      borderColor: col,
+                      backgroundColor: `${col}20`,
+                      color: '#F5F5F7',
+                    }
+                  : undefined
+              }
+              className={`inline-flex items-center gap-1.5 rounded font-mono-tech text-[10px] px-2.5 py-1 border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] ${
+                isSel
+                  ? 'font-semibold'
+                  : 'border-[#292D3A] bg-[#171A25] text-[#A1A5B3] hover:text-[#F5F5F7] hover:border-[#707586]'
               }`}
             >
-              <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: dotColor }} />
+              <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: col }} />
               <span>{node.shortLabel}</span>
             </button>
           );
         })}
       </div>
 
-      {/* Active Node Inspector Card */}
-      <div className="mt-2 rounded-2xl border border-white/[0.1] bg-[#0c0d12] p-4 space-y-2.5">
-        <div className="flex items-center justify-between gap-2 text-[11px] font-medium">
-          <span className="inline-flex items-center gap-1.5" style={{ color: activeColor }}>
-            <span className="w-2 h-2 rounded-full" style={{ backgroundColor: activeColor }} />
-            {activeNode.status}
+      {/* Active Specimen Inspector Readout */}
+      <div className="border-t border-[#292D3A] bg-[#171A25] p-4 space-y-2.5">
+        <div className="flex flex-wrap items-center justify-between gap-2 font-mono-tech text-[10.5px]">
+          <span
+            className="inline-flex items-center gap-1.5 font-semibold uppercase"
+            style={{ color: activeColor }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: activeColor }} />
+            <span>{activeNode.code}</span>
+            <span className="text-[#707586]">/</span>
+            <span className="text-[#A1A5B3]">{activeNode.kindLabel}</span>
           </span>
-          <span className="font-mono-tech text-[10px] text-[#64748b]">{activeNode.code}</span>
+          <span className="text-[#707586]">{activeNode.status}</span>
         </div>
 
         <div>
-          <h3 className="font-display text-lg font-bold text-[#f4f3ef]">{activeNode.name}</h3>
-          <p className="text-xs text-[#94a3b8] leading-relaxed mt-0.5">{activeNode.summary}</p>
+          <h3 className="font-display text-lg font-bold text-[#F5F5F7] leading-tight">
+            {activeNode.name}
+          </h3>
+          <p className="text-xs text-[#A1A5B3] leading-relaxed mt-1">{activeNode.summary}</p>
         </div>
 
         <div className="flex flex-wrap items-center gap-2 pt-1">
           <a
-            href={activeNode.sectionHref}
-            onClick={() => {
-              if (activeNode.sectionHref.startsWith('#sys-') && onInspectSystem) {
-                onInspectSystem(activeNode.id);
-              }
-            }}
+            href={activeNode.sectionHref.startsWith('#sys-') ? '#system-detail-panel' : activeNode.sectionHref}
+            onClick={handleInspectClick}
             style={{ backgroundColor: activeColor }}
-            className="inline-flex items-center gap-1.5 rounded-full text-[11px] px-3.5 py-1.5 text-[#0c0d12] font-semibold hover:opacity-90 transition-opacity"
+            className="inline-flex items-center gap-1.5 rounded font-mono-tech text-[11px] uppercase tracking-wider px-3.5 py-2 text-[#090A0F] hover:opacity-90 transition-opacity font-semibold"
           >
-            <span>Inspect Details</span>
+            <span>Inspect System</span>
             <ArrowDownRight size={12} />
           </a>
           <a
             href={activeNode.externalUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1 rounded-full text-[11px] px-3.5 py-1.5 border border-white/15 bg-[#131620] text-[#f4f3ef] hover:border-white/40 transition-colors font-medium"
+            className="inline-flex items-center gap-1 rounded font-mono-tech text-[11px] uppercase tracking-wider px-3.5 py-2 border border-[#292D3A] bg-[#11131B] text-[#F5F5F7] hover:border-[#3B82F6] transition-colors font-medium"
           >
             <span>{activeNode.externalLabel}</span>
             <ArrowUpRight size={12} />
