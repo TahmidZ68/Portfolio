@@ -538,7 +538,12 @@ export function ResearchAndNotebookSection() {
 
               <div className="pt-4 border-t border-[#292D3A] flex flex-wrap items-center justify-between gap-3 font-mono-tech text-xs">
                 <span className="text-[#707586] uppercase">APPLIED IN</span>
-                <span className="font-semibold text-[#38BDF8]">{activeQuestion.relatedSystem}</span>
+                <a
+                  href={activeQuestionIdx <= 1 ? '#systems' : activeQuestionIdx === 2 ? '#research-lab' : '#system-explorer'}
+                  className="font-semibold text-[#38BDF8] hover:underline"
+                >
+                  {activeQuestion.relatedSystem} →
+                </a>
               </div>
             </div>
           </div>

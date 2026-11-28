@@ -877,9 +877,9 @@ export function DotMatrixGlobe({ onInspectSystem }: DotMatrixGlobeProps) {
         </div>
 
         <div>
-          <h3 className="font-display text-lg font-bold text-[#F5F5F7] leading-tight">
+          <h2 className="font-display text-lg font-bold text-[#F5F5F7] leading-tight">
             {activeNode.name}
-          </h3>
+          </h2>
           <p className="text-xs text-[#A1A5B3] leading-relaxed mt-1">{activeNode.summary}</p>
         </div>
 

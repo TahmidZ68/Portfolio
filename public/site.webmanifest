@@ -1,0 +1,21 @@
+{
+  "name": "Md Tahmid Zoayed — AI Engineer & Applied ML Researcher",
+  "short_name": "Tahmid Zoayed",
+  "description": "Portfolio of Md Tahmid Zoayed (Tahmid Zoayed), AI Engineer and Applied Machine Learning Researcher.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#090A0F",
+  "theme_color": "#090A0F",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

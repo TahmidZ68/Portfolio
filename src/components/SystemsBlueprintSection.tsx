@@ -260,7 +260,10 @@ export function SystemsBlueprintSection({ externalSelection }: SystemsBlueprintS
                       </span>
                       <img
                         src={sysAxiosTalent.previews[0].src}
-                        alt={sysAxiosTalent.previews[0].caption}
+                        alt={`Axios Talent UI — ${sysAxiosTalent.previews[0].caption}`}
+                        width={1440}
+                        height={900}
+                        decoding="async"
                         loading="lazy"
                         className="w-full h-48 sm:h-52 md:h-64 object-cover object-top rounded border border-[#292D3A]"
                       />
@@ -284,7 +287,10 @@ export function SystemsBlueprintSection({ externalSelection }: SystemsBlueprintS
                     </div>
                     <img
                       src={sysAxiosInsight.previews[0].src}
-                      alt={sysAxiosInsight.previews[0].caption}
+                      alt={`Axios Insight UI — ${sysAxiosInsight.previews[0].caption}`}
+                      width={1440}
+                      height={900}
+                      decoding="async"
                       loading="lazy"
                       className="w-full h-44 object-cover object-top rounded border border-[#292D3A]"
                     />
@@ -350,7 +356,10 @@ export function SystemsBlueprintSection({ externalSelection }: SystemsBlueprintS
                     </div>
                     <img
                       src={sysDegradeLab.previews[1].src}
-                      alt={sysDegradeLab.previews[1].caption}
+                      alt={`DegradeLab output — ${sysDegradeLab.previews[1].caption}`}
+                      width={1307}
+                      height={694}
+                      decoding="async"
                       loading="lazy"
                       className="w-full h-44 object-cover object-center rounded border border-[#292D3A]"
                     />
@@ -414,7 +423,10 @@ export function SystemsBlueprintSection({ externalSelection }: SystemsBlueprintS
                       </span>
                       <img
                         src={sysDiagora.previews[0].src}
-                        alt={sysDiagora.previews[0].caption}
+                        alt={`Diagora diagnostics CLI — ${sysDiagora.previews[0].caption}`}
+                        width={1440}
+                        height={900}
+                        decoding="async"
                         loading="lazy"
                         className="w-full h-48 sm:h-52 md:h-64 object-cover object-top rounded border border-[#292D3A]"
                       />
@@ -719,7 +731,10 @@ export function SystemsBlueprintSection({ externalSelection }: SystemsBlueprintS
                   <div className="rounded overflow-hidden border border-[#292D3A] bg-[#06070B]">
                     <img
                       src={currentPreview.src}
-                      alt={currentPreview.caption}
+                      alt={`${activeSystem.name} preview — ${currentPreview.caption}`}
+                      width={1440}
+                      height={900}
+                      decoding="async"
                       loading="lazy"
                       className="w-full max-h-[380px] sm:max-h-[420px] object-contain mx-auto block"
                     />

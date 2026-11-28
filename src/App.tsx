@@ -136,6 +136,12 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-[#090A0F] text-[#F5F5F7] relative selection:bg-[#3B82F6] selection:text-white">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#3B82F6] focus:text-white focus:rounded font-mono-tech text-xs font-semibold"
+      >
+        Skip to main content
+      </a>
       {/* =====================================================================
           FULLSCREEN DARK SWISS NAVIGATION DRAWER
          ===================================================================== */}
@@ -170,7 +176,10 @@ export function App() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 my-auto py-8 max-w-[1440px] w-full mx-auto">
-              <nav className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-1">
+              <nav
+                aria-label="Full section index"
+                className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-1"
+              >
                 {navigationSections.map((item) => (
                   <a
                     key={item.id}
@@ -333,6 +342,7 @@ export function App() {
       {/* =====================================================================
           01 — HERO (DEEP SPACE #090A0F · EDITORIAL OPENING + 15-NODE ATLAS)
          ===================================================================== */}
+      <main id="main-content">
       <section id="hero" className="swiss-hero-surface border-b border-[#292D3A]">
         <div className="max-w-[1440px] mx-auto px-5 sm:px-10 lg:px-14 pt-6 pb-16 sm:pt-8 sm:pb-24">
           {/* Top Technical Metadata Rail */}
@@ -547,8 +557,11 @@ export function App() {
             <div className="lg:col-span-4 max-w-sm lg:max-w-none space-y-3">
               <div className="rounded border border-[#292D3A] bg-[#171A25] p-3">
                 <img
-                  src="/images/1761230135831.png"
-                  alt="Md Tahmid Zoayed"
+                  src="/images/md-tahmid-zoayed-portrait.png"
+                  alt="Portrait of Md Tahmid Zoayed, AI Engineer and Applied Machine Learning Researcher"
+                  width={800}
+                  height={800}
+                  decoding="async"
                   loading="lazy"
                   className="w-full aspect-[4/5] object-cover object-top rounded-xs"
                 />
@@ -578,9 +591,16 @@ export function App() {
 
               {/* Clean Capability Index */}
               <div className="space-y-4">
-                <div className="flex items-center justify-between font-mono-tech text-[10.5px] sm:text-[11px] uppercase tracking-widest text-[#707586]">
+                <div className="flex flex-wrap items-center justify-between gap-2 font-mono-tech text-[10.5px] sm:text-[11px] uppercase tracking-widest text-[#707586]">
                   <span>ENGINEERING &amp; RESEARCH DOMAINS</span>
-                  <span>01 — 06</span>
+                  <div className="flex items-center gap-4">
+                    <a href="#systems" className="text-[#38BDF8] hover:underline">
+                      Explore Systems →
+                    </a>
+                    <a href="#research-lab" className="text-[#8B5CF6] hover:underline">
+                      Research Archive →
+                    </a>
+                  </div>
                 </div>
 
                 <div className="divide-y divide-[#292D3A] border-t border-b border-[#292D3A]">
@@ -962,6 +982,7 @@ export function App() {
           </div>
         </div>
       </section>
+      </main>
 
       {/* =====================================================================
           11 — CONTACT & FOOTER (DEEP SPACE #090A0F)
